@@ -6,21 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class LogInPage extends AppCompatActivity {
+public class newAccount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in_page);
+        setContentView(R.layout.activity_new_account);
         getSupportActionBar().hide();
     }
-
-    public void goMainActivity(View view){
-        Intent intent= new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
-    public void goNewAccount(View view){
-        Intent intent= new Intent(this,newAccount.class);
+    public void goLogInPage(View view){
+        Intent intent= new Intent(this,LogInPage.class);
         startActivity(intent);
     }
 }
