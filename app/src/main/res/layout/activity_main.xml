@@ -51,45 +51,6 @@
             android:backgroundTint="#192578"
             android:foregroundGravity="bottom" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="162dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/imageView"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="41dp"
-            android:layout_marginTop="170dp"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="162dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/button2"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="-131dp"
-            android:layout_toEndOf="@+id/button2"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="162dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/button2"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="31dp"
-            android:layout_marginTop="46dp"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="162dp"
-            android:layout_height="130dp"
-            android:layout_below="@+id/button3"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="46dp"
-            android:layout_toEndOf="@+id/button4"
-            android:text="Button" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -100,6 +61,56 @@
             android:layout_marginStart="92dp"
             android:layout_marginTop="9dp"
             android:background="@drawable/pabokothaybd" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/bookslogo"
+                android:layout_width="135dp"
+                android:layout_height="123dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="405dp"
+                android:background="@drawable/books"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/furniturelogo"
+                android:layout_width="135dp"
+                android:layout_height="124dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="57dp"
+                android:layout_marginTop="404dp"
+                android:layout_toEndOf="@+id/bookslogo"
+                android:background="@drawable/furniture"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/householdlogo"
+                android:layout_width="126dp"
+                android:layout_height="118dp"
+                android:layout_below="@+id/furniturelogo"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/households"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/sportstuflogo"
+                android:layout_width="134dp"
+                android:layout_height="125dp"
+                android:layout_below="@+id/furniturelogo"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="238dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/sportsstuff"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
