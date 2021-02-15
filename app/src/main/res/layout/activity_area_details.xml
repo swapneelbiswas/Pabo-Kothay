@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".area_details">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="202dp"
-        android:layout_height="210dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/sideheader" />
-
     <TextView
         android:id="@+id/area_name"
         android:layout_width="wrap_content"
@@ -71,10 +61,22 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/Click"
+        android:onClick="gotolink"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="202dp"
+        android:layout_height="210dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/sideheader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/sideheader" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
