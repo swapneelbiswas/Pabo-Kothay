@@ -7,4 +7,23 @@
     tools:context=".StartupActivity"
     android:background="@drawable/ic_startup">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="229dp"
+        android:layout_height="119dp"
+        android:layout_below="@+id/imageView8"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="398dp"
+        app:srcCompat="@drawable/khojakhuji" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="115dp"
+        android:layout_height="27dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="156dp"
+        app:srcCompat="@drawable/pabonaree" />
 </RelativeLayout>

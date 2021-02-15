@@ -5,8 +5,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -31,5 +34,13 @@ public class MainActivity extends AppCompatActivity {
         if(dToggle.onOptionsItemSelected(item))
             return true;
         return super.onOptionsItemSelected(item);
+    }
+    public void goArea(View view){
+        Intent intent= new Intent(this,area_details.class);
+        startActivity(intent);
+    }
+    public void goProfile(View view){
+        Intent intent= new Intent(this, profile.class);
+        startActivity(intent);
     }
 }
