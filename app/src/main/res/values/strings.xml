@@ -2,4 +2,7 @@
     <string name="app_name">Pabo Kothay</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="Click">
+        <a herf = "https://www.youtube.com/">Click here</a>
+    </string>
 </resources>

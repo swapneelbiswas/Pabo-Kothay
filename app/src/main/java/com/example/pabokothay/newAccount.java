@@ -18,4 +18,8 @@ public class newAccount extends AppCompatActivity {
         Intent intent= new Intent(this,LogInPage.class);
         startActivity(intent);
     }
+    public void goArea(View view){
+        Intent intent= new Intent(this,area_details.class);
+        startActivity(intent);
+    }
 }

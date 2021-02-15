@@ -90,7 +90,7 @@
             android:layout_marginTop="23dp"
             android:layout_marginEnd="72dp"
             android:background="@drawable/lg_btn"
-            android:onClick="goMainActivity"
+            android:onClick="goArea"
             android:text="Create Account"
             android:textColor="@color/white"
             android:textSize="20dp" />

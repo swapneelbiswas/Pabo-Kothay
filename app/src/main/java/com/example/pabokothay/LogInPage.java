@@ -23,4 +23,5 @@ public class LogInPage extends AppCompatActivity {
         Intent intent= new Intent(this,newAccount.class);
         startActivity(intent);
     }
+
 }
