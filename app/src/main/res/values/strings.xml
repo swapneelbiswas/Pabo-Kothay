@@ -3,7 +3,7 @@
     <string name="search_hint">Search what you want</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
-    <string name="Click">
-        <a herf = "https://www.youtube.com/">Click here</a>
+    <string name="toLink">
+        <a href="https://www.google.com/">Click here</a>
     </string>
 </resources>

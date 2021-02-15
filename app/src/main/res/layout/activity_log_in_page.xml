@@ -57,6 +57,7 @@
                 android:layout_marginEnd="29dp"
                 android:ems="10"
                 android:hint="Enter Email"
+                android:textColor="@color/ash"
                 android:inputType="textEmailAddress"
                 android:textSize="20dp" />
 
@@ -72,6 +73,7 @@
                 android:layout_marginEnd="27dp"
                 android:ems="10"
                 android:hint="Enter Password"
+                android:textColor="@color/ash"
                 android:inputType="textPassword"
                 android:textSize="20dp" />
 

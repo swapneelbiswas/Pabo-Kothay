@@ -8,10 +8,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Dl.addDrawerListener(dToggle);
         dToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(dToggle.onOptionsItemSelected(item))
