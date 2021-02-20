@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StartupActivity"
-    android:background="@drawable/ic_startup">
+    android:background="@drawable/ic_startupbg">
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="229dp"
-        android:layout_height="119dp"
-        android:layout_below="@+id/imageView8"
+        android:id="@+id/bottomtext"
+        android:layout_width="308dp"
+        android:layout_height="217dp"
+        android:layout_below="@+id/toptext"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="398dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="380dp"
         app:srcCompat="@drawable/khojakhuji" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/toptext"
         android:layout_width="115dp"
         android:layout_height="27dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="163dp"
         app:srcCompat="@drawable/pabonaree" />
 </RelativeLayout>

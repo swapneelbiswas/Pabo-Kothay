@@ -77,10 +77,5 @@
     <path
         android:pathData="M103.942,318.974h13.715l22.312,25.792L128.096,344.766Z"
         android:fillColor="#e5dddd"/>
-    <path
-        android:pathData="M60,725a156,108 0,1 0,312 0a156,108 0,1 0,-312 0z"
-        android:strokeAlpha="0.73"
-        android:fillColor="#f7ff00"
-        android:fillAlpha="0.73"/>
   </group>
 </vector>

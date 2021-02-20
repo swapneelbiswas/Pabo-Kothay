@@ -11,8 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PaboKothay">
 
-
-
         <activity android:name=".MainActivity" />
         <activity android:name=".StartupActivity">
             <intent-filter>
@@ -21,34 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LogInPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".area_details">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".newAccount" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".profile" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".LogInPage"/>
+        <activity android:name=".area_details"/>
+        <activity android:name=".newAccount" />
+        <activity android:name=".profile"/>
     </application>
 
 </manifest>

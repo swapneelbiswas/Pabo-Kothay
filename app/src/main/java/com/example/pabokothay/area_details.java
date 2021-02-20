@@ -5,17 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-<<<<<<< HEAD
+
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
-=======
+
 import android.view.View;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
->>>>>>> 5f55002bc44dbea573fa43f28944a9ecaaaff360
 
 
 import org.w3c.dom.Text;
