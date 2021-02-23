@@ -20,7 +20,7 @@ public class LogInPage extends AppCompatActivity {
         startActivity(intent);
     }
     public void goNewAccount(View view){
-        Intent intent= new Intent(this,newAccount.class);
+        Intent intent= new Intent(this,new_shop_account.class);
         startActivity(intent);
     }
 
