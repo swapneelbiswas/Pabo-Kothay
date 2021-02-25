@@ -26,18 +26,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Dl=findViewById(R.id.drawer_layout);
-        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
-        Dl.addDrawerListener(dToggle);
-        dToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        Dl=findViewById(R.id.drawer_layout);
+//        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
+//        Dl.addDrawerListener(dToggle);
+//        dToggle.syncState();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(dToggle.onOptionsItemSelected(item))
-            return true;
-        return super.onOptionsItemSelected(item);
-    }
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if(dToggle.onOptionsItemSelected(item))
+//            return true;
+//        return super.onOptionsItemSelected(item);
+//    }
     public void goArea(View view){
         Intent intent= new Intent(this,area_details.class);
         startActivity(intent);

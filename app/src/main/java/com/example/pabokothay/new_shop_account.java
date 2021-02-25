@@ -10,7 +10,7 @@ public class new_shop_account extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_shop_account);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
     }
 
 

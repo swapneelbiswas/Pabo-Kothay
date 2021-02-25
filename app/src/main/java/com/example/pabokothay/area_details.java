@@ -26,7 +26,7 @@ public class area_details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_details);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         TextView t = (TextView)findViewById(R.id.textView9);
         t.setMovementMethod(LinkMovementMethod.getInstance());

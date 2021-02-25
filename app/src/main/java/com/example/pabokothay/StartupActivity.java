@@ -20,7 +20,7 @@ public class StartupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         fadein= AnimationUtils.loadAnimation(this,R.anim.fade_in);
         t1=findViewById(R.id.toptext);

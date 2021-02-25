@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "990574793716",
+    "firebase_url": "https://pabo-kothay-f16c0-default-rtdb.firebaseio.com",
+    "project_id": "pabo-kothay-f16c0",
+    "storage_bucket": "pabo-kothay-f16c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990574793716:android:4a1ce07a0c28ec1046dfa1",
+        "android_client_info": {
+          "package_name": "com.example.pabokothay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990574793716-entkmbd1qfsd12p0r23h49u8he19eaeb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pabokothay",
+            "certificate_hash": "105097e2fa22c1d25722e47ade7bcab80fe38d7c"
+          }
+        },
+        {
+          "client_id": "990574793716-sekjpidha9bgl50lkohn2ndioo9d2do7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFtzswOElqB7nuGNHnIwL0CGmFUypKRMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990574793716-sekjpidha9bgl50lkohn2ndioo9d2do7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
