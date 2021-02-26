@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".book_search"
+    android:orientation="vertical"
+    android:padding="35dp"
+    android:background="@color/blue"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+
+    <SearchView
+        android:id="@+id/searchViewBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="search store/book"
+        android:iconifiedByDefault="false"
+        android:background="@color/white">
+    </SearchView>
+
+    <ListView
+        android:id="@+id/bookStoreList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+
+        android:textSize="100dp"
+
+        >
+    </ListView>
+</LinearLayout>
