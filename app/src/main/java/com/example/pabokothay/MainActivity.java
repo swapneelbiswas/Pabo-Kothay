@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Dl=findViewById(R.id.drawer_layout);
-        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
-        Dl.addDrawerListener(dToggle);
-        dToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        Dl=findViewById(R.id.drawer_layout);
+//        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
+//        Dl.addDrawerListener(dToggle);
+//        dToggle.syncState();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         vSearchViewMain= (SearchView)findViewById(R.id.search_bar);
         vListViewMain=(ListView)findViewById(R.id.mainList);
@@ -95,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
 //            return true;
 //        return super.onOptionsItemSelected(item);
 //    }
+    public void goArea(View view){
+    Intent intent= new Intent(this, book_search.class);
+    startActivity(intent);
+    }
 
     public void goProfile(View view){
         Intent intent= new Intent(this, profile.class);

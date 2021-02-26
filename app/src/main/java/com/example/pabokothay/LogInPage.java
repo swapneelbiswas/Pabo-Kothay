@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogInPage extends AppCompatActivity implements View.OnClickListener{
 
@@ -75,13 +76,20 @@ public class LogInPage extends AppCompatActivity implements View.OnClickListener
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 if(task.isSuccessful()){
-                    Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
+                    if(user.isEmailVerified()){
+                        //Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        finish();
+                    }
+                    else {
+                        user.sendEmailVerification();
+                        Toast.makeText(LogInPage.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
-                    //vMail.setError("Email Wrong");
-                    //vPassword.setError("password Wrong");
-                    Toast.makeText(LogInPage.this, "Email or password Wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
                 }
             }
         });

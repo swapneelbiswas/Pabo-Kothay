@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class newAccount extends AppCompatActivity implements View.OnClickListener{
@@ -99,7 +100,6 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
             vMail.requestFocus();
             return;
         }
-        progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -112,18 +112,19 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
-                                        progressBar.setVisibility(View.VISIBLE);
+                                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
+                                        FirebaseUser fuser =FirebaseAuth.getInstance().getCurrentUser();
+                                        fuser.sendEmailVerification();
                                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
                                     }else{
                                         Toast.makeText(newAccount.this, "Try again", Toast.LENGTH_SHORT).show();
-                                        progressBar.setVisibility(View.INVISIBLE);
+
                                     }
                                 }
                             });
                         }else{
                             Toast.makeText(newAccount.this, "Try again.Error", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.INVISIBLE);
+
                         }
                     }
                 });
