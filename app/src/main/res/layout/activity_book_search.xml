@@ -7,9 +7,8 @@
     tools:context=".book_search"
     android:orientation="vertical"
     android:padding="35dp"
-    android:background="@color/blue"
+    android:background="@drawable/menubg"
     android:scrollbarAlwaysDrawVerticalTrack="true">
-
 
     <SearchView
         android:id="@+id/searchViewBook"
@@ -17,7 +16,8 @@
         android:layout_height="wrap_content"
         android:queryHint="search store/book"
         android:iconifiedByDefault="false"
-        android:background="@color/white">
+        android:textColor="@color/black"
+        android:textColorHint="@color/black">
     </SearchView>
 
     <ListView
@@ -25,12 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/black"
+
         android:cacheColorHint="@color/blue_1"
+        android:textColor="@color/black"
         android:clickable="true"
-
         android:textSize="100dp"
-
         >
     </ListView>
 </LinearLayout>

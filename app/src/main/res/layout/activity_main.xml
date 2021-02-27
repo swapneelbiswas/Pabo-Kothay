@@ -194,11 +194,12 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="41dp"
                 android:layout_marginTop="239dp"
-                android:searchIcon="@drawable/ic_search"
                 android:queryHint="@string/search_hint"
                 android:iconifiedByDefault="false"
                 android:id="@+id/search_bar"
-                android:background="@color/white">
+                android:searchIcon="@drawable/ic_search"
+                android:textColorHint="@color/ash"
+                >
 
             </SearchView>
         <ListView
