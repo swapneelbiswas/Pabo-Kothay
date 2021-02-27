@@ -21,24 +21,31 @@ import org.w3c.dom.Text;
 
 public class area_details extends AppCompatActivity {
 
-
+    TextView tex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_details);
         //getSupportActionBar().hide();
 
-        TextView t = (TextView)findViewById(R.id.textView9);
-        t.setMovementMethod(LinkMovementMethod.getInstance());
+         tex = findViewById(R.id.textView9);
+         tex.setClickable(true);
+         tex.setMovementMethod(LinkMovementMethod.getInstance());
 
     }
-    public void gotolink(View view){
-        gotoUrl("https://www.google.com/");
-
+    String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
+    public void browser1(View view)
+    {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(s));
+        startActivity(browserIntent);
     }
-
-    private void gotoUrl(String s) {
-        Uri uri= Uri.parse(s);
-        startActivity(new Intent(Intent.ACTION_VIEW,uri));
-    }
+//    public void gotolink(View view){
+//        gotoUrl("https://www.google.com/");
+//
+//    }
+//
+//    private void gotoUrl(String s) {
+//        Uri uri= Uri.parse(s);
+//        startActivity(new Intent(Intent.ACTION_VIEW,uri));
+//    }
 }
