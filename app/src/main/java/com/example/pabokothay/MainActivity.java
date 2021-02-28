@@ -3,6 +3,7 @@ package com.example.pabokothay;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ListView vListViewMain;
     private DrawerLayout Dl;
     private ActionBarDrawerToggle dToggle;
-
+    ConstraintLayout constraintLayout;
     ArrayList<String> mainList;
     ArrayAdapter<String> adapter;
 
@@ -62,23 +63,37 @@ public class MainActivity extends AppCompatActivity {
         vSearchViewMain.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
+                vListViewMain.setVisibility(View.VISIBLE);
                 adapter.getFilter().filter(newText);
                 return false;
             }
         });
-
-
         vListViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position==0){
                     Intent intent= new Intent(view.getContext(),book_search.class);
                     startActivity(intent);
+
+                }
+                else if(position==1){
+                    Intent intent= new Intent(view.getContext(),Sports_Stuff_Search.class);
+                    startActivity(intent);
+
+                }
+            }
+        });
+        constraintLayout = findViewById(R.id.constraint_layout);
+        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    vListViewMain.setVisibility(View.GONE);
                 }
             }
         });
@@ -98,10 +113,27 @@ public class MainActivity extends AppCompatActivity {
     public void goArea(View view){
     Intent intent= new Intent(this, book_search.class);
     startActivity(intent);
+        //finish();
+    }
+    public void goSsearch(View view){
+    Intent intent= new Intent(this, Sports_Stuff_Search.class);
+    startActivity(intent);
+        //finish();
+    }
+    public void goFsearch(View view){
+    Intent intent= new Intent(this, book_search.class);
+    startActivity(intent);
+        //finish();
+    }
+    public void goHsearch(View view){
+    Intent intent= new Intent(this, book_search.class);
+    startActivity(intent);
+        //finish();
     }
 
     public void goProfile(View view){
         Intent intent= new Intent(this, profile.class);
         startActivity(intent);
+        //finish();
     }
 }

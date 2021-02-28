@@ -105,20 +105,23 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user= new User(fullname,email);
+                            User user= new User(fullname,email,password);
+                            //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
                                         FirebaseUser fuser =FirebaseAuth.getInstance().getCurrentUser();
+                                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
+
                                         fuser.sendEmailVerification();
+                                        Toast.makeText(newAccount.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                        finish();
                                     }else{
                                         Toast.makeText(newAccount.this, "Try again", Toast.LENGTH_SHORT).show();
-
                                     }
                                 }
                             });

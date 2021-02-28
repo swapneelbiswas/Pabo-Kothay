@@ -17,6 +17,7 @@ public class new_shop_account extends AppCompatActivity {
     public void goLogInPage(View view){
         Intent intent= new Intent(this,LogInPage.class);
         startActivity(intent);
+        finish();
     }
 
 

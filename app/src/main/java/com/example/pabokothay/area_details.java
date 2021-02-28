@@ -43,7 +43,6 @@ public class area_details extends AppCompatActivity {
 //        gotoUrl("https://www.google.com/");
 //
 //    }
-//
 //    private void gotoUrl(String s) {
 //        Uri uri= Uri.parse(s);
 //        startActivity(new Intent(Intent.ACTION_VIEW,uri));

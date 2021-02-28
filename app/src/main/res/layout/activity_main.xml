@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FEFDFF"
-
+    android:focusableInTouchMode="true"
+    android:clickable="true"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -120,7 +121,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="226dp"
+            android:layout_height="161dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -132,11 +133,10 @@
             android:foregroundGravity="bottom" />
 
 
-
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="224dp"
-            android:layout_height="wrap_content"
+            android:layout_width="168dp"
+            android:layout_height="129dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="92dp"
@@ -164,6 +164,7 @@
             android:layout_marginTop="41dp"
             android:layout_toEndOf="@+id/bookslogo"
             android:background="@drawable/furniture"
+            android:onClick="goFsearch"
             tools:srcCompat="@drawable/furniture" />
 
         <ImageView
@@ -175,6 +176,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="69dp"
             android:background="@drawable/households"
+            android:onClick="goHsearch"
             tools:srcCompat="@drawable/households" />
 
         <ImageView
@@ -186,46 +188,50 @@
             android:layout_marginTop="69dp"
             android:layout_toEndOf="@+id/householdlogo"
             android:background="@drawable/sportsstuff"
+            android:onClick="goSsearch"
             tools:srcCompat="@drawable/sportsstuff" />
-            <SearchView
-                android:layout_width="331dp"
-                android:layout_height="69dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="41dp"
-                android:layout_marginTop="239dp"
-                android:queryHint="@string/search_hint"
-                android:iconifiedByDefault="false"
-                android:id="@+id/search_bar"
-                android:searchIcon="@drawable/ic_search"
-                android:textColorHint="@color/ash"
-                >
 
-            </SearchView>
+        <SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="331dp"
+            android:layout_height="69dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="165dp"
+            android:background="@color/white"
+            android:iconifiedByDefault="false"
+            android:queryHint="@string/search_hint"
+            android:searchIcon="@drawable/ic_search"
+            android:textColorHint="@color/ash"></SearchView>
+
         <ListView
             android:id="@+id/mainList"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="320dp"
+            android:layout_below="@+id/search_bar"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="50dp"
+            android:background="@color/white"
+            android:visibility="gone"
             android:textSize="100dp">
 <!--            android:visibility="invisible"-->
 
 
         </ListView>
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="65dp"
-                android:layout_height="55dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="5dp"
-                android:onClick="goProfile"
-                app:srcCompat="@drawable/profile"
-                android:contextClickable="true"
-                />
-
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="65dp"
+            android:layout_height="55dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="19dp"
+            android:contextClickable="true"
+            android:onClick="goProfile"
+            app:srcCompat="@drawable/sideheader" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
