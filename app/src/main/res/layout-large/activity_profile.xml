@@ -103,7 +103,7 @@
         <Button
             android:layout_width="539dp"
             android:layout_height="75dp"
-            android:background="@color/black"
+            android:background="@drawable/button_bg"
             android:text="Update"
             android:textColor="@color/white"
             android:textSize="30dp" />

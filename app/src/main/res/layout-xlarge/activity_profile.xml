@@ -106,7 +106,7 @@
         <Button
             android:layout_width="666dp"
             android:layout_height="191dp"
-            android:background="@color/black"
+            android:background="@drawable/button_bg"
             android:text="Update"
             android:textColor="@color/white"
             android:textSize="40dp" />

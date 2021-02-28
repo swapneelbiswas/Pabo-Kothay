@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PaboKothay">
-        <activity android:name=".book_search"></activity>
+        <activity android:name=".popUp"></activity>
+        <activity android:name=".book_search" />
         <activity android:name=".new_shop_account" />
         <activity android:name=".MainActivity" />
         <activity android:name=".StartupActivity">
