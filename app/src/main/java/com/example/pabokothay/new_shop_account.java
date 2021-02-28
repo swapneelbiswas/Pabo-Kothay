@@ -2,7 +2,9 @@ package com.example.pabokothay;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class new_shop_account extends AppCompatActivity {
 
@@ -12,7 +14,10 @@ public class new_shop_account extends AppCompatActivity {
         setContentView(R.layout.activity_new_shop_account);
         //getSupportActionBar().hide();
     }
-
+    public void goLogInPage(View view){
+        Intent intent= new Intent(this,LogInPage.class);
+        startActivity(intent);
+    }
 
 
 }

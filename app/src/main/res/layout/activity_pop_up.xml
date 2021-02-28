@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blur_bg"
+    android:padding="5dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="250dp"
+        android:layout_width="350dp"
+        android:layout_height="255dp"
+        android:background="@color/ash_1"
+        android:padding="5dp"
+        android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create account as"
+                android:textColor="@color/blue_1"
+                android:textStyle="bold"
+                android:textSize="30dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btngonewC"
+        android:layout_width="132dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="25dp"
+        android:onClick="goNewAccount"
+        android:layout_gravity="center"
+        android:text="Customer"
+        android:background="@drawable/button_bg"
+
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btngonewS"
+        android:layout_width="132dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Shop"
+        android:onClick="goNewShopAccount"
+        android:background="@drawable/button_bg"
+        android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

@@ -57,14 +57,16 @@
 
     <Button
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="69dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Click here"
-        android:textColor="@color/white"
+        android:background="@drawable/button_bg"
         android:onClick="browser1"
-        android:textSize="40dp"
+        android:text="Click here"
+
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

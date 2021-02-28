@@ -33,8 +33,8 @@
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="383dp"
-        android:layout_height="48dp"
+        android:layout_width="347dp"
+        android:layout_height="108dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:text="It is a very good place for books, where you can find all types of books"
@@ -78,6 +78,7 @@
         android:textColor="@color/white"
         android:autoLink="all"
         android:textSize="30dp"
+        android:background="@drawable/button_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

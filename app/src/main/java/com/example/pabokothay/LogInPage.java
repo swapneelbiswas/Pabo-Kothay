@@ -3,6 +3,7 @@ package com.example.pabokothay;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,6 +26,7 @@ public class LogInPage extends AppCompatActivity implements View.OnClickListener
     Button vButton;
     TextView vNewAccount;
     private FirebaseAuth mAuth;
+    Dialog myDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +41,15 @@ public class LogInPage extends AppCompatActivity implements View.OnClickListener
         vButton=findViewById(R.id.button);
         vButton.setOnClickListener(this);
         vNewAccount=findViewById(R.id.go_newAccount);
+        myDialog = new Dialog(this);
     }
-    public void goNewAccount(View view){
-        Intent intent= new Intent(this,newAccount.class);
+
+    public void ShowPopup(View v) {
+
+        Intent intent= new Intent(this,popUp.class);
         startActivity(intent);
     }
+
     public void onClick(View v) {
         switch (v.getId()){
 

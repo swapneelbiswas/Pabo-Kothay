@@ -99,8 +99,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
+
             android:text="Update"
+            android:background="@drawable/button_bg"
             android:textColor="@color/white" />
 
     </LinearLayout>
