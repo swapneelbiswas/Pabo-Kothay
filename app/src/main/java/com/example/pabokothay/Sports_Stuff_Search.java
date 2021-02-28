@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -51,11 +52,19 @@ public class Sports_Stuff_Search extends AppCompatActivity {
             }
         });
 
-
         vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
+
+                if(((TextView) view).getText().equals("Cricket")){
+                    Intent intent= new Intent(view.getContext(),area_details.class);
+                    startActivity(intent);
+                }
+                else if(((TextView) view).getText().equals("Football")){
+                    Intent intent= new Intent(view.getContext(),area_details.class);
+                    startActivity(intent);
+                }
+                else if(((TextView) view).getText().equals("Basketball")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
                 }

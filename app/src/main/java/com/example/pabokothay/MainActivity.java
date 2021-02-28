@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -48,12 +49,10 @@ public class MainActivity extends AppCompatActivity {
         vListViewMain=(ListView)findViewById(R.id.mainList);
 
         mainList=new ArrayList<String>();
-        mainList.add(" book ");
+        mainList.add("book");
         mainList.add("sport");
-        mainList.add("furmitre");
-        mainList.add("food");
-
-
+        mainList.add("furniture");
+        mainList.add("household");
 
         System.out.println(mainList.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mainList);
@@ -76,16 +75,23 @@ public class MainActivity extends AppCompatActivity {
         vListViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
+               if(((TextView) view).getText().equals("book")){
                     Intent intent= new Intent(view.getContext(),book_search.class);
                     startActivity(intent);
-
-                }
-                else if(position==1){
+               }
+                else if(((TextView) view).getText().equals("sport")){
                     Intent intent= new Intent(view.getContext(),Sports_Stuff_Search.class);
                     startActivity(intent);
-
                 }
+                else if(((TextView) view).getText().equals("furniture")){
+                    Intent intent= new Intent(view.getContext(),Furniture.class);
+                    startActivity(intent);
+                }
+                else if(((TextView) view).getText().equals("household")){
+                    Intent intent= new Intent(view.getContext(),households_search.class);
+                    startActivity(intent);
+                }
+                Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
             }
         });
         constraintLayout = findViewById(R.id.constraint_layout);
@@ -121,12 +127,12 @@ public class MainActivity extends AppCompatActivity {
         //finish();
     }
     public void goFsearch(View view){
-    Intent intent= new Intent(this, book_search.class);
+    Intent intent= new Intent(this, Furniture.class);
     startActivity(intent);
         //finish();
     }
     public void goHsearch(View view){
-    Intent intent= new Intent(this, book_search.class);
+    Intent intent= new Intent(this, households_search.class);
     startActivity(intent);
         //finish();
     }

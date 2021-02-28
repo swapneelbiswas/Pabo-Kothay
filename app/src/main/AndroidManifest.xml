@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PaboKothay">
-        <activity android:name=".Sports_Stuff_Search"></activity>
+        <activity android:name=".Furniture"></activity>
+        <activity android:name=".households_search" />
+        <activity android:name=".Sports_Stuff_Search" />
         <activity android:name=".popUp" />
         <activity android:name=".book_search" />
         <activity android:name=".new_shop_account" />

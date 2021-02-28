@@ -13,7 +13,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class book_search extends AppCompatActivity {
+public class households_search extends AppCompatActivity {
+
 
     SearchView vSearchView;
     ListView vListView;
@@ -23,22 +24,18 @@ public class book_search extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_search);
-
+        setContentView(R.layout.activity_households_search);
         vSearchView= (SearchView)findViewById(R.id.searchViewBook);
         vListView=(ListView)findViewById(R.id.bookStoreList);
 
         list=new ArrayList<String>();
-        list.add("momotaj book store");
-        list.add("Rjsahi book store");
-        list.add("Naraynganj  book store");
-        list.add("modumoti book store");
-        list.add("Rk book store");
-        list.add("BK dash book store");
-        list.add("sugondha book store");
+        list.add("Fry pan");
+        list.add("kettle");
+        list.add("Pan");
+        list.add("Spoon");
 
 
-
+        System.out.println(list.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
 
         vListView.setAdapter(adapter);
@@ -55,22 +52,24 @@ public class book_search extends AppCompatActivity {
                 return false;
             }
         });
+
         vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(((TextView) view).getText().equals("momotaj book store")){
+
+                if(((TextView) view).getText().equals("Fry pan")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
                 }
-                else if(((TextView) view).getText().equals("Rjsahi book store")){
+                else if(((TextView) view).getText().equals("kettle")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
                 }
-                else if(((TextView) view).getText().equals("Naraynganj  book store")){
+                else if(((TextView) view).getText().equals("Pan")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
                 }
-                else if(((TextView) view).getText().equals("modumoti book store")){
+                else if(((TextView) view).getText().equals("Spoon")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
                 }
@@ -79,5 +78,4 @@ public class book_search extends AppCompatActivity {
 
 
     }
-
 }
