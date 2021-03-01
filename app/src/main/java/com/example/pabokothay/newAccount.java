@@ -67,7 +67,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
             vMail.requestFocus();
             return;
         }
-        if(TextUtils.isEmpty(email)){
+        if(TextUtils.isEmpty(fullname)){
             vfullname.setError("Full name is required");
             vfullname.requestFocus();
             return;
@@ -108,7 +108,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
                         if(task.isSuccessful()){
                             User user= new User(fullname,email,password,number);
                             //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
-                            FirebaseDatabase.getInstance().getReference("Users")
+                            FirebaseDatabase.getInstance().getReference("Users").child("Customers")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

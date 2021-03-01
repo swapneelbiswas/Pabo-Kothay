@@ -44,7 +44,7 @@ public class profile extends AppCompatActivity {
         //vPass = findViewById(R.id.passwordConfirm);
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
-        databaseReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("Customers").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
@@ -56,6 +56,7 @@ public class profile extends AppCompatActivity {
                     vFullName.setText(fName);
                     vMail.setText(emailUser);
                     vName.setText(fName);
+                    vNumber.setText(num);
                 }
             }
             @Override
@@ -72,14 +73,14 @@ public class profile extends AppCompatActivity {
     public void updateAcc(View view){
 
         if(isNameChanged()){
-            databaseReference.child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
+            databaseReference.child("Customers").child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
             Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(profile.this, "Data can not be updated", Toast.LENGTH_SHORT).show();
         }
         if(isNumberChanged()){
-            databaseReference.child(userID).child("number").setValue(vNumber.getEditableText().toString());
+            databaseReference.child("Customers").child(userID).child("number").setValue(vNumber.getEditableText().toString());
 //            User user= new User(fullname,email,phoneNum);
 //            //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
 //            FirebaseDatabase.getInstance().getReference("Users")
