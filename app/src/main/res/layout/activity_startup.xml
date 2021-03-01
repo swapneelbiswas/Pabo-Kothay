@@ -14,16 +14,16 @@
         android:layout_below="@+id/toptext"
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="354dp"
         app:srcCompat="@drawable/khojakhuji" />
 
     <ImageView
         android:id="@+id/toptext"
-        android:layout_width="115dp"
-        android:layout_height="27dp"
+        android:layout_width="105dp"
+        android:layout_height="24dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="163dp"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="158dp"
         app:srcCompat="@drawable/pabonaree" />
 </RelativeLayout>

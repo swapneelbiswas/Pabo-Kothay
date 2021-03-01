@@ -6,14 +6,10 @@ public class User {
     public User(){
     }
 
-    public User(String fullName,String email,String password,String number){
+    public User(String fullName,String email,String number,String password){
         this.fullName=fullName;
         this.email=email;
         this.password=password;
         this.number=number;
-    }
-    public User(String fullName,String email){
-        this.fullName=fullName;
-        this.email=email;
     }
 }

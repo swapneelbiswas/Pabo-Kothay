@@ -90,15 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Birth date">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:text="1st jan, 2000"
-                android:textSize="30dp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Birth date"/>
 
         <Button
             android:layout_width="539dp"

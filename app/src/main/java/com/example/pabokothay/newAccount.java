@@ -32,6 +32,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_account);
         //getSupportActionBar().hide();
+
         //sign up work
         mAuth = FirebaseAuth.getInstance();
         vfullname=findViewById(R.id.fullName);
@@ -106,7 +107,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user= new User(fullname,email,password,number);
+                            User user= new User(fullname,email,number,password);
                             //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                             FirebaseDatabase.getInstance().getReference("Users").child("Customers")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

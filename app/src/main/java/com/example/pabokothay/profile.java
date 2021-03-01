@@ -77,31 +77,14 @@ public class profile extends AppCompatActivity {
             Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(profile.this, "Data can not be updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(profile.this, "Name is same", Toast.LENGTH_SHORT).show();
         }
         if(isNumberChanged()){
             databaseReference.child("Customers").child(userID).child("number").setValue(vNumber.getEditableText().toString());
-//            User user= new User(fullname,email,phoneNum);
-//            //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
-//            FirebaseDatabase.getInstance().getReference("Users")
-//                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Void> task) {
-//                    if(task.isSuccessful()){
-//                        FirebaseUser fuser =FirebaseAuth.getInstance().getCurrentUser();
-//                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
-//
-//                    }else{
-//
-//                    }
-//                }
-//            });
-
             Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(profile.this, "Data can not be updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(profile.this, "Number is same", Toast.LENGTH_SHORT).show();
         }
     }
 
