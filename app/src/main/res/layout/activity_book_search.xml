@@ -7,6 +7,8 @@
     tools:context=".book_search"
     android:orientation="vertical"
     android:padding="35dp"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
     android:background="@drawable/bgbgbg"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
@@ -26,6 +28,7 @@
         android:layout_marginTop="10dp"
         android:cacheColorHint="@color/blue_1"
         android:textColor="@color/black"
+        android:visibility="gone"
         android:clickable="true"
         android:textSize="100dp" />
 </LinearLayout>

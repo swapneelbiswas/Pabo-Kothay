@@ -14,16 +14,11 @@ public class popUp extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_up);
-
         bt = (Button)findViewById(R.id.btngonewC);
         bt.setOnClickListener(this::goNewAccount);
-
         bt2 = (Button)findViewById(R.id.btngonewS);
         bt2.setOnClickListener(this::goNewShopAccount);
     }
-
-
-
 
     public void goNewAccount(View view){
         Intent intent= new Intent(this,newAccount.class);

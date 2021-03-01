@@ -29,6 +29,7 @@
         android:layout_marginTop="10dp"
         android:cacheColorHint="@color/blue_1"
         android:textColor="@color/black"
+        android:visibility="gone"
         android:clickable="true"
         android:textSize="100dp" />
 

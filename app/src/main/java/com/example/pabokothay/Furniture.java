@@ -1,12 +1,14 @@
 package com.example.pabokothay;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -18,7 +20,8 @@ public class Furniture extends AppCompatActivity {
 
     SearchView vSearchView;
     ListView vListView;
-
+    ConstraintLayout constraintLayout;
+    LinearLayout linearLayout;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
     @Override
@@ -47,6 +50,7 @@ public class Furniture extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                vListView.setVisibility(View.VISIBLE);
                 adapter.getFilter().filter(newText);
                 return false;
             }
@@ -70,7 +74,22 @@ public class Furniture extends AppCompatActivity {
                 }
             }
         });
-
+        constraintLayout = findViewById(R.id.constraint_layout);
+        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    vListView.setVisibility(View.GONE);
+                }
+            }
+        });
+        linearLayout = findViewById(R.id.lin_layout);
+        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                vListView.setVisibility(View.GONE);
+            }
+        });
 
     }
 }
