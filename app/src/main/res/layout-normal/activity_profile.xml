@@ -28,12 +28,12 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="86dp"
-            android:layout_height="54dp"
+            android:layout_width="147dp"
+            android:layout_height="114dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="55dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="63dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_toEndOf="@+id/profile_image"
@@ -111,17 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password for update"
-            android:layout_marginBottom="5dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/password"
-                android:inputType="textPassword"
-                android:textSize="15dp"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginBottom="5dp"/>
 
         <Button
             android:id="@+id/update"

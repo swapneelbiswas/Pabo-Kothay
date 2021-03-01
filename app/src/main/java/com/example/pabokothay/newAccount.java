@@ -58,6 +58,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
     public void registerUser(){
         String email = vMail.getText().toString().trim();
         String password = vPassword.getText().toString().trim();
+        String number ="";
         String password2 = vPassword2.getText().toString().trim();
         String fullname = vfullname.getText().toString().trim();
 
@@ -105,7 +106,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user= new User(fullname,email,password);
+                            User user= new User(fullname,email,password,number);
                             //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout Dl;
     private ActionBarDrawerToggle dToggle;
     ConstraintLayout constraintLayout;
+    LinearLayout linearLayout;
     ArrayList<String> mainList;
     ArrayAdapter<String> adapter;
 
@@ -103,7 +105,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        linearLayout = findViewById(R.id.lin_layout);
+        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                vListViewMain.setVisibility(View.GONE);
+            }
+        });
 //        Dl=findViewById(R.id.drawer_layout);
 //        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
 //        Dl.addDrawerListener(dToggle);

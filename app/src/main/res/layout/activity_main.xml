@@ -98,140 +98,180 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="1.0"
         app:layout_constraintGuide_begin="20dp" />
-    <RelativeLayout
-
-        android:background="#FEFDFF"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="728dp"
-            android:layout_below="@+id/imageView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="-42dp"
-            android:layout_marginEnd="-10dp"
-            android:layout_marginBottom="-1000dp"
-            app:srcCompat="@drawable/menubg" />
-
-        <ImageView
-            android:id="@+id/imageView"
+        android:background="@drawable/bg">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="161dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:background="@color/blue"
-            android:backgroundTint="#192578"
-            android:foregroundGravity="bottom" />
+            android:layout_height="match_parent"
+            android:id="@+id/lin_layout"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:background="@drawable/bg"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="171dp"
+                    android:layout_height="112dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="17dp"
+                    android:background="@drawable/sideheader" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginRight="3dp"
+                    android:onClick="goProfile"
+                    android:src="@drawable/profile" />
+
+                <SearchView
+                    android:id="@+id/search_bar"
+                    android:layout_width="304dp"
+                    android:layout_height="62dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="49dp"
+                    android:layout_marginTop="149dp"
+                    android:layout_marginEnd="58dp"
+
+                    android:iconifiedByDefault="false"
+                    android:queryHint="@string/search_hint"
+                    android:searchIcon="@drawable/ic_search"
+                    android:textColorHint="@color/ash" />
+
+                <ListView
+                    android:id="@+id/mainList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/search_bar"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@color/white"
+                    android:visibility="gone"
+                    android:textSize="100dp"/>
 
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="168dp"
-            android:layout_height="129dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="92dp"
-            android:layout_marginTop="9dp"
-            android:background="@drawable/pabokothaybd" />
+            </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/bookslogo"
-            android:layout_width="135dp"
-            android:layout_height="124dp"
-            android:layout_below="@+id/search_bar"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="37dp"
-            android:background="@drawable/books"
-            android:onClick="goArea"
-            tools:srcCompat="@drawable/books" />
+            <GridLayout
+                android:columnCount="2"
+                android:rowCount="3"
+                android:alignmentMode="alignMargins"
+                android:columnOrderPreserved="false"
 
-        <ImageView
-            android:id="@+id/furniturelogo"
-            android:layout_width="135dp"
-            android:layout_height="124dp"
-            android:layout_below="@+id/search_bar"
-            android:layout_marginStart="46dp"
-            android:layout_marginTop="41dp"
-            android:layout_toEndOf="@+id/bookslogo"
-            android:background="@drawable/furniture"
-            android:onClick="goFsearch"
-            tools:srcCompat="@drawable/furniture" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="10dp"
+                    android:id="@+id/bookslogo"
+                    android:onClick="goArea"
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <ImageView
+                            android:src="@drawable/books"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"/>
 
-        <ImageView
-            android:id="@+id/householdlogo"
-            android:layout_width="135dp"
-            android:layout_height="124dp"
-            android:layout_below="@+id/bookslogo"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="69dp"
-            android:background="@drawable/households"
-            android:onClick="goHsearch"
-            tools:srcCompat="@drawable/households" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="10dp"
+                    android:id="@+id/furniturelogo"
+                    android:onClick="goFsearch"
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <ImageView
+                            android:src="@drawable/furniture"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"/>
 
-        <ImageView
-            android:id="@+id/sportstuflogo"
-            android:layout_width="135dp"
-            android:layout_height="124dp"
-            android:layout_below="@+id/furniturelogo"
-            android:layout_marginStart="46dp"
-            android:layout_marginTop="69dp"
-            android:layout_toEndOf="@+id/householdlogo"
-            android:background="@drawable/sportsstuff"
-            android:onClick="goSsearch"
-            tools:srcCompat="@drawable/sportsstuff" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+             <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:id="@+id/householdlogo"
+                android:onClick="goHsearch"
+                android:layout_rowWeight="1"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <ImageView
+                        android:src="@drawable/households"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"/>
 
-        <SearchView
-            android:id="@+id/search_bar"
-            android:layout_width="331dp"
-            android:layout_height="69dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="165dp"
-            android:background="@color/white"
-            android:iconifiedByDefault="false"
-            android:queryHint="@string/search_hint"
-            android:searchIcon="@drawable/ic_search"
-            android:textColorHint="@color/ash"></SearchView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:id="@+id/sportstuflogo"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="10dp"
+                    android:onClick="goSsearch"
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp">
 
-        <ListView
-            android:id="@+id/mainList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/search_bar"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="70dp"
-            android:layout_marginEnd="50dp"
-            android:background="@color/white"
-            android:visibility="gone"
-            android:textSize="100dp">
-<!--            android:visibility="invisible"-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <ImageView
+                            android:src="@drawable/sportsstuff"
 
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"/>
 
-        </ListView>
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="65dp"
-            android:layout_height="55dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="19dp"
-            android:contextClickable="true"
-            android:onClick="goProfile"
-            app:srcCompat="@drawable/sideheader" />
-
-    </RelativeLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </GridLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
