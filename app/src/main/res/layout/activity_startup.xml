@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StartupActivity"
-    android:background="@drawable/ic_startupbg">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/ash_1"
+    >
 
-    <ImageView
-        android:id="@+id/bottomtext"
-        android:layout_width="308dp"
-        android:layout_height="217dp"
-        android:layout_below="@+id/toptext"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="354dp"
-        app:srcCompat="@drawable/khojakhuji" />
+     <com.airbnb.lottie.LottieAnimationView
+         android:layout_width="300dp"
+         android:layout_height="350dp"
+         android:layout_marginTop="-30dp"
+         app:lottie_autoPlay="true"
+         app:lottie_loop="true"
+         app:lottie_rawRes="@raw/start_up" />
+     <ImageView
+         android:layout_marginTop="30dp"
+         android:layout_width="150dp"
+         android:layout_height="150dp"
+         android:src="@drawable/pabona_kisu"
+         android:background="@drawable/button_bg"
+         android:layout_gravity="center"
+         android:id="@+id/srt_imageView"/>
 
-    <ImageView
-        android:id="@+id/toptext"
-        android:layout_width="105dp"
-        android:layout_height="24dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="149dp"
-        android:layout_marginTop="158dp"
-        app:srcCompat="@drawable/pabonaree" />
-</RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>
+
