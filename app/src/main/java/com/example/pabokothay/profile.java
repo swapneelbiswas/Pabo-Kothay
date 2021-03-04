@@ -1,15 +1,23 @@
 package com.example.pabokothay;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,13 +27,29 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import com.squareup.picasso.Picasso;
+
+import java.util.Date;
+//import com.google.firebase.Timestamp;
+
 public class profile extends AppCompatActivity {
+    private static final int GALLERY_CODE = 1;
     private FirebaseUser fUser;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private String userID;
     TextView vFullName,vMail,vName,vPass,vNumber;
-    String fName,emailUser,username,pass,num;
+    String fName,emailUser,username,pass,num,imageUrl;
+    private Button imageAdd;
+    private Uri imageUri;
+    private StorageReference storageReference;
+
+    private ImageView profile_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +63,24 @@ public class profile extends AppCompatActivity {
         vMail = findViewById(R.id.emailText);
         vName = findViewById(R.id.name);
         vNumber = findViewById(R.id.pnum);
-
+        profile_image=findViewById(R.id.profile_image);
+        // imageAdd=findViewById(R.id.imageAdd);
 
         //vPass = findViewById(R.id.passwordConfirm);
+        profile_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent, GALLERY_CODE);
+            }
+        });
+        // String imageUri = "https://firebasestorage.googleapis.com/v0/b/pabo-kothay-f16c0.appspot.com/o/journal_images%2Fmy_image_22?alt=media&token=d0755304-8b50-4313-b1ee-e16ddf2ba60e";
+        // Picasso.get().load(imageUrl).placeholder(imageUri).into(profile_image);
+
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
+        storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference.child("Customers").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -53,17 +90,26 @@ public class profile extends AppCompatActivity {
                     emailUser = userProfile.email;
                     pass= userProfile.password;
                     num=userProfile.number;
+                    imageUrl=userProfile.imageUrl;
                     vFullName.setText(fName);
                     vMail.setText(emailUser);
                     vName.setText(fName);
                     vNumber.setText(num);
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.books).into(profile_image);
                 }
             }
+
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(profile.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
     }
     public void logoutAcc(View view){
         FirebaseAuth.getInstance().signOut();
@@ -86,11 +132,46 @@ public class profile extends AppCompatActivity {
         else{
             Toast.makeText(profile.this, "Number is same", Toast.LENGTH_SHORT).show();
         }
+
+        if ( imageUri != null) {
+            final StorageReference filepath = storageReference
+                    .child(emailUser)
+                    .child("profile_image");
+
+            filepath.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+
+                            filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+
+                                    String imageUrl = uri.toString();
+                                    // create a Journal Object - model
+                                    databaseReference.child("Customers").child(userID).child("imageUrl").setValue(imageUrl);
+
+                                }
+                            });
+
+
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //  progressBar.setVisibility(View.INVISIBLE);
+
+                        }
+                    });
+        }
+
     }
 
     private boolean isNumberChanged() {
         if(!num.equals(vNumber.getText().toString().trim())){
-//            databaseReference.child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
+
             return true;
         }
         else{
@@ -100,11 +181,22 @@ public class profile extends AppCompatActivity {
     private boolean isNameChanged(){
 
         if(!fName.equals(vFullName.getText().toString().trim())){
-//            databaseReference.child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
+            databaseReference.child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
             return true;
         }
         else{
             return false;
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == GALLERY_CODE && resultCode == RESULT_OK) {
+            if (data != null) {
+                imageUri = data.getData(); // we have the actual path to the image
+                profile_image.setImageURI(imageUri);//show image
+
+            }
         }
     }
 }
