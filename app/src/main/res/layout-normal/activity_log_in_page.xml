@@ -2,94 +2,174 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/rectangle_1"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogInPage">
-        <RelativeLayout
+     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="1.0"
+        app:layout_constraintGuide_begin="20dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
-            android:layout_marginRight="0dp">
-
+            android:layout_marginRight="0dp"
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/login_mail"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="19dp"
+                android:text="Pabo Kothay"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/atma_semi_bold"
+                android:textColor="#4472C4"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"/>
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/finding_people" />
 
-                android:layout_marginEnd="34dp"
-                android:text="Password"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                tools:layout_editor_absoluteX="-2dp"
-                tools:layout_editor_absoluteY="398dp"></TextView>
 
-            <TextView
-                android:id="@+id/emailText"
-                android:layout_width="358dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="266dp"
-                android:layout_marginEnd="32dp"
-                android:text="Email"
-                android:textColor="@color/black"
-                android:textSize="30dp"
-                tools:layout_editor_absoluteX="-2dp"
-                tools:layout_editor_absoluteY="398dp"></TextView>
 
-            <EditText
-                android:id="@+id/login_mail"
-                android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/emailText"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="22dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="29dp"
-                android:ems="10"
-                android:hint="Enter Email"
-                android:textColor="@color/ash"
-                android:textColorHint="@color/ash"
-                android:inputType="textEmailAddress"
-                android:textSize="20dp" />
-
-            <EditText
-                android:id="@+id/login_pass"
+            <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="21dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="35dp"
-                android:ems="10"
-                android:hint="Enter Password"
-                android:inputType="textPassword"
-                android:textColor="@color/ash"
-                android:textColorHint="@color/ash"
-                android:textSize="20dp" />
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/srt_card"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <EditText
+                    android:id="@+id/login_mail"
+                    android:layout_width="360dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:ems="10"
+                    android:hint="Enter Email"
+                    android:textColor="@color/ash"
+                    android:textColorHint="@color/ash"
+                    android:inputType="textEmailAddress"
+                    android:textSize="20dp"
+                    />
+
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/lin_out"
+
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+
+                    <EditText
+                        android:id="@+id/login_pass"
+                        android:layout_width="360dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+
+                        android:ems="10"
+                        android:hint="Enter Password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/ash"
+                        android:textColorHint="@color/ash"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="74dp"
-                android:layout_below="@+id/login_pass"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="93dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginEnd="89dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
                 android:background="@drawable/button_bg"
                 android:text="login"
                 android:textColor="@color/white"
@@ -97,30 +177,28 @@
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/button"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="190dp"
-                android:layout_marginTop="12dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
                 android:text="Or"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/go_newAccount"
-                android:layout_width="371dp"
+                android:layout_width="163dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView5"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:onClick="ShowPopup"
-                android:text="Don't have an account? Register"
+                android:text="Register Here"
                 android:textColor="@color/blue_1"
                 android:textSize="25dp" />
 
-        </RelativeLayout>
+        </LinearLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
