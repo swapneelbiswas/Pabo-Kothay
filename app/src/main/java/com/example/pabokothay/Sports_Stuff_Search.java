@@ -76,16 +76,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
             }
         });
 
-        constraintLayout = findViewById(R.id.constraint_layout);
-        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    vListView.setVisibility(View.GONE);
-                }
-            }
-        });
-        linearLayout = findViewById(R.id.lin_layout);
+        linearLayout = findViewById(R.id.line_layout);
         linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {

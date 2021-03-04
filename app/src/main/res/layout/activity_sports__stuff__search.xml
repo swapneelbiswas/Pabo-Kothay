@@ -11,6 +11,9 @@
         tools:context=".sport_stuff_search"
         android:orientation="vertical"
         android:padding="35dp"
+        android:id="@+id/line_layout"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
         android:background="@drawable/bgbgbg"
         android:scrollbarAlwaysDrawVerticalTrack="true">
     <SearchView

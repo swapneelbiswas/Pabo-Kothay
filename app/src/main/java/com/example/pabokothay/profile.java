@@ -95,20 +95,14 @@ public class profile extends AppCompatActivity {
                     vMail.setText(emailUser);
                     vName.setText(fName);
                     vNumber.setText(num);
-                    Picasso.get().load(imageUrl).placeholder(R.drawable.books).into(profile_image);
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.sideheader).into(profile_image);
                 }
             }
-
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(profile.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
 
     }
     public void logoutAcc(View view){
@@ -117,7 +111,6 @@ public class profile extends AppCompatActivity {
         finish();
     }
     public void updateAcc(View view){
-
         if(isNameChanged()){
             databaseReference.child("Customers").child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
             Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
@@ -132,12 +125,10 @@ public class profile extends AppCompatActivity {
         else{
             Toast.makeText(profile.this, "Number is same", Toast.LENGTH_SHORT).show();
         }
-
         if ( imageUri != null) {
             final StorageReference filepath = storageReference
                     .child(emailUser)
                     .child("profile_image");
-
             filepath.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -154,8 +145,6 @@ public class profile extends AppCompatActivity {
 
                                 }
                             });
-
-
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -166,12 +155,10 @@ public class profile extends AppCompatActivity {
                         }
                     });
         }
-
     }
 
     private boolean isNumberChanged() {
         if(!num.equals(vNumber.getText().toString().trim())){
-
             return true;
         }
         else{
@@ -181,7 +168,6 @@ public class profile extends AppCompatActivity {
     private boolean isNameChanged(){
 
         if(!fName.equals(vFullName.getText().toString().trim())){
-            databaseReference.child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
             return true;
         }
         else{
