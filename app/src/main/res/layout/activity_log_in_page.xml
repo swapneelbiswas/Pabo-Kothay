@@ -96,8 +96,6 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/finding_people" />
 
-
-
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,7 +115,7 @@
                     android:id="@+id/login_mail"
                     android:layout_width="360dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:ems="10"
                     android:hint="Enter Email"
                     android:textColor="@color/ash"
@@ -145,14 +143,11 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">
-
-
                 <EditText
                     android:id="@+id/login_pass"
                     android:layout_width="360dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="20dp"
-
+                    android:layout_marginStart="10dp"
                     android:ems="10"
                     android:hint="Enter Password"
                     android:inputType="textPassword"

@@ -13,13 +13,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class StartupActivity extends AppCompatActivity {
 
     private static int splashTime =4000;
     Animation topanime,animbot,fadein;
     CardView t2;
     TextView tv;
-
+FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +39,23 @@ public class StartupActivity extends AppCompatActivity {
         t2.setAnimation(animbot);
         tv= findViewById(R.id.srt_tv);
         tv.setAnimation(animbot);
-
-
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent= new Intent(StartupActivity.this,LogInPage.class);
-                startActivity(intent);
-                finish();
+                FirebaseUser mFirebaseUser =mFirebaseAuth.getCurrentUser();
+                if(mFirebaseUser!=null){
+                    Intent intent = new Intent(StartupActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Intent intent = new Intent(StartupActivity.this, LogInPage.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }, splashTime);
-
 
     }
     public void goLogInPage(View view){
