@@ -5,7 +5,8 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".newAccount">
+    tools:context=".newAccount"
+    android:forceDarkAllowed="false">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,7 +27,8 @@
              android:textSize="40dp"
              android:layout_gravity="center"
              android:fontFamily="@font/atma_semi_bold"
-             android:textColor="#4472C4"></TextView>
+             android:textColor="#4472C4"
+             android:layout_marginLeft="10dp"></TextView>
 
         <ImageView
             android:layout_width="200dp"

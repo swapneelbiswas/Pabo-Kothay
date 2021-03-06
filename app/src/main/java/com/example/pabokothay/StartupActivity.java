@@ -1,6 +1,7 @@
 package com.example.pabokothay;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -24,8 +25,11 @@ public class StartupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_startup);
         //getSupportActionBar().hide();
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         fadein= AnimationUtils.loadAnimation(this,R.anim.fade_in);
 //        t1=findViewById(R.id.toptext);
