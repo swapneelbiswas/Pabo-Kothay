@@ -5,11 +5,11 @@
     android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEFDFF"
     android:focusableInTouchMode="true"
     android:clickable="true"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
 <!--    <com.google.android.material.navigation.NavigationView-->
 <!--        android:id="@+id/nav_view"-->
@@ -101,7 +101,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg">
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -110,17 +110,21 @@
             android:clickable="true"
             android:background="@drawable/bg"
             android:orientation="vertical">
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 >
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="171dp"
                     android:layout_height="112dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
                     android:layout_marginStart="44dp"
                     android:layout_marginTop="17dp"
                     android:background="@drawable/sideheader" />
@@ -129,44 +133,55 @@
                     android:id="@+id/imageView6"
                     android:layout_width="62dp"
                     android:layout_height="62dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginRight="3dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="goProfile"
+                    android:layout_gravity="center"
                     android:src="@drawable/profile" />
-
+                </LinearLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_margin="12dp"
+                    app:cardBackgroundColor="@color/white"
+                    >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
                 <SearchView
                     android:id="@+id/search_bar"
-                    android:layout_width="304dp"
-                    android:layout_height="62dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="49dp"
-                    android:layout_marginTop="149dp"
-                    android:layout_marginEnd="58dp"
-
+                    android:layout_width="360dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
                     android:iconifiedByDefault="false"
                     android:queryHint="@string/search_hint"
                     android:searchIcon="@drawable/ic_search"
                     android:textColorHint="@color/ash" />
 
-                <ListView
-                    android:id="@+id/mainList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/search_bar"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginEnd="50dp"
-                    android:background="@color/white"
-                    android:visibility="gone"
-                    android:textSize="100dp"/>
+                    <ListView
+                        android:id="@+id/mainList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        android:visibility="gone"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="100dp"/>
+
+                </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
 
-            </RelativeLayout>
+
+
+            </LinearLayout>
 
             <GridLayout
                 android:columnCount="2"
