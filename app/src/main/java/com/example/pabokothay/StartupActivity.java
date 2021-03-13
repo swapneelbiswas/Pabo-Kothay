@@ -23,7 +23,7 @@ public class StartupActivity extends AppCompatActivity {
     Animation topanime,animbot,fadein;
     CardView t2;
     TextView tv;
-FirebaseAuth mFirebaseAuth;
+    FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,5 @@ FirebaseAuth mFirebaseAuth;
         }, splashTime);
 
     }
-    public void goLogInPage(View view){
-        Intent intent= new Intent(this,LogInPage.class);
-        startActivity(intent);
-    }
+
 }

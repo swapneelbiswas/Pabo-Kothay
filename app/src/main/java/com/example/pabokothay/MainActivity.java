@@ -52,19 +52,18 @@ public class MainActivity extends AppCompatActivity {
 
         mainList=new ArrayList<String>();
         mainList.add("book");
+        mainList.add("boss");
+        mainList.add("bonk");
         mainList.add("sport");
         mainList.add("furniture");
         mainList.add("household");
 
-        System.out.println(mainList.get(0));
+//        System.out.println(mainList.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mainList);
-
         vListViewMain.setAdapter(adapter);
-
         vSearchViewMain.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 return false;
             }
             @Override
@@ -74,6 +73,25 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        /*
+                adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
+
+        vListView.setAdapter(adapter);
+
+        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                vListView.setVisibility(View.VISIBLE);
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+         */
         vListViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
