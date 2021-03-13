@@ -182,7 +182,7 @@
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="16dp"
-                    android:background="#b9d0fa"
+                    android:background="@drawable/gradient_custom_color"
                     android:clickable="true">
 
 
