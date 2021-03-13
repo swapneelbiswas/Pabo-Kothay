@@ -1,8 +1,10 @@
 package com.example.pabokothay;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,7 +12,9 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,12 +24,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class new_shop_account extends AppCompatActivity implements View.OnClickListener{
 
     EditText vMail,vPassword,vPassword2,vfullname,vShopName;
     ProgressBar progressBar;
-    Button vButton;
+    LinearLayout vButton;
     private FirebaseAuth mAuth;
+    LinearLayout vMakeOrder;
+    TextView vViewItem;
+    String[] listItems;
+    boolean[] checkedItems;
+    ArrayList<Integer> vUserItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,73 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         vShopName=findViewById(R.id.editShopName);
         vButton=findViewById(R.id.button);
         vButton.setOnClickListener(this);
+
+        vMakeOrder = (LinearLayout) findViewById(R.id.MakeOrder);
+        vViewItem= (TextView) findViewById(R.id.ViewItem);
+
+        listItems = getResources().getStringArray(R.array.shopping_list);
+        checkedItems= new boolean[listItems.length];
+
+        vMakeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(new_shop_account.this);
+                mBuilder.setTitle(R.string.dialog_title);
+                mBuilder.setMultiChoiceItems(listItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int position, boolean isChecked) {
+                        if(isChecked){
+                            if( ! vUserItems.contains(position)){
+                                vUserItems.add(position);
+                            }
+                        } else if(vUserItems.contains(position)){
+                            vUserItems.remove(position);
+                        }
+                    }
+                });
+
+                mBuilder.setCancelable(false);
+                mBuilder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        String item = "";
+                        for(int i = 0; i< vUserItems.size();i++){
+                            item = item + listItems[vUserItems.get(i)];
+                            if(i != vUserItems.size()-1){
+                                item= item + ",";
+                            }
+                        }
+
+                        vViewItem.setText(item);
+
+                    }
+                });
+//
+//                mBuilder.setNegativeButton(R.string.dismiss_label, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialogInterface.dismiss();
+//
+//                    }
+//                });
+
+                mBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        for( int i = 0 ; i < checkedItems.length; i++) {
+
+                            checkedItems[i] = false;
+                            vUserItems.clear();
+                            vViewItem.setText("");
+                        }
+                    }
+                });
+
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
+            }
+        });
     }
 
     public void goLogInPage(View view){

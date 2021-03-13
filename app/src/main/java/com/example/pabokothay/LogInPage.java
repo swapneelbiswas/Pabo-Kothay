@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LogInPage extends AppCompatActivity implements View.OnClickListener{
 
     EditText vMail,vPassword;
-    Button vButton;
+    LinearLayout vButton;
     TextView vNewAccount;
     private FirebaseAuth mAuth;
     Dialog myDialog;

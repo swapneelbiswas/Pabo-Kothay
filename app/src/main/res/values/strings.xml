@@ -3,5 +3,20 @@
     <string name="search_hint">Search what you want</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="dialog_title">Item Avilable</string>
+    <string name="ok_label">ok</string>
+    <string name="dismiss_label">Dissmiss</string>
+    <string name="clear_all_label">"Clear "</string>
+
+    <string-array name="shopping_list">
+        <item>a</item>
+        <item>b</item>
+        <item>c</item>
+        <item>d</item>
+        <item>e</item>
+        <item>f</item>
+
+
+    </string-array>
 
 </resources>

@@ -233,16 +233,37 @@
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/button"
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_gravity="center"
-            android:background="@drawable/lg_btn"
-            android:text="Create Account"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:id="@+id/newACCS_card11"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="27dp"
+            android:layout_margin="12dp">
+            <LinearLayout
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="#b9d0fa"
+                android:clickable="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="Create Account"
+                    android:textSize="25dp"
+                    android:textStyle="bold"></TextView>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textView3"
