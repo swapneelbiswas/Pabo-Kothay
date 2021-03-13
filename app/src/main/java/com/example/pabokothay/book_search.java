@@ -62,7 +62,7 @@ public class book_search extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(((TextView) view).getText().equals("momotaj book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
+                    Intent intent= new Intent(view.getContext(),make_order.class);
                     startActivity(intent);
                 }
                 else if(((TextView) view).getText().equals("Rjsahi book store")){
