@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class newAccount extends AppCompatActivity implements View.OnClickListener{
     EditText vMail,vPassword,vPassword2,vfullname;
     ProgressBar progressBar;
-    Button vButton;
+    LinearLayout vButton;
 
     private FirebaseAuth mAuth;
 
