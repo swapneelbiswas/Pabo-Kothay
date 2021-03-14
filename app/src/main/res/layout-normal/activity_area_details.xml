@@ -16,7 +16,7 @@
         android:text="Nilkhet"
         android:textColor="@color/black"
         android:textSize="50dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/shopPicture"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/shopPicture" />
 
     <TextView
         android:id="@+id/description"
@@ -62,7 +62,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/button_bg"
-        android:onClick="browser1"
+
         android:text="Click here"
 
         android:textColor="@color/white"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/shopPicture"
         android:layout_width="187dp"
         android:layout_height="193dp"
         android:layout_marginStart="4dp"
@@ -79,7 +79,7 @@
         android:background="@drawable/sideheader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/sideheader" />
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

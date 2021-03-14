@@ -26,9 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class new_shop_account extends AppCompatActivity implements View.OnClickListener{
+public class new_shop_account extends AppCompatActivity implements View.OnClickListener {
 
-    EditText vMail,vPassword,vPassword2,vfullname,vShopName;
+    EditText vMail, vPassword, vPassword2, vfullname, vShopName;
     ProgressBar progressBar;
     LinearLayout vButton;
     private FirebaseAuth mAuth;
@@ -44,19 +44,19 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_new_shop_account);
         //getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance();
-        vfullname=findViewById(R.id.fullName);
+        vfullname = findViewById(R.id.fullName);
         vMail = findViewById(R.id.login_mail);
-        vPassword=findViewById(R.id.login_pass);
-        vPassword2=findViewById(R.id.editTextTextPassword);
-        vShopName=findViewById(R.id.editShopName);
-        vButton=findViewById(R.id.button);
+        vPassword = findViewById(R.id.login_pass);
+        vPassword2 = findViewById(R.id.editTextTextPassword);
+        vShopName = findViewById(R.id.editShopName);
+        vButton = findViewById(R.id.button);
         vButton.setOnClickListener(this);
 
         vMakeOrder = (LinearLayout) findViewById(R.id.MakeOrder);
-        vViewItem= (TextView) findViewById(R.id.ViewItem);
+        vViewItem = (TextView) findViewById(R.id.ViewItem);
 
         listItems = getResources().getStringArray(R.array.shopping_list);
-        checkedItems= new boolean[listItems.length];
+        checkedItems = new boolean[listItems.length];
 
         vMakeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,11 +66,11 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                 mBuilder.setMultiChoiceItems(listItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int position, boolean isChecked) {
-                        if(isChecked){
-                            if( ! vUserItems.contains(position)){
+                        if (isChecked) {
+                            if (!vUserItems.contains(position)) {
                                 vUserItems.add(position);
                             }
-                        } else if(vUserItems.contains(position)){
+                        } else if (vUserItems.contains(position)) {
                             vUserItems.remove(position);
                         }
                     }
@@ -82,10 +82,10 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                     public void onClick(DialogInterface dialog, int which) {
 
                         String item = "";
-                        for(int i = 0; i< vUserItems.size();i++){
+                        for (int i = 0; i < vUserItems.size(); i++) {
                             item = item + listItems[vUserItems.get(i)];
-                            if(i != vUserItems.size()-1){
-                                item= item + ",";
+                            if (i != vUserItems.size() - 1) {
+                                item = item + ",";
                             }
                         }
 
@@ -105,7 +105,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                 mBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        for( int i = 0 ; i < checkedItems.length; i++) {
+                        for (int i = 0; i < checkedItems.length; i++) {
 
                             checkedItems[i] = false;
                             vUserItems.clear();
@@ -120,29 +120,32 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         });
     }
 
-    public void goLogInPage(View view){
-        Intent intent= new Intent(this,LogInPage.class);
+    public void goLogInPage(View view) {
+        Intent intent = new Intent(this, LogInPage.class);
         startActivity(intent);
     }
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
 
             case R.id.button:
                 registerUser();
                 break;
         }
     }
-    public void registerUser(){
+
+    public void registerUser() {
         String email = vMail.getText().toString().trim();
         String password = vPassword.getText().toString().trim();
-        String number ="";
+        String number = "";
         String password2 = vPassword2.getText().toString().trim();
         String shopName = vShopName.getText().toString().trim();
-        String fullname ="";
+        String fullname = "";
+        String description ="";
+        String price ="200-3000";
 
-
-        if(TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             vMail.setError("Email is required");
             vMail.requestFocus();
             return;
@@ -153,65 +156,64 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
 //            return;
 //        }
 
-        if(TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(password)) {
             vPassword.setError("password is required");
             vPassword.requestFocus();
             return;
         }
-        if(TextUtils.isEmpty(password2)){
+        if (TextUtils.isEmpty(password2)) {
             vPassword2.setError("Re_enter password");
             vPassword2.requestFocus();
 
             return;
         }
 
-        if(password.length()<6){
+        if (password.length() < 6) {
             vPassword.setError("Must be of 6 character");
             vPassword.requestFocus();
             return;
         }
-        if (!(password.equals(password2)))
-        {
+        if (!(password.equals(password2))) {
             vPassword2.setError("Doesn't match");
             vPassword2.requestFocus();
             return;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             vMail.setError("Please provide valid email");
             vMail.requestFocus();
             return;
         }
-        mAuth.createUserWithEmailAndPassword(email,password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Shopkeeper customer= new Shopkeeper(fullname,email,password,number,shopName);
+                        if (task.isSuccessful()) {
+                            Shopkeeper customer = new Shopkeeper(fullname, email, password, number, shopName, description, price);
+                            ShopData shopData = new ShopData(description, shopName, price);
                             //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                             FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        FirebaseUser fuser =FirebaseAuth.getInstance().getCurrentUser();
+                                    if (task.isSuccessful()) {
+
+                                        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
                                         //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
                                         fuser.sendEmailVerification();
                                         Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                         finish();
-                                    }else{
+                                    } else {
                                         Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
-                        }else{
-                            Toast.makeText(new_shop_account.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(new_shop_account.this, "Give proper info", Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 });
     }
-
-
 }

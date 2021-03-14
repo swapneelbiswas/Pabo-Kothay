@@ -113,8 +113,7 @@
             android:background="@drawable/button_bg"
             android:onClick="goNewAccount"
             android:text="Customer"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btngonewS"

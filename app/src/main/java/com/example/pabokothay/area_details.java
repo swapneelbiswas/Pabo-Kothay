@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import android.text.method.LinkMovementMethod;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.view.View;
@@ -22,6 +23,8 @@ import org.w3c.dom.Text;
 public class area_details extends AppCompatActivity {
 
     TextView tex;
+    ImageView shopImage;
+    TextView describe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,14 @@ public class area_details extends AppCompatActivity {
          tex = findViewById(R.id.textView9);
          tex.setClickable(true);
          tex.setMovementMethod(LinkMovementMethod.getInstance());
+
+        shopImage =findViewById(R.id.shopPicture);
+        describe =findViewById(R.id.description);
+        Bundle mbundle =getIntent().getExtras();
+        if(mbundle!=null){
+            describe.setText(mbundle.getString("Description"));
+            shopImage.setImageResource(mbundle.getInt("Image"));
+        }
 
     }
     String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
