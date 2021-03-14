@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEFDFF"
     tools:context=".profile"
     >
     <androidx.constraintlayout.widget.Guideline
@@ -70,47 +69,49 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="1.0"
         app:layout_constraintGuide_begin="20dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FEFDFF"
         android:orientation="vertical">
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@color/purple_700"
-            android:padding="20dp">
+            android:layout_height="180dp"
+            app:cardElevation="7dp"
+            app:cardCornerRadius="25dp"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@drawable/gradient_custom_color">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
                 android:layout_width="168dp"
                 android:layout_height="130dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginStart="29dp"
                 android:layout_marginTop="0dp"
                 android:src="@drawable/sideheader"
                 app:civ_border_color="@color/ash"
-                app:civ_border_width="2dp" />
+                app:civ_border_width="2dp"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="147dp"
-                android:layout_height="114dp"
-                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:layout_marginLeft="17dp"
                 android:fontFamily="@font/akaya_telivigala_regular"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@+id/profile_image"
-                android:layout_toRightOf="@id/profile_image"
-                android:includeFontPadding="false"
+                android:layout_gravity="center"
                 android:text="Name"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="30sp" />
-        </RelativeLayout>
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -241,6 +242,7 @@
                             android:layout_height="wrap_content"
                             android:background="@color/white"
                             android:id="@+id/passwordCheck"
+                            android:inputType="textPassword"
                             android:fontFamily="@font/nunito_regular"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -271,7 +273,6 @@
                 android:layout_gravity="center"
                 android:id="@+id/update"
                 app:cardElevation="10dp"
-                android:onClick="updateAcc"
                 app:cardCornerRadius="27dp"
                 android:layout_margin="12dp">
                 <LinearLayout
@@ -281,7 +282,8 @@
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="16dp"
-                    android:background="@drawable/gradient_custom_color"
+                    android:onClick="updateAcc"
+                    android:background="@drawable/gradient_custom_color2"
                     android:clickable="true">
                     <TextView
                         android:layout_width="wrap_content"
@@ -289,7 +291,7 @@
                         android:layout_gravity="center"
                         android:text="Update"
                         android:fontFamily="@font/nunito_semibold"
-                        android:textColor="@color/ash"
+                        android:textColor="@color/black"
                         android:textSize="30dp"
                         android:textStyle="bold"></TextView>
 
@@ -321,27 +323,30 @@
                 android:onClick="logoutAcc"
                 app:cardCornerRadius="27dp"
                 android:layout_margin="12dp">
+
                 <LinearLayout
                     android:id="@+id/lgbutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp"
+                    android:layout_width="120dp"
+                    android:layout_height="60dp"
                     android:background="@drawable/gradient_custom_color"
                     android:clickable="true"
-                    android:onClick="logoutAcc">
+                    android:gravity="center"
+                    android:onClick="logoutAcc"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/nunito_semibold"
                         android:text="logout"
                         android:textColor="@color/ash"
-                        android:textSize="16dp"
-                        android:fontFamily="@font/nunito_semibold"
+                        android:textSize="20dp"
                         android:textStyle="bold"></TextView>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

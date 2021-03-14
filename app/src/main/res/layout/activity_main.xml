@@ -9,6 +9,7 @@
     android:clickable="true"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
+    android:background="@drawable/gradient_custom_color"
     >
 
 <!--    <com.google.android.material.navigation.NavigationView-->
@@ -108,37 +109,52 @@
             android:id="@+id/lin_layout"
             android:focusableInTouchMode="true"
             android:clickable="true"
-            android:background="@drawable/bg"
+
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="10dp"
+                    android:id="@+id/bookslala"
+                    android:onClick="goArea"
+                    app:cardCornerRadius="25dp"
+                    android:layout_marginBottom="20dp"
+                    >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
+                    android:background="@drawable/gradient_custom_color"
+                    >
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="171dp"
-                    android:layout_height="112dp"
+                    android:layout_width="150dp"
+                    android:layout_height="130dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="44dp"
                     android:layout_marginTop="17dp"
                     android:background="@drawable/sideheader" />
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="62dp"
-                    android:layout_height="62dp"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="goProfile"
-                    android:layout_gravity="center"
-                    android:src="@drawable/profile" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image2"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="95dp"
+                        android:src="@drawable/dp_1"
+                        android:layout_gravity="center"
+                        android:onClick="goProfile"
+                        app:civ_border_color="@color/ash"
+                        app:civ_border_width="2dp" />
                 </LinearLayout>
+                </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

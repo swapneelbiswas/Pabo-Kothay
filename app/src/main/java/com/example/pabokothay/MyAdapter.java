@@ -37,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
         holder.imageView.setImageResource(myShopList.get(position).getImage());
         holder.mTitle.setText(myShopList.get(position).getShopName());
         holder.mDescribe.setText(myShopList.get(position).getShopdescribe());
-        holder.mPrice.setText(myShopList.get(position).getPrice());
+//        holder.mPrice.setText(myShopList.get(position).getPrice());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +69,7 @@ class ShopViewHolder extends RecyclerView.ViewHolder{
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        mPrice= itemView.findViewById(R.id.tvPrice);
+        //mPrice= itemView.findViewById(R.id.tvPrice);
         cardView= itemView.findViewById(R.id.srt_card);
     }
 }

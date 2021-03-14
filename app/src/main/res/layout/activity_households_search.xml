@@ -4,38 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="5dp"
     tools:context=".households_search">
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/white"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:iconifiedByDefault="false"
+                android:queryHint="@string/search_hint"
+                android:searchIcon="@drawable/ic_search"
+                android:textColorHint="@color/ash" />
+
+            <ListView
+                android:id="@+id/mainList"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:visibility="gone"
+                android:layout_marginLeft="7dp"
+                android:textSize="100dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".sport_stuff_search"
         android:orientation="vertical"
-        android:padding="35dp"
-        android:id="@+id/line_layout"
+        android:id="@+id/rl"
         android:focusableInTouchMode="true"
-        android:clickable="true"
-        android:background="@drawable/bgbgbg"
-        android:scrollbarAlwaysDrawVerticalTrack="true">
-        <SearchView
-            android:id="@+id/searchViewBook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
-            android:iconifiedByDefault="false"
-            android:queryHint="search store/book"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
-        <ListView
-            android:id="@+id/bookStoreList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:cacheColorHint="@color/blue_1"
-            android:textColor="@color/black"
-            android:visibility="gone"
-            android:clickable="true"
-            android:textSize="100dp" />
+        android:clickable="true">
 
-    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="77dp"
+            android:scrollbars="vertical" />
+
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

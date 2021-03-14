@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.method.LinkMovementMethod;
@@ -16,11 +17,23 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,11 +49,27 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayout;
     ArrayList<String> mainList;
     ArrayAdapter<String> adapter;
+    private static final int GALLERY_CODE = 1;
+    private FirebaseUser fUser;
+    private FirebaseAuth mAuth;
+    private DatabaseReference databaseReference;
+    private String userID;
+    TextView vFullName,vMail,vName,vPass,vNumber;
+    String fName,emailUser,username,pass,num,imageUrl;
+    private Button imageAdd;
+    private Uri imageUri;
+    private StorageReference storageReference;
+    private ImageView profile_image2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fUser = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users");
+        userID=fUser.getUid();
+        profile_image2=findViewById(R.id.profile_image2);
+
 //        Dl=findViewById(R.id.drawer_layout);
 //        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
 //        Dl.addDrawerListener(dToggle);
@@ -53,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         mainList=new ArrayList<String>();
         mainList.add("book");
         mainList.add("boss");
-        mainList.add("bonk");
+        mainList.add("bonk nafi");
         mainList.add("sport");
         mainList.add("furniture");
         mainList.add("household");
@@ -135,6 +164,25 @@ public class MainActivity extends AppCompatActivity {
 //        Dl.addDrawerListener(dToggle);
 //        dToggle.syncState();
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent intent= getIntent();
+        username = intent.getStringExtra("fullName");
+        storageReference = FirebaseStorage.getInstance().getReference();
+        databaseReference.child("Customers").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+                if(userProfile!=null){
+                    imageUrl=userProfile.imageUrl;
+
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.dp_1).into(profile_image2);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 //    public boolean onOptionsItemSelected(@NonNull MenuItem item) {

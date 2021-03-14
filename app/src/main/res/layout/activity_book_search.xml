@@ -10,18 +10,16 @@
         android:clickable="true"
         android:orientation="vertical"
         android:padding="5dp"
+        android:background="@drawable/gradient_custom_color"
 
         android:scrollbarAlwaysDrawVerticalTrack="true">
 <!--    android:background="@drawable/bgbgbg"-->
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
             app:cardElevation="10dp"
             app:cardCornerRadius="20dp"
-            android:layout_margin="12dp"
             app:cardBackgroundColor="@color/white"
             tools:ignore="MissingConstraints">
             <LinearLayout
@@ -29,7 +27,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                >
                 <SearchView
                     android:id="@+id/search_bar"
                     android:layout_width="360dp"
@@ -68,17 +67,6 @@
                 android:layout_marginTop="77dp"
                 android:scrollbars="vertical" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="88dp"
-                android:layout_height="93dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="43dp"
-                android:layout_marginBottom="41dp"
-                android:clickable="true"
-                android:onClick="upload"
-                android:elevation="20dp"
-                app:srcCompat="@android:drawable/ic_media_play" />
+
         </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
