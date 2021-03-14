@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import android.view.View;
 
+import com.bumptech.glide.Glide;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -44,6 +46,9 @@ public class area_details extends AppCompatActivity {
             describe.setText(mbundle.getString("Description"));
             shopImage.setImageResource(mbundle.getInt("Image"));
             shopName.setText(mbundle.getString("Name"));
+//            Glide.with(this)
+//                    .load(mbundle.getString("Image"))
+//                    .into(shopImage);
         }
 
     }

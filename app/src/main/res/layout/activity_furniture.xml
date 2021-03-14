@@ -8,7 +8,7 @@
     android:clickable="true"
     android:orientation="vertical"
     android:padding="5dp"
-
+    android:background="@drawable/gradient_custom_color"
     tools:context=".Furniture">
     <androidx.cardview.widget.CardView
         android:layout_width="400dp"
@@ -60,7 +60,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="77dp"
             android:scrollbars="vertical" />
-
 
     </RelativeLayout>
 

@@ -251,7 +251,7 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@drawable/gradient_custom_color"
+                android:background="@drawable/gradient_custom_color2"
                 android:clickable="true">
 
 
@@ -347,7 +347,7 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@drawable/gradient_custom_color"
+                android:background="@drawable/gradient_custom_color2"
                 android:clickable="true">
 
 
@@ -381,7 +381,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="goLogInPage"
-            android:fontFamily="@font/nunito_regular"
+            android:fontFamily="@font/nunito_semibold"
             android:text="I have an account"
             android:textColor="@color/blue_1"
             android:textSize="25dp" />

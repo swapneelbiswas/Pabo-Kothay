@@ -9,9 +9,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.method.LinkMovementMethod;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,10 +34,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeShopkeeper extends AppCompatActivity {
 
-    EditText eText;
-    Button btn,btn1;
     SearchView vSearchViewMain;
     ListView vListViewMain;
     private DrawerLayout Dl;
@@ -64,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //geting user info
+        setContentView(R.layout.activity_home_shopkeeper);
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
         userID=fUser.getUid();
@@ -73,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference.child("Customers").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("ShopKeeper").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
@@ -89,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -150,10 +144,10 @@ public class MainActivity extends AppCompatActivity {
         vListViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               if(((TextView) view).getText().equals("book")){
+                if(((TextView) view).getText().equals("book")){
                     Intent intent= new Intent(view.getContext(),book_search.class);
                     startActivity(intent);
-               }
+                }
                 else if(((TextView) view).getText().equals("sport")){
                     Intent intent= new Intent(view.getContext(),Sports_Stuff_Search.class);
                     startActivity(intent);
@@ -193,29 +187,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    //    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 //        if(dToggle.onOptionsItemSelected(item))
 //            return true;
 //        return super.onOptionsItemSelected(item);
 //    }
     public void goArea(View view){
-    Intent intent= new Intent(this, book_search.class);
-    startActivity(intent);
+        Intent intent= new Intent(this, book_search.class);
+        startActivity(intent);
         //finish();
     }
     public void goSsearch(View view){
-    Intent intent= new Intent(this, Sports_Stuff_Search.class);
-    startActivity(intent);
+        Intent intent= new Intent(this, Sports_Stuff_Search.class);
+        startActivity(intent);
         //finish();
     }
     public void goFsearch(View view){
-    Intent intent= new Intent(this, Furniture.class);
-    startActivity(intent);
+        Intent intent= new Intent(this, Furniture.class);
+        startActivity(intent);
         //finish();
     }
     public void goHsearch(View view){
-    Intent intent= new Intent(this, households_search.class);
-    startActivity(intent);
+        Intent intent= new Intent(this, households_search.class);
+        startActivity(intent);
         //finish();
     }
 

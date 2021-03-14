@@ -328,7 +328,7 @@
                     android:id="@+id/lgbutton"
                     android:layout_width="120dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/gradient_custom_color"
+                    android:background="@drawable/gradient_custom_color2"
                     android:clickable="true"
                     android:gravity="center"
                     android:onClick="logoutAcc"

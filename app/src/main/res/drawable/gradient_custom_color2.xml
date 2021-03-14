@@ -6,7 +6,5 @@
         android:startColor="@color/halka_graan"
         android:endColor="@color/halka_violet"
         />
-
-
-
+    <corners android:radius="20dp"/>
 </shape>

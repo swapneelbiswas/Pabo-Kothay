@@ -10,15 +10,13 @@ public class User {
         this.email=email;
         this.password=password;
         this.number=number;
-
     }
-
     public User(String fullName,String email,String number,String password,String imageUrl){
         this.fullName=fullName;
         this.email=email;
         this.password=password;
         this.number=number;
-        this.imageUrl="https://i.imgur.com/tGbaZCY.jpg";
+        this.imageUrl=imageUrl;
     }
 
     public String getFullName() {

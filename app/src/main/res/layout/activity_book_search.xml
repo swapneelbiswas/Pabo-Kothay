@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="5dp"
         android:background="@drawable/gradient_custom_color"
-
         android:scrollbarAlwaysDrawVerticalTrack="true">
 <!--    android:background="@drawable/bgbgbg"-->
 
@@ -65,6 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="77dp"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
                 android:scrollbars="vertical" />
 
 

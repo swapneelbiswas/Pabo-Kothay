@@ -47,17 +47,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/textView9"
         android:layout_width="230dp"
         android:layout_height="69dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/button_bg"
-
+        android:background="@drawable/gradient_custom_color2"
         android:text="Click here"
         android:fontFamily="@font/nunito_semibold"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />

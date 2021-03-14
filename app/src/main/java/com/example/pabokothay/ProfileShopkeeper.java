@@ -7,18 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,18 +22,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import com.squareup.picasso.Picasso;
 
-import java.util.Date;
-//import com.google.firebase.Timestamp;
-
-public class profile extends AppCompatActivity {
+public class ProfileShopkeeper extends AppCompatActivity {
 
     private static final int GALLERY_CODE = 1;
     private FirebaseUser fUser;
@@ -54,8 +44,7 @@ public class profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
+        setContentView(R.layout.activity_profile_shopkeeper);
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
         userID=fUser.getUid();
@@ -82,7 +71,7 @@ public class profile extends AppCompatActivity {
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference.child("Customers").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("ShopKeeper").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
@@ -101,7 +90,7 @@ public class profile extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(profile.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -115,18 +104,18 @@ public class profile extends AppCompatActivity {
         if(isNameChanged()){
             String newname =vFullName.getEditableText().toString();
             vName.setText(newname);
-            databaseReference.child("Customers").child(userID).child("fullName").setValue(newname);
-            Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+            databaseReference.child("ShopKeeper").child(userID).child("fullName").setValue(newname);
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(profile.this, "Name is same", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ProfileShopkeeper.this, "Name is same", Toast.LENGTH_SHORT).show();
         }
         if(isNumberChanged() ){
-            databaseReference.child("Customers").child(userID).child("number").setValue(vNumber.getEditableText().toString());
-            Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+            databaseReference.child("ShopKeeper").child(userID).child("number").setValue(vNumber.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(profile.this, "Number is same", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ProfileShopkeeper.this, "Number is same", Toast.LENGTH_SHORT).show();
         }
         if ( imageUri != null) {
             final StorageReference filepath = storageReference
@@ -144,7 +133,7 @@ public class profile extends AppCompatActivity {
 
                                     String imageUrl = uri.toString();
                                     // create a Journal Object - model
-                                    databaseReference.child("Customers").child(userID).child("imageUrl").setValue(imageUrl);
+                                    databaseReference.child("ShopKeeper").child(userID).child("imageUrl").setValue(imageUrl);
 
                                 }
                             });
@@ -178,7 +167,7 @@ public class profile extends AppCompatActivity {
         }
     }
 
-//    private boolean isPassSame() {
+    //    private boolean isPassSame() {
 //        if(pass.equals(vPass.getText().toString().trim())){
 //            return true;
 //        }

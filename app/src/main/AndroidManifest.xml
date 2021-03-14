@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PaboKothay">
+        <activity android:name=".ProfileShopkeeper"></activity>
+        <activity android:name=".LoginShopkeeper" />
+        <activity android:name=".HomeShopkeeper" />
         <activity android:name=".make_order" />
         <activity android:name=".Furniture" />
         <activity android:name=".households_search" />
