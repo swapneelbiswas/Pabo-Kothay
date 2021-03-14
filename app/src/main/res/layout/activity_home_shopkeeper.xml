@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,17 +12,17 @@
     tools:context=".MainActivity"
     >
 
-<!--    <com.google.android.material.navigation.NavigationView-->
-<!--        android:id="@+id/nav_view"-->
-<!--        android:layout_width="180dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:background="#FEFDFF"-->
-<!--        android:scrollbarSize="40dp"-->
-<!--        app:headerLayout="@layout/header"-->
-<!--        app:itemTextColor="@color/purple_200"-->
-<!--        app:itemIconTint="@color/purple_200"-->
-<!--        app:menu="@menu/side_menu" />-->
+    <!--    <com.google.android.material.navigation.NavigationView-->
+    <!--        android:id="@+id/nav_view"-->
+    <!--        android:layout_width="180dp"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_gravity="start"-->
+    <!--        android:background="#FEFDFF"-->
+    <!--        android:scrollbarSize="40dp"-->
+    <!--        app:headerLayout="@layout/header"-->
+    <!--        app:itemTextColor="@color/purple_200"-->
+    <!--        app:itemIconTint="@color/purple_200"-->
+    <!--        app:menu="@menu/side_menu" />-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -70,13 +71,13 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.0"
         app:layout_constraintGuide_begin="20dp" />
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/guideline7"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintGuide_percent="0.25"-->
-<!--        app:layout_constraintGuide_begin="20dp" />-->
+    <!--    <androidx.constraintlayout.widget.Guideline-->
+    <!--        android:id="@+id/guideline7"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintGuide_percent="0.25"-->
+    <!--        app:layout_constraintGuide_begin="20dp" />-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"
@@ -84,13 +85,13 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"
         app:layout_constraintGuide_begin="20dp" />
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/guideline9"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintGuide_percent="0.75"-->
-<!--        app:layout_constraintGuide_begin="20dp" />-->
+    <!--    <androidx.constraintlayout.widget.Guideline-->
+    <!--        android:id="@+id/guideline9"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintGuide_percent="0.75"-->
+    <!--        app:layout_constraintGuide_begin="20dp" />-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
@@ -120,24 +121,24 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_marginBottom="20dp">
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="171dp"
-                    android:layout_height="112dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="44dp"
-                    android:layout_marginTop="17dp"
-                    android:background="@drawable/sideheader" />
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="171dp"
+                        android:layout_height="112dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="17dp"
+                        android:background="@drawable/sideheader" />
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="62dp"
-                    android:layout_height="62dp"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="goProfile"
-                    android:layout_gravity="center"
-                    android:src="@drawable/profile" />
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="goProfile"
+                        android:layout_gravity="center"
+                        android:src="@drawable/profile" />
                 </LinearLayout>
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -148,35 +149,35 @@
                     app:cardCornerRadius="20dp"
                     android:layout_margin="12dp"
                     app:cardBackgroundColor="@color/white">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-                <SearchView
-                    android:id="@+id/search_bar"
-                    android:layout_width="360dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/nunito_semibold"
-                    android:iconifiedByDefault="false"
-                    android:queryHint="@string/search_hint"
-                    android:searchIcon="@drawable/ic_search"
-                    android:textColorHint="@color/ash" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <SearchView
+                            android:id="@+id/search_bar"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/nunito_semibold"
+                            android:iconifiedByDefault="false"
+                            android:queryHint="@string/search_hint"
+                            android:searchIcon="@drawable/ic_search"
+                            android:textColorHint="@color/ash" />
 
-                    <ListView
-                        android:id="@+id/mainList"
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@color/white"
-                        android:fontFamily="@font/nunito_regular"
-                        android:visibility="gone"
-                        android:layout_marginLeft="7dp"
-                        android:textSize="100dp"/>
+                        <ListView
+                            android:id="@+id/mainList"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:fontFamily="@font/nunito_regular"
+                            android:visibility="gone"
+                            android:layout_marginLeft="7dp"
+                            android:textSize="100dp"/>
 
-                </LinearLayout>
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
 
@@ -237,29 +238,29 @@
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:id="@+id/householdlogo"
-                android:onClick="goHsearch"
-                android:layout_rowWeight="1"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-                    <ImageView
-                        android:src="@drawable/households"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:id="@+id/householdlogo"
+                    android:onClick="goHsearch"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+                        <ImageView
+                            android:src="@drawable/households"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"/>
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

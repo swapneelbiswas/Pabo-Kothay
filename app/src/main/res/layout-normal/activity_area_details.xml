@@ -7,27 +7,17 @@
     android:background="#FEFDFF"
     tools:context=".area_details">
 
-    <TextView
-        android:id="@+id/area_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
-        android:text="Nilkhet"
-        android:textColor="@color/black"
-        android:textSize="50dp"
-        app:layout_constraintStart_toEndOf="@+id/shopPicture"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/shop_name"
+        android:layout_width="364dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="Description"
         android:textColor="@color/black"
         android:textSize="30dp"
+        android:fontFamily="@font/nunito_semibold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shopPicture" />
 
@@ -39,9 +29,10 @@
         android:layout_marginTop="28dp"
         android:text="It is a very good place for books, where you can find all types of books"
         android:textColor="@color/black"
+        android:fontFamily="@font/nunito_regular"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/shop_name" />
 
     <TextView
         android:id="@+id/textView8"
@@ -50,6 +41,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="80dp"
         android:text="Google Map Link"
+        android:fontFamily="@font/nunito_regular"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +56,7 @@
         android:background="@drawable/button_bg"
 
         android:text="Click here"
-
+        android:fontFamily="@font/nunito_semibold"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,14 +64,13 @@
 
     <ImageView
         android:id="@+id/shopPicture"
-        android:layout_width="187dp"
-        android:layout_height="193dp"
+        android:layout_width="405dp"
+        android:layout_height="348dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:background="@drawable/sideheader"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

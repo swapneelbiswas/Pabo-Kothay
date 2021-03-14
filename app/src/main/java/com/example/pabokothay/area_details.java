@@ -22,7 +22,7 @@ import org.w3c.dom.Text;
 
 public class area_details extends AppCompatActivity {
 
-    TextView tex;
+    TextView tex,shopName;
     ImageView shopImage;
     TextView describe;
     @Override
@@ -36,11 +36,14 @@ public class area_details extends AppCompatActivity {
          tex.setMovementMethod(LinkMovementMethod.getInstance());
 
         shopImage =findViewById(R.id.shopPicture);
+        shopName= findViewById(R.id.shop_name);
         describe =findViewById(R.id.description);
         Bundle mbundle =getIntent().getExtras();
         if(mbundle!=null){
+
             describe.setText(mbundle.getString("Description"));
             shopImage.setImageResource(mbundle.getInt("Image"));
+            shopName.setText(mbundle.getString("Name"));
         }
 
     }

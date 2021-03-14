@@ -44,6 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
             public void onClick(View v) {
                 Intent intent =new Intent(mContext,area_details.class);
                 intent.putExtra("Image",myShopList.get(holder.getAdapterPosition()).getImage());
+                intent.putExtra("Name",myShopList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myShopList.get(holder.getAdapterPosition()).getShopdescribe());
                 mContext.startActivity(intent);
             }
