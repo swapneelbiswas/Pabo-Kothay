@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent= new Intent(this, Furniture.class);
     startActivity(intent);
         Animatoo.animateSlideLeft(MainActivity.this);
-        //finish();
+
     }
     public void goHsearch(View view){
     Intent intent= new Intent(this, households_search.class);
@@ -232,12 +232,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= new Intent(this, profile.class);
         startActivity(intent);
         Animatoo.animateSlideLeft(MainActivity.this);
+        finish();
         //finish();
     }
     @Override
     public void onBackPressed(){
         super.onBackPressed();
         //fire the slide left animation
+        finish();
         Animatoo.animateSlideRight(MainActivity.this);
     }
 }

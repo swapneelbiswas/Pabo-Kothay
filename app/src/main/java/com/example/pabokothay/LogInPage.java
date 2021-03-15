@@ -108,6 +108,7 @@ public class LogInPage extends AppCompatActivity implements View.OnClickListener
     public void onBackPressed(){
         super.onBackPressed();
         //fire the slide left animation
+        finish();
         Animatoo.animateSlideRight(LogInPage.this);
     }
 
