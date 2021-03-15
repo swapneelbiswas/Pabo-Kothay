@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import android.view.View;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
@@ -57,6 +58,7 @@ public class area_details extends AppCompatActivity {
     {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(s));
         startActivity(browserIntent);
+        Animatoo.animateSlideLeft(area_details.this);
     }
 //    public void gotolink(View view){
 //        gotoUrl("https://www.google.com/");
@@ -66,4 +68,10 @@ public class area_details extends AppCompatActivity {
 //        Uri uri= Uri.parse(s);
 //        startActivity(new Intent(Intent.ACTION_VIEW,uri));
 //    }
+    @Override
+    public void onBackPressed(){
+    super.onBackPressed();
+    //fire the slide left animation
+    Animatoo.animateSlideRight(area_details.this);
+}
 }

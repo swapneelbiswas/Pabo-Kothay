@@ -24,6 +24,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -153,18 +154,22 @@ public class MainActivity extends AppCompatActivity {
                if(((TextView) view).getText().equals("book")){
                     Intent intent= new Intent(view.getContext(),book_search.class);
                     startActivity(intent);
+                   Animatoo.animateSlideLeft(MainActivity.this);
                }
                 else if(((TextView) view).getText().equals("sport")){
                     Intent intent= new Intent(view.getContext(),Sports_Stuff_Search.class);
                     startActivity(intent);
+                   Animatoo.animateSlideLeft(MainActivity.this);
                 }
                 else if(((TextView) view).getText().equals("furniture")){
                     Intent intent= new Intent(view.getContext(),Furniture.class);
                     startActivity(intent);
+                   Animatoo.animateSlideLeft(MainActivity.this);
                 }
                 else if(((TextView) view).getText().equals("household")){
                     Intent intent= new Intent(view.getContext(),households_search.class);
                     startActivity(intent);
+                   Animatoo.animateSlideLeft(MainActivity.this);
                 }
                 Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
             }
@@ -201,27 +206,38 @@ public class MainActivity extends AppCompatActivity {
     public void goArea(View view){
     Intent intent= new Intent(this, book_search.class);
     startActivity(intent);
+        Animatoo.animateSlideLeft(MainActivity.this);
         //finish();
     }
     public void goSsearch(View view){
     Intent intent= new Intent(this, Sports_Stuff_Search.class);
     startActivity(intent);
+        Animatoo.animateSlideLeft(MainActivity.this);
         //finish();
     }
     public void goFsearch(View view){
     Intent intent= new Intent(this, Furniture.class);
     startActivity(intent);
+        Animatoo.animateSlideLeft(MainActivity.this);
         //finish();
     }
     public void goHsearch(View view){
     Intent intent= new Intent(this, households_search.class);
     startActivity(intent);
+        Animatoo.animateSlideLeft(MainActivity.this);
         //finish();
     }
 
     public void goProfile(View view){
         Intent intent= new Intent(this, profile.class);
         startActivity(intent);
+        Animatoo.animateSlideLeft(MainActivity.this);
         //finish();
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(MainActivity.this);
     }
 }

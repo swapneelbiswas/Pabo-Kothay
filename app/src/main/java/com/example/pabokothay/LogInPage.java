@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -49,6 +50,7 @@ public class LogInPage extends AppCompatActivity implements View.OnClickListener
 
         Intent intent= new Intent(this,popUp.class);
         startActivity(intent);
+        Animatoo.animateSlideLeft(LogInPage.this);
     }
 
     public void onClick(View v) {
@@ -89,6 +91,7 @@ public class LogInPage extends AppCompatActivity implements View.OnClickListener
                     if(user.isEmailVerified()){
                         //Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        Animatoo.animateSlideLeft(LogInPage.this);
                         finish();
                     }
                     else {
@@ -100,6 +103,12 @@ public class LogInPage extends AppCompatActivity implements View.OnClickListener
                 }
             }
         });
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(LogInPage.this);
     }
 
 

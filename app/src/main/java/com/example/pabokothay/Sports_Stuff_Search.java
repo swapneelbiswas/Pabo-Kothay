@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,14 +71,17 @@ public class Sports_Stuff_Search extends AppCompatActivity {
                 if(((TextView) view).getText().equals("Cricket")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
                 }
                 else if(((TextView) view).getText().equals("Football")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
                 }
                 else if(((TextView) view).getText().equals("Basketball")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
                 }
             }
         });
@@ -108,4 +113,10 @@ public class Sports_Stuff_Search extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(Sports_Stuff_Search.this);
+    }
 }

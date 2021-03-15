@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,18 +72,22 @@ public class households_search extends AppCompatActivity {
                 if(((TextView) view).getText().equals("Fry pan")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(households_search.this);
                 }
                 else if(((TextView) view).getText().equals("kettle")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(households_search.this);
                 }
                 else if(((TextView) view).getText().equals("Pan")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(households_search.this);
                 }
                 else if(((TextView) view).getText().equals("Spoon")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(households_search.this);
                 }
             }
         });
@@ -109,5 +115,11 @@ public class households_search extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(households_search.this,shopDataList);
         myRv.setAdapter(myAdapter);
 
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(households_search.this);
     }
 }

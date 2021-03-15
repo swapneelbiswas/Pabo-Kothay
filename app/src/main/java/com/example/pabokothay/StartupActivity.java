@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -52,15 +53,23 @@ public class StartupActivity extends AppCompatActivity {
                 if(mFirebaseUser!=null){
                     Intent intent = new Intent(StartupActivity.this, MainActivity.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(StartupActivity.this);
                     finish();
                 }else {
                     Intent intent = new Intent(StartupActivity.this, LogInPage.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(StartupActivity.this);
                     finish();
                 }
             }
         }, splashTime);
 
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(StartupActivity.this);
     }
 
 }

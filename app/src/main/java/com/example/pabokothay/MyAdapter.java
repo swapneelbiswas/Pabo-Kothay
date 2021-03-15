@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -53,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
                 intent.putExtra("Name",myShopList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myShopList.get(holder.getAdapterPosition()).getShopdescribe());
                 mContext.startActivity(intent);
+                Animatoo.animateSlideLeft(mContext);
             }
         });
     }

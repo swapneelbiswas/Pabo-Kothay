@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -47,6 +48,8 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
     public void goLogInPage(View view){
         Intent intent= new Intent(this,LogInPage.class);
         startActivity(intent);
+        Animatoo.animateSlideRight(newAccount.this);
+        finish();
     }
     @Override
     public void onClick(View v) {
@@ -122,6 +125,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
                                         fuser.sendEmailVerification();
                                         Toast.makeText(newAccount.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                        Animatoo.animateSlideLeft(newAccount.this);
                                         finish();
                                     }else{
                                         Toast.makeText(newAccount.this, "Try again", Toast.LENGTH_SHORT).show();
@@ -134,5 +138,11 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
                         }
                     }
                 });
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(newAccount.this);
     }
 }

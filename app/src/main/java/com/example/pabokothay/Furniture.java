@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,14 +70,17 @@ public class Furniture extends AppCompatActivity {
                 if(((TextView) view).getText().equals("Chair")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(Furniture.this);
                 }
                 else if(((TextView) view).getText().equals("Table")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(Furniture.this);
                 }
                 else if(((TextView) view).getText().equals("Sofa")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(Furniture.this);
                 }
             }
         });
@@ -104,5 +109,11 @@ public class Furniture extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(Furniture.this,shopDataList);
         myRv.setAdapter(myAdapter);
 
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(Furniture.this);
     }
 }

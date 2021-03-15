@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -90,8 +91,6 @@ public class book_search extends AppCompatActivity {
 //            }
 //        });
 
-
-
         //search bar
 
         vSearchView= (SearchView)findViewById(R.id.search_bar);
@@ -127,18 +126,22 @@ public class book_search extends AppCompatActivity {
                 if(((TextView) view).getText().equals("momotaj book store")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(book_search.this);
                 }
                 else if(((TextView) view).getText().equals("Rjsahi book store")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(book_search.this);
                 }
                 else if(((TextView) view).getText().equals("Naraynganj  book store")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(book_search.this);
                 }
                 else if(((TextView) view).getText().equals("modumoti book store")){
                     Intent intent= new Intent(view.getContext(),area_details.class);
                     startActivity(intent);
+                    Animatoo.animateSlideLeft(book_search.this);
                 }
             }
         });
@@ -167,4 +170,10 @@ public class book_search extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(book_search.this);
+    }
 }

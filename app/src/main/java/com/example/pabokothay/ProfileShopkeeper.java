@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,6 +64,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                 Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent, GALLERY_CODE);
+                Animatoo.animateSlideLeft(ProfileShopkeeper.this);
             }
         });
         // String imageUri = "https://firebasestorage.googleapis.com/v0/b/pabo-kothay-f16c0.appspot.com/o/journal_images%2Fmy_image_22?alt=media&token=d0755304-8b50-4313-b1ee-e16ddf2ba60e";
@@ -98,6 +100,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
     public void logoutAcc(View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(this,LogInPage.class));
+        Animatoo.animateInAndOut(ProfileShopkeeper.this);
         finish();
     }
     public void updateAcc(View view){
@@ -181,8 +184,13 @@ public class ProfileShopkeeper extends AppCompatActivity {
             if (data != null) {
                 imageUri = data.getData(); // we have the actual path to the image
                 profile_image.setImageURI(imageUri);//show image
-
             }
         }
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(ProfileShopkeeper.this);
     }
 }
