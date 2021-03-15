@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
         userID=fUser.getUid();
+        vName = findViewById(R.id.name);
         profile_image2=findViewById(R.id.profile_image2);
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     pass= userProfile.password;
                     num=userProfile.number;
                     imageUrl=userProfile.imageUrl;
+                    vName.setText(fName);
 
                     Picasso.get().load(imageUrl).placeholder(R.drawable.dp_1).into(profile_image2);
                 }
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         mainList=new ArrayList<String>();
         mainList.add("book");
         mainList.add("boss");
-        mainList.add("bonk nafi");
+        mainList.add("nafi");
         mainList.add("sport");
         mainList.add("furniture");
         mainList.add("household");

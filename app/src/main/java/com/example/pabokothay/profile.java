@@ -203,8 +203,10 @@ public class profile extends AppCompatActivity {
     public void onBackPressed(){
         super.onBackPressed();
         //fire the slide left animation
+        startActivity(new Intent(this,MainActivity.class));
         finish();
         Animatoo.animateSlideRight(profile.this);
+
 
     }
 }
