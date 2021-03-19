@@ -1,5 +1,6 @@
 package com.example.pabokothay;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -16,21 +17,26 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Furniture extends AppCompatActivity {
-
-
     SearchView vSearchView;
     ListView vListView;
     ConstraintLayout constraintLayout;
     LinearLayout linearLayout;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
-    List<ShopData> shopDataList;
-    ShopData mShopData;
+    private DatabaseReference databaseReference;
+    private ValueEventListener eventListener;
+    List<FurnitureData> furnitureDataList;
+    Furniture mFurniture;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +44,13 @@ public class Furniture extends AppCompatActivity {
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
 
+
+
         list=new ArrayList<String>();
         list.add("Chair");
         list.add("Table");
         list.add("Sofa");
 
-
-        System.out.println(list.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
 
         vListView.setAdapter(adapter);
@@ -96,18 +102,27 @@ public class Furniture extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(Furniture.this,1);
         myRv.setLayoutManager(gridLayoutManager);
 
-        shopDataList =new ArrayList<>();
-        mShopData = new ShopData("khub upokar korte parbo","momotaj book store","30000",R.drawable.books);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("khub kheladhula hobe","Rjsahi book store","30000",R.drawable.sportsstuff);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("khub basha banano hobe","Naraynganj  book store","30000",R.drawable.households);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("onk porte hobe","Rk book store","30000",R.drawable.books);
-        shopDataList.add(mShopData);
+        furnitureDataList =new ArrayList<>();
 
-        MyAdapter myAdapter = new MyAdapter(Furniture.this,shopDataList);
+        FAdapter myAdapter = new FAdapter(Furniture.this,furnitureDataList);
         myRv.setAdapter(myAdapter);
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Furniture");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                furnitureDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    FurnitureData FData =itemSnapshot.getValue(FurnitureData.class);
+                    furnitureDataList.add(FData);
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
     @Override

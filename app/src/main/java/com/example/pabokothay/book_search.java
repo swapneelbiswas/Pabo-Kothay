@@ -61,7 +61,7 @@ public class book_search extends AppCompatActivity {
         myRv.setAdapter(myAdapter);
 
         //firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Data");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Books");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

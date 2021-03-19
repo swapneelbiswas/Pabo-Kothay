@@ -1,5 +1,6 @@
 package com.example.pabokothay;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -16,6 +17,11 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +37,10 @@ public class households_search extends AppCompatActivity {
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
 
-    List<ShopData> shopDataList;
+    List<HouseholdsData> householdsDataList;
     ShopData mShopData;
+    private DatabaseReference databaseReference;
+    private ValueEventListener eventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,18 +110,38 @@ public class households_search extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(households_search.this,1);
         myRv.setLayoutManager(gridLayoutManager);
 
-        shopDataList =new ArrayList<>();
-        mShopData = new ShopData("khub upokar korte parbo","momotaj book store","30000",R.drawable.books);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("khub kheladhula hobe","Rjsahi book store","30000",R.drawable.sportsstuff);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("khub basha banano hobe","Naraynganj  book store","30000",R.drawable.households);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("onk porte hobe","Rk book store","30000",R.drawable.books);
-        shopDataList.add(mShopData);
+        householdsDataList =new ArrayList<>();
+//        mShopData = new ShopData("khub upokar korte parbo","momotaj book store","30000",R.drawable.books);
+//        shopDataList.add(mShopData);
+//        mShopData = new ShopData("khub kheladhula hobe","Rjsahi book store","30000",R.drawable.sportsstuff);
+//        shopDataList.add(mShopData);
+//        mShopData = new ShopData("khub basha banano hobe","Naraynganj  book store","30000",R.drawable.households);
+//        shopDataList.add(mShopData);
+//        mShopData = new ShopData("onk porte hobe","Rk book store","30000",R.drawable.books);
+//        shopDataList.add(mShopData);
 
-        MyAdapter myAdapter = new MyAdapter(households_search.this,shopDataList);
+        HouseholdAdapter myAdapter = new HouseholdAdapter(households_search.this,householdsDataList);
         myRv.setAdapter(myAdapter);
+
+
+//        firebase works
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Household");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                householdsDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    HouseholdsData shopData =itemSnapshot.getValue(HouseholdsData.class);
+                    householdsDataList.add(shopData);
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
     @Override

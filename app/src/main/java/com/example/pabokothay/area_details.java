@@ -45,11 +45,11 @@ public class area_details extends AppCompatActivity {
         if(mbundle!=null){
 
             describe.setText(mbundle.getString("Description"));
-            shopImage.setImageResource(mbundle.getInt("Image"));
+//            shopImage.setImageResource(mbundle.getInt("Image"));
             shopName.setText(mbundle.getString("Name"));
-//            Glide.with(this)
-//                    .load(mbundle.getString("Image"))
-//                    .into(shopImage);
+            Glide.with(this)
+                    .load(mbundle.getString("Image"))
+                    .into(shopImage);
         }
 
     }
