@@ -9,12 +9,12 @@
     <string name="clear_all_label">"Clear "</string>
 
     <string-array name="shopping_list">
-        <item>a</item>
-        <item>b</item>
-        <item>c</item>
-        <item>d</item>
-        <item>e</item>
-        <item>f</item>
+        <item>Books</item>
+        <item>Furniture</item>
+        <item>Sports</item>
+        <item>Household</item>
+        <item>Mobile and Gadgets</item>
+        <item>Dress</item>
     </string-array>
 
 </resources>

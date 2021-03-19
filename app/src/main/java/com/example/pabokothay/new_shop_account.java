@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class new_shop_account extends AppCompatActivity implements View.OnClickListener {
@@ -40,7 +41,10 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
     String currentTime;
     String[] listItems;
     boolean[] checkedItems;
+    String f;
+    int c=0;
     ArrayList<Integer> vUserItems = new ArrayList<>();
+    public String selectedItems[] = new String[vUserItems.size()] ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +94,12 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                         String item = "";
                         for (int i = 0; i < vUserItems.size(); i++) {
                             item = item + listItems[vUserItems.get(i)];
+
+                            f = item;
                             if (i != vUserItems.size() - 1) {
                                 item = item + ",";
                             }
+
                         }
 
                         vViewItem.setText(item);
@@ -122,6 +129,15 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
 
                 AlertDialog mDialog = mBuilder.create();
                 mDialog.show();
+
+               // c = fuck.length();
+//                values = fuck.split(",");
+
+//                for(int i=0; i< checkedItems.length;i++)
+//                {
+//                    selectedItems[i] = String.valueOf(vUserItems.get(i));
+//                    System.out.println(selectedItems[i]);
+//                }
             }
         });
     }
@@ -199,8 +215,9 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                             Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description);
                             ShopData shopData = new ShopData(description, shopName, price);
                             //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
-
-                            FirebaseDatabase.getInstance().getReference("Users").child("Sports")
+                            String[] values = f.split(",");
+                            for(int i=0; i<values.length;i++){
+                            FirebaseDatabase.getInstance().getReference("Users").child(values[i])
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(shopData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -215,7 +232,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                                         Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
                                     }
                                 }
-                            });
+                            });};
                             FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(shopkeeper).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -235,7 +252,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                                     }
                                 }
                             });
-                        } else {
+                        }  else {
                             Toast.makeText(new_shop_account.this, "Give proper info", Toast.LENGTH_SHORT).show();
 
                         }
