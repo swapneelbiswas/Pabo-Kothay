@@ -51,48 +51,35 @@ public class book_search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_search);
 
-
-
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(book_search.this,1);
         myRv.setLayoutManager(gridLayoutManager);
 
         shopDataList =new ArrayList<>();
-        mShopData = new ShopData("khub upokar korte parbo","momotaj book store","30000",R.drawable.books);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("khub kheladhula hobe","Rjsahi book store","30000",R.drawable.sportsstuff);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("khub basha banano hobe","Naraynganj  book store","30000",R.drawable.households);
-        shopDataList.add(mShopData);
-        mShopData = new ShopData("onk porte hobe","Rk book store","30000",R.drawable.books);
-        shopDataList.add(mShopData);
-
         MyAdapter myAdapter = new MyAdapter(book_search.this,shopDataList);
         myRv.setAdapter(myAdapter);
 
-
         //firebase works
-//        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper");
-//        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                shopDataList.clear();
-//                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
-//                    ShopData shopData =itemSnapshot.getValue(ShopData.class);
-//                    shopDataList.add(shopData);
-//                }
-//                myAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Data");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                shopDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    ShopData shopData =itemSnapshot.getValue(ShopData.class);
+                    shopDataList.add(shopData);
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         //search bar
-
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
 

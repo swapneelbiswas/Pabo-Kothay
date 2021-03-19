@@ -191,9 +191,25 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Shopkeeper customer = new Shopkeeper(fullname, email, password, number, shopName, description, price);
+                            Shopkeeper customer = new Shopkeeper(fullname, email, password, number, shopName, description);
                             ShopData shopData = new ShopData(description, shopName, price);
                             //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
+
+                            FirebaseDatabase.getInstance().getReference("Users").child("Data")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(shopData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+//                                        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
+                                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
+//                                        fuser.sendEmailVerification();
+                                        Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                             FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {

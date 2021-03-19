@@ -9,8 +9,7 @@
     android:clickable="true"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
-    android:background="@drawable/gradient_custom_color"
-    >
+    android:background="@drawable/gradient_custom_color">
 
     <!--    <com.google.android.material.navigation.NavigationView-->
     <!--        android:id="@+id/nav_view"-->

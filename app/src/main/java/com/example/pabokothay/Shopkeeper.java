@@ -5,13 +5,12 @@ public class Shopkeeper {
     public Shopkeeper(){
     }
 
-    public Shopkeeper(String fullName,String email,String password,String number,String shopName,String description,String price){
+    public Shopkeeper(String fullName,String email,String password,String number,String shopName,String description){
         this.fullName=fullName;
         this.email=email;
         this.password=password;
         this.number=number;
         this.shopName=shopName;
-        this.price=price;
         this.description=description;
     }
     public Shopkeeper(String fullName,String email){

@@ -6,6 +6,10 @@ public class ShopData {
     private String price;
     private int  image;
 
+
+    public ShopData() {
+
+    }
     public ShopData(String shopdescribe, String shopName, String price, int image) {
         this.Shopdescribe = shopdescribe;
         ShopName = shopName;
