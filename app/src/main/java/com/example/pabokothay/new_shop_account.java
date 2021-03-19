@@ -25,7 +25,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class new_shop_account extends AppCompatActivity implements View.OnClickListener {
 
@@ -35,6 +37,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
     LinearLayout vMakeOrder;
     TextView vViewItem;
+    String currentTime;
     String[] listItems;
     boolean[] checkedItems;
     ArrayList<Integer> vUserItems = new ArrayList<>();
@@ -44,6 +47,8 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_shop_account);
         //getSupportActionBar().hide();
+        currentTime= DateFormat.getDateTimeInstance()
+                .format(Calendar.getInstance().getTime());
         mAuth = FirebaseAuth.getInstance();
         vfullname = findViewById(R.id.fullName);
         vMail = findViewById(R.id.login_mail);
@@ -191,17 +196,18 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Shopkeeper customer = new Shopkeeper(fullname, email, password, number, shopName, description);
+                            Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description);
                             ShopData shopData = new ShopData(description, shopName, price);
                             //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
 
-                            FirebaseDatabase.getInstance().getReference("Users").child("Data")
+                            FirebaseDatabase.getInstance().getReference("Users").child("Sports")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(shopData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-//                                        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
+
+                                        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
                                         //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
 //                                        fuser.sendEmailVerification();
                                         Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
@@ -212,13 +218,13 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                             });
                             FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .setValue(shopkeeper).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
 
                                         FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
-                                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
                                         fuser.sendEmailVerification();
                                         Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
