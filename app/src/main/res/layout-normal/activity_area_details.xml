@@ -68,6 +68,7 @@
             android:gravity="center"
             android:background="@drawable/rounded_btn"
             android:text="Click here"
+            android:onClick="browser1"
             android:fontFamily="@font/nunito_semibold"
             android:textColor="@color/black"
             android:textSize="20dp"
