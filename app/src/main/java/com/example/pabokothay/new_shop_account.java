@@ -162,11 +162,11 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
     public void registerUser() {
         String email = vMail.getText().toString().trim();
         String password = vPassword.getText().toString().trim();
-        String number = "";
+        String number = "01********";
         String password2 = vPassword2.getText().toString().trim();
         String shopName = vShopName.getText().toString().trim();
-        String fullname = "";
-        String description ="";
+        String fullname = "Enter Name";
+        String description ="Enter description";
         String price ="200-3000";
 
         if (TextUtils.isEmpty(email)) {

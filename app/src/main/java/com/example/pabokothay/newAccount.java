@@ -63,7 +63,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
     public void registerUser(){
         String email = vMail.getText().toString().trim();
         String password = vPassword.getText().toString().trim();
-        String number ="";
+        String number ="019*******";
         String password2 = vPassword2.getText().toString().trim();
         String fullname = vfullname.getText().toString().trim();
 
