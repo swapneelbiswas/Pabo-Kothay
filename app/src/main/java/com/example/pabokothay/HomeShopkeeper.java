@@ -223,7 +223,7 @@ public class HomeShopkeeper extends AppCompatActivity {
     }
 
     public void goProfile(View view){
-        Intent intent= new Intent(this, profile.class);
+        Intent intent= new Intent(this, ProfileShopkeeper.class);
         startActivity(intent);
         Animatoo.animateSlideLeft(HomeShopkeeper.this);
         //finish();
