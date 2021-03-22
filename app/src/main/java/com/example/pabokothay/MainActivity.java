@@ -153,25 +153,21 @@ public class MainActivity extends AppCompatActivity {
         vListViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               if(((TextView) view).getText().equals("book")){
-                    Intent intent= new Intent(view.getContext(),book_search.class);
-                    startActivity(intent);
-                   Animatoo.animateSlideLeft(MainActivity.this);
-               }
-                else if(((TextView) view).getText().equals("sport")){
-                    Intent intent= new Intent(view.getContext(),Sports_Stuff_Search.class);
-                    startActivity(intent);
-                   Animatoo.animateSlideLeft(MainActivity.this);
+                if(((TextView) view).getText().equals("Books")){
+                    startActivity(new Intent(getApplicationContext(),book_search.class));
+                    Animatoo.animateSlideLeft(MainActivity.this);
                 }
-                else if(((TextView) view).getText().equals("furniture")){
-                    Intent intent= new Intent(view.getContext(),Furniture.class);
-                    startActivity(intent);
-                   Animatoo.animateSlideLeft(MainActivity.this);
+                else if(((TextView) view).getText().equals("Sports")){
+                    startActivity(new Intent(getApplicationContext(),Sports_Stuff_Search.class));
+                    Animatoo.animateSlideLeft(MainActivity.this);
                 }
-                else if(((TextView) view).getText().equals("household")){
-                    Intent intent= new Intent(view.getContext(),households_search.class);
-                    startActivity(intent);
-                   Animatoo.animateSlideLeft(MainActivity.this);
+                else if(((TextView) view).getText().equals("Furniture")){
+                    startActivity(new Intent(getApplicationContext(),Furniture.class));
+                    Animatoo.animateSlideLeft(MainActivity.this);
+                }
+                else if(((TextView) view).getText().equals("Household")){
+                    startActivity(new Intent(getApplicationContext(),households_search.class));
+                    Animatoo.animateSlideLeft(MainActivity.this);
                 }
 //                Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
             }
