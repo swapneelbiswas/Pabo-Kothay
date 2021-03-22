@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogInPage"
@@ -97,6 +97,8 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/finding_people" />
 
+
+
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,8 +118,9 @@
                     android:id="@+id/login_mail"
                     android:layout_width="360dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:ems="10"
+                    android:fontFamily="@font/nunito_regular"
                     android:hint="Enter Email"
                     android:textColor="@color/ash"
                     android:textColorHint="@color/ash"
@@ -144,11 +147,14 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">
+
+
                 <EditText
                     android:id="@+id/login_pass"
                     android:layout_width="360dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/nunito_regular"
                     android:ems="10"
                     android:hint="Enter Password"
                     android:inputType="textPassword"
@@ -160,39 +166,62 @@
         </androidx.cardview.widget.CardView>
 
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="172dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button_bg"
-            android:text="login"
-            android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:id="@+id/newACCS_card11"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="27dp"
+            android:layout_margin="12dp">
+            <LinearLayout
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/gradient_custom_color2"
+                android:clickable="true">
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="Log in"
+                    android:textColor="@color/ash"
+                    android:fontFamily="@font/nunito_semibold"
+                    android:textSize="25dp"
+                    android:textStyle="bold"></TextView>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="40dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:text="Or"
             android:layout_marginTop="10dp"
+            android:text="Or login as shopkeeper"
+            android:onClick="logInShop"
             android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/go_newAccount"
-            android:layout_width="163dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:onClick="ShowPopup"
             android:text="Register Here"
+            android:fontFamily="@font/nunito_semibold"
             android:textColor="@color/blue_1"
-            android:textSize="25dp" />
+            android:textSize="22dp" />
 
     </LinearLayout>
 

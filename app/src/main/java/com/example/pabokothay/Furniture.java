@@ -41,20 +41,16 @@ public class Furniture extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_furniture);
+
+
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
-
-
-
         list=new ArrayList<String>();
-        list.add("Chair");
-        list.add("Table");
-        list.add("Sofa");
-
+//        list.add("Chair");
+//        list.add("Table");
+//        list.add("Sofa");
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-
         vListView.setAdapter(adapter);
-
         vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -114,10 +110,10 @@ public class Furniture extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     FurnitureData FData =itemSnapshot.getValue(FurnitureData.class);
                     furnitureDataList.add(FData);
+                    list.add(FData.getShopName());
                 }
                 myAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

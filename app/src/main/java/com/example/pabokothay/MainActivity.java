@@ -109,12 +109,12 @@ public class MainActivity extends AppCompatActivity {
         vListViewMain=(ListView)findViewById(R.id.mainList);
 
         mainList=new ArrayList<String>();
-        mainList.add("book");
-        mainList.add("boss");
-        mainList.add("nafi");
-        mainList.add("sport");
-        mainList.add("furniture");
-        mainList.add("household");
+        mainList.add("Books");
+        mainList.add("Furniture");
+        mainList.add("Sports");
+        mainList.add("Household");
+        mainList.add("Mobile and Gadgets");
+        mainList.add("Dress");
 
 //        System.out.println(mainList.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mainList);
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                    Animatoo.animateSlideLeft(MainActivity.this);
                 }
-                Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
             }
         });
         constraintLayout = findViewById(R.id.constraint_layout);

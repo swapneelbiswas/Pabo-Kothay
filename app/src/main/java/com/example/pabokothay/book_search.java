@@ -56,9 +56,19 @@ public class book_search extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(book_search.this,1);
         myRv.setLayoutManager(gridLayoutManager);
 
+        //calling variables
+        vSearchView= (SearchView)findViewById(R.id.search_bar);
+        vListView=(ListView)findViewById(R.id.mainList);
+
+        //recycler
         shopDataList =new ArrayList<>();
         MyAdapter myAdapter = new MyAdapter(book_search.this,shopDataList);
         myRv.setAdapter(myAdapter);
+
+        //search bar
+        list=new ArrayList<String>();
+        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
+        vListView.setAdapter(adapter);
 
         //firebase works
         databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Books");
@@ -69,31 +79,29 @@ public class book_search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     ShopData shopData =itemSnapshot.getValue(ShopData.class);
                     shopDataList.add(shopData);
+                    list.add(shopData.getShopName());
                 }
                 myAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
 
-        //search bar
-        vSearchView= (SearchView)findViewById(R.id.search_bar);
-        vListView=(ListView)findViewById(R.id.mainList);
 
-        list=new ArrayList<String>();
-        list.add("momotaj book store");
-        list.add("Rjsahi book store");
-        list.add("Naraynganj  book store");
-        list.add("modumoti book store");
-        list.add("Rk book store");
-        list.add("BK dash book store");
-        list.add("sugondha book store");
 
-        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-        vListView.setAdapter(adapter);
+//        list=new ArrayList<String>();
+//        list.add("momotaj book store");
+//        list.add("Rjsahi book store");
+//        list.add("Naraynganj  book store");
+//        list.add("modumoti book store");
+//        list.add("Rk book store");
+//        list.add("BK dash book store");
+//        list.add("sugondha book store");
+
+//        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
+//        vListView.setAdapter(adapter);
         vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

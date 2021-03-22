@@ -5,23 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import android.view.View;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-
-
-import org.w3c.dom.Text;
 
 public class area_details extends AppCompatActivity {
 
@@ -34,9 +24,9 @@ public class area_details extends AppCompatActivity {
         setContentView(R.layout.activity_area_details);
         //getSupportActionBar().hide();
 
-         tex = findViewById(R.id.textView9);
-         tex.setClickable(true);
-         tex.setMovementMethod(LinkMovementMethod.getInstance());
+        tex = findViewById(R.id.textView9);
+        tex.setClickable(true);
+        tex.setMovementMethod(LinkMovementMethod.getInstance());
 
         shopImage =findViewById(R.id.shopPicture);
         shopName= findViewById(R.id.shop_name);
@@ -51,16 +41,15 @@ public class area_details extends AppCompatActivity {
                     .load(mbundle.getString("Image"))
                     .into(shopImage);
         }
-
     }
     String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
     public void browser1(View view)
     {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(s));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
         startActivity(browserIntent);
         Animatoo.animateSlideLeft(area_details.this);
     }
-//    public void gotolink(View view){
+    //    public void gotolink(View view){
 //        gotoUrl("https://www.google.com/");
 //
 //    }
@@ -70,8 +59,8 @@ public class area_details extends AppCompatActivity {
 //    }
     @Override
     public void onBackPressed(){
-    super.onBackPressed();
-    //fire the slide left animation
-    Animatoo.animateSlideRight(area_details.this);
-}
+        super.onBackPressed();
+        //fire the slide left animation
+        Animatoo.animateSlideRight(area_details.this);
+    }
 }

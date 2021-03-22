@@ -48,15 +48,13 @@ public class households_search extends AppCompatActivity {
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
         list=new ArrayList<String>();
-        list.add("Fry pan");
-        list.add("kettle");
-        list.add("Pan");
-        list.add("Spoon");
+//        list.add("Fry pan");
+//        list.add("kettle");
+//        list.add("Pan");
+//        list.add("Spoon");
+//        System.out.println(list.get(0));
 
-
-        System.out.println(list.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-
         vListView.setAdapter(adapter);
 
         vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -133,6 +131,7 @@ public class households_search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     HouseholdsData shopData =itemSnapshot.getValue(HouseholdsData.class);
                     householdsDataList.add(shopData);
+                    list.add(shopData.getShopName());
                 }
                 myAdapter.notifyDataSetChanged();
             }

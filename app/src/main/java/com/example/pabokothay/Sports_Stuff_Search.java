@@ -41,26 +41,21 @@ public class Sports_Stuff_Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports__stuff__search);
+
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
-
         list=new ArrayList<String>();
-        list.add("Cricket");
-        list.add("Football");
-        list.add("Basketball");
-
-
-        System.out.println(list.get(0));
+//        list.add("Cricket");
+//        list.add("Football");
+//        list.add("Basketball");
+//        System.out.println(list.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-
         vListView.setAdapter(adapter);
-
         vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 vListView.setVisibility(View.VISIBLE);
@@ -127,6 +122,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     SportsData shopData =itemSnapshot.getValue(SportsData.class);
                     sportsDataList.add(shopData);
+                    list.add(shopData.getShopName());
                 }
                 myAdapter.notifyDataSetChanged();
             }
@@ -136,8 +132,6 @@ public class Sports_Stuff_Search extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     @Override
