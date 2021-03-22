@@ -139,7 +139,7 @@ public class LoginShopkeeper extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.child(parentDb).child(UserType).child(userID).exists()){
-                    User userProfile = snapshot.child(parentDb).child(UserType).child(userID).getValue(User.class);
+                    Shopkeeper userProfile = snapshot.child(parentDb).child(UserType).child(userID).getValue(Shopkeeper.class);
                     if(userProfile.getEmail().equals(email) && userProfile.getPassword().equals(password)){
 
                         FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();

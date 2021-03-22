@@ -76,7 +76,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
         databaseReference.child("ShopKeeper").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User userProfile = snapshot.getValue(User.class);
+                Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
                 if(userProfile!=null){
                     fName = userProfile.fullName;
                     emailUser = userProfile.email;

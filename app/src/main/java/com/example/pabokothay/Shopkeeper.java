@@ -1,7 +1,7 @@
 package com.example.pabokothay;
 
 public class Shopkeeper {
-    public String fullName,email,password,number,shopName,description,price;
+    public String fullName,email,password,number,shopName,description,price,imageUrl;
     public Shopkeeper(){
     }
 
@@ -12,6 +12,13 @@ public class Shopkeeper {
         this.number=number;
         this.shopName=shopName;
         this.description=description;
+    }
+    public Shopkeeper(String fullName,String email,String number,String password,String imageUrl){
+        this.fullName=fullName;
+        this.email=email;
+        this.password=password;
+        this.number=number;
+        this.imageUrl=imageUrl;
     }
     public Shopkeeper(String fullName,String email){
         this.fullName=fullName;
@@ -64,6 +71,22 @@ public class Shopkeeper {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
 

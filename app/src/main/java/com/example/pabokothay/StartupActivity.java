@@ -49,18 +49,18 @@ public class StartupActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                FirebaseUser mFirebaseUser =mFirebaseAuth.getCurrentUser();
-                if(mFirebaseUser!=null){
-                    Intent intent = new Intent(StartupActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(StartupActivity.this);
-                    finish();
-                }else {
+//                FirebaseUser mFirebaseUser =mFirebaseAuth.getCurrentUser();
+//                if(mFirebaseUser!=null){
+//                    Intent intent = new Intent(StartupActivity.this, MainActivity.class);
+//                    startActivity(intent);
+//                    Animatoo.animateSlideLeft(StartupActivity.this);
+//                    finish();
+//                }else {
                     Intent intent = new Intent(StartupActivity.this, LogInPage.class);
                     startActivity(intent);
                     Animatoo.animateSlideLeft(StartupActivity.this);
                     finish();
-                }
+//                }
             }
         }, splashTime);
 
