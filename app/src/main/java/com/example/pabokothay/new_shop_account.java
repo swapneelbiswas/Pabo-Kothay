@@ -32,7 +32,7 @@ import java.util.Calendar;
 
 public class new_shop_account extends AppCompatActivity implements View.OnClickListener {
 
-    EditText vMail, vPassword, vPassword2, vfullname, vShopName;
+    EditText vMail, vPassword, vPassword2, vfullname, vShopName,vMapLink;
     ProgressBar progressBar;
     LinearLayout vButton;
     private FirebaseAuth mAuth;
@@ -54,11 +54,12 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         currentTime= DateFormat.getDateTimeInstance()
                 .format(Calendar.getInstance().getTime());
         mAuth = FirebaseAuth.getInstance();
-        vfullname = findViewById(R.id.fullName);
+        vfullname = findViewById(R.id.login_fName);
         vMail = findViewById(R.id.login_mail);
         vPassword = findViewById(R.id.login_pass);
         vPassword2 = findViewById(R.id.editTextTextPassword);
         vShopName = findViewById(R.id.editShopName);
+        vMapLink = findViewById(R.id.gMap_link);
         vButton = findViewById(R.id.button);
         vButton.setOnClickListener(this);
 
@@ -90,20 +91,15 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                 mBuilder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         String item = "";
                         for (int i = 0; i < vUserItems.size(); i++) {
                             item = item + listItems[vUserItems.get(i)];
-
                             f = item;
                             if (i != vUserItems.size() - 1) {
                                 item = item + ",";
                             }
-
                         }
-
                         vViewItem.setText(item);
-
                     }
                 });
 //
@@ -114,7 +110,6 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
 //
 //                    }
 //                });
-
                 mBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -126,11 +121,9 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
-
                 AlertDialog mDialog = mBuilder.create();
                 mDialog.show();
-
-               // c = fuck.length();
+                // c = fuck.length();
 //                values = fuck.split(",");
 
 //                for(int i=0; i< checkedItems.length;i++)
@@ -164,100 +157,97 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         String password = vPassword.getText().toString().trim();
         String number = "01********";
         String password2 = vPassword2.getText().toString().trim();
+        String gLink = vMapLink.getText().toString().trim();
         String shopName = vShopName.getText().toString().trim();
-        String fullname = "Enter Name";
+        String fullname =vfullname.getText().toString().trim();
         String description ="Enter description";
         String price ="200-3000";
 
-        if (TextUtils.isEmpty(email)) {
+        if(TextUtils.isEmpty(fullname)){
+            vfullname.setError("Full name is required");
+            vfullname.requestFocus();
+            return;
+        }
+        else if (TextUtils.isEmpty(email)) {
             vMail.setError("Email is required");
             vMail.requestFocus();
             return;
         }
-//        if(TextUtils.isEmpty(fullname)){
-//            vfullname.setError("Full name is required");
-//            vfullname.requestFocus();
-//            return;
-//        }
-
-        if (TextUtils.isEmpty(password)) {
-            vPassword.setError("password is required");
-            vPassword.requestFocus();
-            return;
-        }
-        if (TextUtils.isEmpty(password2)) {
-            vPassword2.setError("Re_enter password");
-            vPassword2.requestFocus();
-
-            return;
-        }
-
-        if (password.length() < 6) {
-            vPassword.setError("Must be of 6 character");
-            vPassword.requestFocus();
-            return;
-        }
-        if (!(password.equals(password2))) {
-            vPassword2.setError("Doesn't match");
-            vPassword2.requestFocus();
-            return;
-        }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             vMail.setError("Please provide valid email");
             vMail.requestFocus();
             return;
         }
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description);
-                            ShopData shopData = new ShopData(description, shopName, price);
-                            //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
-                            String[] values = f.split(",");
-                            for(int i=0; i<values.length;i++){
+        else if (TextUtils.isEmpty(password)) {
+            vPassword.setError("password is required");
+            vPassword.requestFocus();
+            return;
+        }
+        else if (password.length() < 6) {
+            vPassword.setError("Must be of 6 character");
+            vPassword.requestFocus();
+            return;
+        }
+        else if (TextUtils.isEmpty(password2)) {
+            vPassword2.setError("Re_enter password");
+            vPassword2.requestFocus();
+            return;
+        }
+        else if (!(password.equals(password2))) {
+            vPassword2.setError("Doesn't match");
+            vPassword2.requestFocus();
+            return;
+        }
+        else {
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description,gLink);
+                        ShopData shopData = new ShopData(description, shopName, price);
+                        //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
+                        String[] values = f.split(",");
+                        for(int i=0; i<values.length;i++){
                             FirebaseDatabase.getInstance().getReference("Users").child(values[i])
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(shopData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-
-                                        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
-                                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
-//                                        fuser.sendEmailVerification();
-                                        Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(new_shop_account.this, "created sub accounts", Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });};
-                            FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(shopkeeper).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
+                        FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(shopkeeper).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
 
-                                        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
+                                    FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
 //                                        Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
-                                        fuser.sendEmailVerification();
-                                        Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                        Animatoo.animateSlideLeft(new_shop_account.this);
-                                        finish();
-                                    } else {
-                                        Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
-                                    }
+                                    fuser.sendEmailVerification();
+                                    Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    Animatoo.animateSlideLeft(new_shop_account.this);
+                                    finish();
+                                } else {
+                                    Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
                                 }
-                            });
-                        }  else {
-                            Toast.makeText(new_shop_account.this, "Give proper info", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }  else {
+                        Toast.makeText(new_shop_account.this, "Give proper info", Toast.LENGTH_SHORT).show();
 
-                        }
                     }
-                });
+                }
+            });
+
+        }
+
     }
     @Override
     public void onBackPressed(){

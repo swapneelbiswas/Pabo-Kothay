@@ -1,19 +1,22 @@
 package com.example.pabokothay;
 
 public class Shopkeeper {
-    public String fullName,email,password,number,shopName,description,price,imageUrl;
+    public String fullName,email,password,number,shopName,description,price,imageUrl,gLink;
     public Shopkeeper(){
     }
-
-    public Shopkeeper(String fullName,String email,String password,String number,String shopName,String description){
-        this.fullName=fullName;
-        this.email=email;
-        this.password=password;
-        this.number=number;
-        this.shopName=shopName;
-        this.description=description;
+    public Shopkeeper(String fullName, String email, String password, String number, String shopName, String description, String gLink) {
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.number = number;
+        this.shopName = shopName;
+        this.description = description;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.gLink = gLink;
     }
-    public Shopkeeper(String fullName,String email,String number,String password,String imageUrl){
+
+    public Shopkeeper(String fullName, String email, String number, String password, String imageUrl){
         this.fullName=fullName;
         this.email=email;
         this.password=password;
@@ -89,4 +92,3 @@ public class Shopkeeper {
         this.imageUrl = imageUrl;
     }
 }
-
