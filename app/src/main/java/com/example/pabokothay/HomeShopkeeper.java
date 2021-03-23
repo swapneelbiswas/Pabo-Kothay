@@ -50,8 +50,8 @@ public class HomeShopkeeper extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private String userID;
-    TextView vFullName,vMail,vName,vPass,vNumber;
-    String fName,emailUser,username,pass,num,imageUrl;
+    TextView vName,vMail,vSName,vNumber,vDescription, vLink;
+    String fName,emailUser,username,pass,num,imageUrl, googleLink, description, shopName;
     private Button imageAdd;
     private Uri imageUri;
     private StorageReference storageReference;
@@ -68,6 +68,13 @@ public class HomeShopkeeper extends AppCompatActivity {
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
         storageReference = FirebaseStorage.getInstance().getReference();
+        vSName = findViewById(R.id.sName);
+        vName = findViewById(R.id.skName);
+        vMail = findViewById(R.id.sMail);
+        vNumber = findViewById(R.id.sNumber);
+        vLink = findViewById(R.id.sLink);
+        vDescription = findViewById(R.id.sDescription);
+
         databaseReference.child("ShopKeeper").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -77,7 +84,17 @@ public class HomeShopkeeper extends AppCompatActivity {
                     emailUser = userProfile.email;
                     pass= userProfile.password;
                     num=userProfile.number;
+                    googleLink = userProfile.gLink;
+                    description = userProfile.description;
+                    shopName = userProfile.shopName;
                     imageUrl=userProfile.imageUrl;
+
+                    vSName.setText(shopName);
+                    vName.setText(fName);
+                    vMail.setText(emailUser);
+                    vNumber.setText(num);
+                    vLink.setText(googleLink);
+                    vDescription.setText(description);
 
                     Picasso.get().load(imageUrl).placeholder(R.drawable.dp_1).into(profile_image2);
                 }
@@ -97,32 +114,10 @@ public class HomeShopkeeper extends AppCompatActivity {
 
 
         //searchbar
-        vSearchViewMain= (SearchView)findViewById(R.id.search_bar);
-        vListViewMain=(ListView)findViewById(R.id.mainList);
 
-        mainList=new ArrayList<String>();
-        mainList.add("book");
-        mainList.add("boss");
-        mainList.add("bonk nafi");
-        mainList.add("sport");
-        mainList.add("furniture");
-        mainList.add("household");
 
-//        System.out.println(mainList.get(0));
-        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mainList);
-        vListViewMain.setAdapter(adapter);
-        vSearchViewMain.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                vListViewMain.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
+
+//
         /*
                 adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
 
@@ -142,32 +137,7 @@ public class HomeShopkeeper extends AppCompatActivity {
             }
         });
          */
-        vListViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(((TextView) view).getText().equals("book")){
-                    Intent intent= new Intent(view.getContext(),book_search.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(HomeShopkeeper.this);
-                }
-                else if(((TextView) view).getText().equals("sport")){
-                    Intent intent= new Intent(view.getContext(),Sports_Stuff_Search.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(HomeShopkeeper.this);
-                }
-                else if(((TextView) view).getText().equals("furniture")){
-                    Intent intent= new Intent(view.getContext(),Furniture.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(HomeShopkeeper.this);
-                }
-                else if(((TextView) view).getText().equals("household")){
-                    Intent intent= new Intent(view.getContext(),households_search.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(HomeShopkeeper.this);
-                }
-                Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
-            }
-        });
+
         constraintLayout = findViewById(R.id.constraint_layout);
         constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

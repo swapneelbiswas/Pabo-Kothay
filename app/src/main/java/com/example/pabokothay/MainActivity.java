@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
         storageReference = FirebaseStorage.getInstance().getReference();
+
         databaseReference.child("Customers").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
