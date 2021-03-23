@@ -137,23 +137,23 @@ public class HomeShopkeeper extends AppCompatActivity {
             }
         });
          */
-
-        constraintLayout = findViewById(R.id.constraint_layout);
-        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    vListViewMain.setVisibility(View.GONE);
-                }
-            }
-        });
-        linearLayout = findViewById(R.id.lin_layout);
-        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListViewMain.setVisibility(View.GONE);
-            }
-        });
+//
+//        constraintLayout = findViewById(R.id.constraint_layout);
+//        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(hasFocus){
+//                    vListViewMain.setVisibility(View.GONE);
+//                }
+//            }
+//        });
+//        linearLayout = findViewById(R.id.lin_layout);
+//        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                vListViewMain.setVisibility(View.GONE);
+//            }
+//        });
 //        Dl=findViewById(R.id.drawer_layout);
 //        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
 //        Dl.addDrawerListener(dToggle);
@@ -167,30 +167,30 @@ public class HomeShopkeeper extends AppCompatActivity {
 //            return true;
 //        return super.onOptionsItemSelected(item);
 //    }
-    public void goArea(View view){
-        Intent intent= new Intent(this, book_search.class);
-        startActivity(intent);
-        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-        //finish();
-    }
-    public void goSsearch(View view){
-        Intent intent= new Intent(this, Sports_Stuff_Search.class);
-        startActivity(intent);
-        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-        //finish();
-    }
-    public void goFsearch(View view){
-        Intent intent= new Intent(this, Furniture.class);
-        startActivity(intent);
-        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-        //finish();
-    }
-    public void goHsearch(View view){
-        Intent intent= new Intent(this, households_search.class);
-        startActivity(intent);
-        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-        //finish();
-    }
+//    public void goArea(View view){
+//        Intent intent= new Intent(this, book_search.class);
+//        startActivity(intent);
+//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
+//        //finish();
+//    }
+//    public void goSsearch(View view){
+//        Intent intent= new Intent(this, Sports_Stuff_Search.class);
+//        startActivity(intent);
+//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
+//        //finish();
+//    }
+//    public void goFsearch(View view){
+//        Intent intent= new Intent(this, Furniture.class);
+//        startActivity(intent);
+//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
+//        //finish();
+//    }
+//    public void goHsearch(View view){
+//        Intent intent= new Intent(this, households_search.class);
+//        startActivity(intent);
+//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
+//        //finish();
+//    }
 
     public void goProfile(View view){
         Intent intent= new Intent(this, ProfileShopkeeper.class);

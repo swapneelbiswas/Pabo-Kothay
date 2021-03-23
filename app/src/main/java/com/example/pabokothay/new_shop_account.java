@@ -161,7 +161,6 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         String shopName = vShopName.getText().toString().trim();
         String fullname =vfullname.getText().toString().trim();
         String description ="Enter description";
-        String price ="200-3000";
 
         if(TextUtils.isEmpty(fullname)){
             vfullname.setError("Full name is required");
@@ -204,7 +203,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description,gLink);
-                        ShopData shopData = new ShopData(description, shopName, price);
+                        ShopData shopData = new ShopData(description, shopName, gLink);
                         //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                         String[] values = f.split(",");
                         for(int i=0; i<values.length;i++){

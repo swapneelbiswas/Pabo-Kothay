@@ -60,6 +60,15 @@
                         android:textSize="18dp"
                         android:maxLines="1"
                         android:id="@+id/tvDescribe" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="link"
+                        android:fontFamily="@font/nunito_regular"
+                        android:textColor="@color/white"
+                        android:textSize="1sp"
+                        android:maxLines="1"
+                        android:id="@+id/tvPrice" />
                 </LinearLayout>
 
 

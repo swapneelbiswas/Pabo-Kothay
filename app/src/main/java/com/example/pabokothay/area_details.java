@@ -18,6 +18,7 @@ public class area_details extends AppCompatActivity {
     TextView tex,shopName;
     ImageView shopImage;
     TextView describe;
+    String link;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +36,13 @@ public class area_details extends AppCompatActivity {
         if(mbundle!=null){
 
             describe.setText(mbundle.getString("Description"));
-//            shopImage.setImageResource(mbundle.getInt("Image"));
-            shopName.setText(mbundle.getString("Name"));
-            Glide.with(this)
-                    .load(mbundle.getString("Image"))
-                    .into(shopImage);
+                       if(mbundle.getInt("Image")!=0) {
+//                shopImage.setImageResource(mbundle.getInt("Image"));
+                Glide.with(this)
+                        .load(mbundle.getString("Image"))
+                        .into(shopImage);
+            }
+            link=mbundle.getString("Price");
         }
     }
     String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
