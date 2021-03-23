@@ -36,7 +36,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
     private FirebaseUser fUser;
     private DatabaseReference databaseReference;
 
-    String userID,parentDb="Users",UserType="Customers";
+    String userID,parentDb="Users",UserType="Customers",UserType2="ShopKeeper";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +97,6 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                     if(task.isSuccessful()){
                         fUser = FirebaseAuth.getInstance().getCurrentUser();
                         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
-//                      databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Customers");
                         if(fUser!=null){
                             userID=fUser.getUid();
                             allowAccessToId(email,password);
@@ -135,6 +134,30 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                             Toast.makeText(LogInPage.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
                         }
                     }else{
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if(snapshot.child(parentDb).child(UserType2).child(userID).exists()){
+                    Shopkeeper userShop = snapshot.child(parentDb).child(UserType).child(userID).getValue(Shopkeeper.class);
+                    if(userShop.getEmail().equals(email) && userShop.getPassword().equals(password)){
+
+                        FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
+                        if(user.isEmailVerified()){
+                            //Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//                            Animatoo.animateSlideLeft(LogInPage.this);
+//                            finish();
+                            startActivity(new Intent(getApplicationContext(),HomeShopkeeper.class));
+                            Animatoo.animateSlideLeft(LogInPage.this);
+                            finish();
+                        }
+                        else {
+                            user.sendEmailVerification();
+                            Toast.makeText(LogInPage.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else{
                         FirebaseAuth.getInstance().signOut();
                         Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
                     }
