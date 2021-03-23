@@ -138,8 +138,8 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                         Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
                     }
                 }
-                else if(snapshot.child(parentDb).child(UserType2).child(userID).exists()){
-                    Shopkeeper userShop = snapshot.child(parentDb).child(UserType).child(userID).getValue(Shopkeeper.class);
+                 else if(snapshot.child(parentDb).child(UserType2).child(userID).exists()){
+                    Shopkeeper userShop = snapshot.child(parentDb).child(UserType2).child(userID).getValue(Shopkeeper.class);
                     if(userShop.getEmail().equals(email) && userShop.getPassword().equals(password)){
 
                         FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
@@ -162,10 +162,10 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                         Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
                     }
                 }
-                else{
-                    FirebaseAuth.getInstance().signOut();
-                    Toast.makeText(LogInPage.this, "Second Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
-                }
+//                else{
+//                    FirebaseAuth.getInstance().signOut();
+//                    Toast.makeText(LogInPage.this, "Second Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
+//                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
