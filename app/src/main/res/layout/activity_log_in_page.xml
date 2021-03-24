@@ -183,7 +183,7 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:background="@drawable/gradient_custom_color2"
+                android:background="@drawable/gradient_custom_color"
                 android:clickable="true">
 
 
@@ -192,7 +192,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:text="Log in"
-                    android:textColor="@color/ash"
+                    android:textColor="@color/black"
                     android:fontFamily="@font/nunito_semibold"
                     android:textSize="25dp"
                     android:textStyle="bold"></TextView>
@@ -218,10 +218,25 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:onClick="ShowPopup"
-            android:text="Register Here"
+            android:text="@string/register"
             android:fontFamily="@font/nunito_semibold"
             android:textColor="@color/blue_1"
-            android:textSize="22dp" />
+            android:textSize="22dp"
+
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loooad"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/log_in_load3"
+            android:visibility="invisible"
+            />
+
 
     </LinearLayout>
 

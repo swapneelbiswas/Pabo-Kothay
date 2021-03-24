@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +27,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class LogInPage extends AppCompatActivity  implements View.OnClickListener{
 
     EditText vMail,vPassword;
@@ -35,6 +39,9 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
     Dialog myDialog;
     private FirebaseUser fUser;
     private DatabaseReference databaseReference;
+    LottieAnimationView lv;
+
+
 
     String userID,parentDb="Users",UserType="Customers",UserType2="ShopKeeper";
 
@@ -52,6 +59,10 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
         vButton.setOnClickListener(this);
         vNewAccount=findViewById(R.id.go_newAccount);
         myDialog = new Dialog(this);
+        lv = findViewById(R.id.loooad);
+
+
+
     }
 
     public void ShowPopup(View v) {
@@ -65,6 +76,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
         switch (v.getId()){
 
             case R.id.button:
+                //load();
                 userLogin();
                 break;
         }
@@ -99,7 +111,9 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
                         if(fUser!=null){
                             userID=fUser.getUid();
+                            lv.setVisibility(View.VISIBLE);
                             allowAccessToId(email,password);
+
                         }
                     }else{
                         Toast.makeText(LogInPage.this, "First Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
@@ -119,6 +133,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.child(parentDb).child(UserType).child(userID).exists()){
+
                     User userProfile = snapshot.child(parentDb).child(UserType).child(userID).getValue(User.class);
                     if(userProfile.getEmail().equals(email) && userProfile.getPassword().equals(password)){
 
@@ -175,6 +190,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
             }
         });
 
+
     }
 
     @Override
@@ -184,6 +200,13 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
         finish();
         Animatoo.animateSlideRight(LogInPage.this);
     }
+
+//    public void load() {
+//
+//        lv.setVisibility(View.VISIBLE);
+//
+//
+//    }
 
     public void logInShop(View view) {
 
