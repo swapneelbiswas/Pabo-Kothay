@@ -169,12 +169,12 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:hint="Email"
+                            android:hint="google link"
                             android:background="@color/white"
                             android:layout_marginBottom="5dp">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/emailText"
+                                android:id="@+id/mapLink"
                                 android:layout_width="match_parent"
                                 android:fontFamily="@font/nunito_regular"
                                 android:layout_height="match_parent"
@@ -233,7 +233,7 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
-                            android:hint="Confirm Password"
+                            android:hint="description"
                             android:background="@color/white"
                             android:layout_marginBottom="10dp">
 
@@ -241,13 +241,221 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
-                                android:id="@+id/passwordCheck"
-                                android:inputType="textPassword"
+                                android:id="@+id/describe"
+
                                 android:fontFamily="@font/nunito_regular"
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:autofillHints="book"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="Book Shop name">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/bookShopN"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="book des">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/bookDes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="book price">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/bookPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:autofillHints="household"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="Household Shop name">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/hhN"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="household des">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/hhDes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="household price">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/hhPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:autofillHints="household"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="Sports Shop name">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/spN"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="sports description">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/spDes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/white"
+                            android:hint="Sports price">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/spPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+
+                                android:fontFamily="@font/nunito_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
                 </androidx.cardview.widget.CardView>
 
                 <!--            <Button-->

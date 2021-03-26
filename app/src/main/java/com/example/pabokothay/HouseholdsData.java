@@ -1,46 +1,49 @@
 package com.example.pabokothay;
 
 public class HouseholdsData {
-    private String Shopdescribe;
-    private String ShopName;
-    private String price;
+    public String price;
+    public String shopdescribe;
+    public String shopName;
+
+
+
     private int  image;
 
     public HouseholdsData() {
 
     }
     public HouseholdsData(String shopdescribe, String shopName, String price, int image) {
-        this.Shopdescribe = shopdescribe;
-        this.ShopName = shopName;
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
         this.price = price;
         this.image = image;
     }
 
     public HouseholdsData(String shopdescribe, String shopName) {
-        Shopdescribe = shopdescribe;
-        ShopName = shopName;
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
     }
 
     public HouseholdsData(String shopdescribe, String shopName, String price) {
-        Shopdescribe = shopdescribe;
-        ShopName = shopName;
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
         this.price = price;
     }
 
     public String getShopdescribe() {
-        return Shopdescribe;
+        return shopdescribe;
     }
 
     public void setShopdescribe(String shopdescribe) {
-        this.Shopdescribe = shopdescribe;
+        this.shopdescribe = shopdescribe;
     }
 
     public String getShopName() {
-        return ShopName;
+        return shopName;
     }
 
     public void setShopName(String shopName) {
-        ShopName = shopName;
+        this.shopName = shopName;
     }
 
     public String getPrice() {

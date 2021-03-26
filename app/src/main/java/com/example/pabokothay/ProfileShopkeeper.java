@@ -35,8 +35,8 @@ public class ProfileShopkeeper extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private String userID;
-    TextView vFullName,vMail,vName,vPass,vNumber;
-    String fName,emailUser,username,pass,num,imageUrl;
+    TextView vFullName,vMail,vName,vPass,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
+    String fName,emailUser,username,pass,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhPrice,hhShopName,spDesc,spPrice,spShopName;
     private Button imageAdd;
     private Uri imageUri;
     private StorageReference storageReference;
@@ -52,9 +52,26 @@ public class ProfileShopkeeper extends AppCompatActivity {
 
         vFullName=findViewById(R.id.fullNamep);
         vMail = findViewById(R.id.emailText);
+        vDes = findViewById(R.id.describe);
+        vlink = findViewById(R.id.mapLink);
         vName = findViewById(R.id.name);
         vNumber = findViewById(R.id.pnum);
+        vPass= findViewById(R.id.passwordCheck);
+
+
         profile_image=findViewById(R.id.profile_image);
+
+        vBookShopDes= findViewById(R.id.bookDes);
+        vBookPrice= findViewById(R.id.bookPrice);
+        vBookShopName=findViewById(R.id.bookShopN);
+
+        vHhShopDes= findViewById(R.id.hhDes);
+        vHhPrice= findViewById(R.id.hhPrice);
+        vHhShopName=findViewById(R.id.hhN);
+
+        vSpShopDes= findViewById(R.id.spDes);
+        vSpPrice= findViewById(R.id.spPrice);
+        vSpShopName=findViewById(R.id.spN);
         // imageAdd=findViewById(R.id.imageAdd);
 
         //vPass = findViewById(R.id.passwordConfirm);
@@ -79,15 +96,97 @@ public class ProfileShopkeeper extends AppCompatActivity {
                 Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
                 if(userProfile!=null){
                     fName = userProfile.fullName;
-                    emailUser = userProfile.email;
-                    pass= userProfile.password;
+                    link = userProfile.gLink;
+                    des= userProfile.description;
                     num=userProfile.number;
                     imageUrl=userProfile.imageUrl;
+
+
                     vFullName.setText(fName);
-                    vMail.setText(emailUser);
+                    vDes.setText(des);
+                    vlink.setText(link);
                     vName.setText(fName);
                     vNumber.setText(num);
+
                     Picasso.get().load(imageUrl).placeholder(R.drawable.sideheader).into(profile_image);
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        databaseReference.child("Books").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                BookData userProfilebook = snapshot.getValue(BookData.class);
+
+                if(userProfilebook!=null){
+                    bPrice=userProfilebook.price;
+                    vBookPrice.setText(bPrice);
+
+                    bookDesc=userProfilebook.shopdescribe;
+                    vBookShopDes.setText(bookDesc);
+
+                    bookShopName=userProfilebook.shopName;
+                    vBookShopName.setText(bookShopName);
+
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        databaseReference.child("Household").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                HouseholdsData userProfilehh = snapshot.getValue(HouseholdsData.class);
+
+                if(userProfilehh!=null){
+                    hhPrice=userProfilehh.price;
+                    vHhPrice.setText(hhPrice);
+
+                    hhDesc=userProfilehh.shopdescribe;
+                    vHhShopDes.setText(hhDesc);
+
+                    hhShopName=userProfilehh.shopName;
+                    vHhShopName.setText(hhShopName);
+
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        databaseReference.child("Sports").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                SportsData userProfilesp = snapshot.getValue(SportsData.class);
+
+                if(userProfilesp!=null){
+                    spPrice=userProfilesp.price;
+                    vSpPrice.setText(spPrice);
+
+                    spDesc=userProfilesp.shopdescribe;
+                    vSpShopDes.setText(spDesc);
+
+                    spShopName=userProfilesp.shopName;
+                    vSpShopName.setText(spShopName);
+
+
                 }
             }
             @Override
@@ -99,7 +198,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
     }
     public void logoutAcc(View view){
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(this,LogInPage.class));
+        startActivity(new Intent(this,LoginShopkeeper.class));
         Animatoo.animateInAndOut(ProfileShopkeeper.this);
         finish();
     }
@@ -120,6 +219,92 @@ public class ProfileShopkeeper extends AppCompatActivity {
         else{
             Toast.makeText(ProfileShopkeeper.this, "Number is same", Toast.LENGTH_SHORT).show();
         }
+        if(isglinkChanged()){
+            databaseReference.child("ShopKeeper").child(userID).child("gLink").setValue(vlink.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "link is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isdesChanged()){
+            databaseReference.child("ShopKeeper").child(userID).child("description").setValue(vDes.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+
+
+        if(isbookPriceChanged()){
+            databaseReference.child("Books").child(userID).child("price").setValue(vBookPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isbookDesChanged()){
+            databaseReference.child("Books").child(userID).child("shopdescribe").setValue(vBookShopDes.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isbookShopNameChanged()){
+            databaseReference.child("Books").child(userID).child("price").setValue(vBookPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+        if(ishhPriceChanged()){
+            databaseReference.child("Household").child(userID).child("price").setValue(vHhPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(ishhDesChanged()){
+            databaseReference.child("Household").child(userID).child("shopdescribe").setValue(vHhShopDes.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(ishhShopNameChanged()){
+            databaseReference.child("Household").child(userID).child("price").setValue(vHhPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+
+
+        if(isspPriceChanged()){
+            databaseReference.child("Sports").child(userID).child("price").setValue(vSpPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isspDesChanged()){
+            databaseReference.child("Sports").child(userID).child("shopdescribe").setValue(vSpShopDes.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isspShopNameChanged()){
+            databaseReference.child("Sports").child(userID).child("price").setValue(vSpPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+
+
         if ( imageUri != null) {
             final StorageReference filepath = storageReference
                     .child(emailUser)
@@ -152,6 +337,27 @@ public class ProfileShopkeeper extends AppCompatActivity {
         }
     }
 
+
+
+
+    private boolean isdesChanged() {
+        if(!des.equals(vDes.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isglinkChanged() {
+        if(!link.equals(vlink.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     private boolean isNumberChanged() {
         if(!num.equals(vNumber.getText().toString().trim())){
             return true;
@@ -170,6 +376,90 @@ public class ProfileShopkeeper extends AppCompatActivity {
         }
     }
 
+
+
+    private boolean isbookPriceChanged() {
+        if(!bPrice.equals(vBookPrice.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isbookDesChanged() {
+        if(!bookDesc.equals(vBookShopDes.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isbookShopNameChanged() {
+        if(!bookShopName.equals(vBookShopName.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+
+    private boolean ishhPriceChanged() {
+        if(!hhPrice.equals(vHhPrice.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean ishhDesChanged() {
+        if(!hhDesc.equals(vHhShopDes.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean ishhShopNameChanged() {
+        if(!hhShopName.equals(vHhShopName.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isspPriceChanged() {
+        if(!spPrice.equals(vSpPrice.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isspDesChanged() {
+        if(!spDesc.equals(vSpShopDes.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isspShopNameChanged() {
+        if(!spShopName.equals(vSpShopName.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     //    private boolean isPassSame() {
 //        if(pass.equals(vPass.getText().toString().trim())){
 //            return true;
@@ -194,3 +484,4 @@ public class ProfileShopkeeper extends AppCompatActivity {
         Animatoo.animateSlideRight(ProfileShopkeeper.this);
     }
 }
+
