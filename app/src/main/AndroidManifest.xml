@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PaboKothay">
+        <activity android:name=".customer_profile"></activity>
         <activity android:name=".profile" />
         <activity android:name=".newAccount" />
         <activity android:name=".LogInPage" />

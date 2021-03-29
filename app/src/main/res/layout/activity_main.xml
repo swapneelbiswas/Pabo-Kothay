@@ -152,7 +152,7 @@
                             android:layout_marginTop="60dp"
                             android:src="@drawable/dp_1"
                             android:layout_gravity="center"
-                            android:onClick="goProfile"
+                            android:onClick="goViewProfile"
                             app:civ_border_color="@color/ash"
                             app:civ_border_width="2dp" />
 

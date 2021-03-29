@@ -198,7 +198,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
     }
     public void logoutAcc(View view){
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(this,LoginShopkeeper.class));
+        startActivity(new Intent(this,LogInPage.class));
         Animatoo.animateInAndOut(ProfileShopkeeper.this);
         finish();
     }

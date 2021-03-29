@@ -9,6 +9,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
@@ -19,11 +20,16 @@ public class area_details extends AppCompatActivity {
     ImageView shopImage;
     TextView describe;
     String link;
+    String shop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_details);
         //getSupportActionBar().hide();
+
+
+
+
 
         tex = findViewById(R.id.textView9);
         tex.setClickable(true);

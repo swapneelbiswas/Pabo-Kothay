@@ -32,7 +32,7 @@ import java.util.Calendar;
 
 public class new_shop_account extends AppCompatActivity implements View.OnClickListener {
 
-    EditText vMail, vPassword, vPassword2, vfullname, vShopName,vMapLink;
+    EditText vMail, vPassword, vPassword2, vfullname, vShopName,vMapLink,vSdescription;
     ProgressBar progressBar;
     LinearLayout vButton;
     private FirebaseAuth mAuth;
@@ -62,7 +62,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         vMapLink = findViewById(R.id.gMap_link);
         vButton = findViewById(R.id.button);
         vButton.setOnClickListener(this);
-
+        vSdescription=findViewById(R.id.s_description);
         vMakeOrder = (LinearLayout) findViewById(R.id.MakeOrder);
         vViewItem = (TextView) findViewById(R.id.ViewItem);
 
@@ -160,7 +160,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         String gLink = vMapLink.getText().toString().trim();
         String shopName = vShopName.getText().toString().trim();
         String fullname =vfullname.getText().toString().trim();
-        String description ="Enter description";
+        String description =vSdescription.getText().toString().trim();
 
         if(TextUtils.isEmpty(fullname)){
             vfullname.setError("Full name is required");

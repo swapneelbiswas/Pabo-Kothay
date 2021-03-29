@@ -227,8 +227,8 @@ public class MainActivity extends AppCompatActivity {
         //finish();
     }
 
-    public void goProfile(View view){
-        Intent intent= new Intent(this, profile.class);
+    public void goViewProfile(View view){
+        Intent intent= new Intent(this, customer_profile.class);
         startActivity(intent);
         Animatoo.animateSlideLeft(MainActivity.this);
         finish();
