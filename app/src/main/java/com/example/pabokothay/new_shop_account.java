@@ -144,11 +144,8 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.button:
-                registerUser();
-                break;
+        if (v.getId() == R.id.button) {
+            registerUser();
         }
     }
 
@@ -165,37 +162,31 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         if(TextUtils.isEmpty(fullname)){
             vfullname.setError("Full name is required");
             vfullname.requestFocus();
-            return;
         }
         else if (TextUtils.isEmpty(email)) {
             vMail.setError("Email is required");
             vMail.requestFocus();
-            return;
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             vMail.setError("Please provide valid email");
             vMail.requestFocus();
-            return;
         }
         else if (TextUtils.isEmpty(password)) {
             vPassword.setError("password is required");
             vPassword.requestFocus();
-            return;
         }
         else if (password.length() < 6) {
             vPassword.setError("Must be of 6 character");
             vPassword.requestFocus();
-            return;
         }
         else if (TextUtils.isEmpty(password2)) {
             vPassword2.setError("Re_enter password");
             vPassword2.requestFocus();
-            return;
         }
         else if (!(password.equals(password2))) {
             vPassword2.setError("Doesn't match");
             vPassword2.requestFocus();
-            return;
+
         }
         else {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

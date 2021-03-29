@@ -59,13 +59,9 @@ public class LoginShopkeeper extends AppCompatActivity implements View.OnClickLi
     }
 
     public void onClick(View v) {
-        switch (v.getId()){
-
-            case R.id.button_shop:
-                userLogin();
-                break;
+        if (v.getId() == R.id.button_shop) {
+            userLogin();
         }
-
     }
 
     public void userLogin(){
@@ -74,43 +70,20 @@ public class LoginShopkeeper extends AppCompatActivity implements View.OnClickLi
 
         if(TextUtils.isEmpty(email)){
             sMail.setError("Email is required");
-            return;
+
         }
         else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             sMail.setError("Please provide valid email");
-            return;
+
         }
         else if(TextUtils.isEmpty(password)){
             sPassword.setError("password is required");
-            return;
+
         }
         else if(password.length()<6){
             sPassword.setError("Must be of 6 character");
-            return;
-        }
 
-//        sAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//
-//                if(task.isSuccessful()){
-//                    FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
-//                    if(user.isEmailVerified()){
-//                        //Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
-//                        startActivity(new Intent(getApplicationContext(),HomeShopkeeper.class));
-//                        Animatoo.animateSlideLeft(LoginShopkeeper.this);
-//                        finish();
-//                    }
-//                    else {
-//                        user.sendEmailVerification();
-//                        Toast.makeText(LoginShopkeeper.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
-//                    }
-//                }else{
-//                    Toast.makeText(LoginShopkeeper.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//    }
+        }
         sAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -129,8 +102,6 @@ public class LoginShopkeeper extends AppCompatActivity implements View.OnClickLi
         });
 
     }
-
-
     private void allowAccessToId(String email, String password) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -173,9 +144,7 @@ public class LoginShopkeeper extends AppCompatActivity implements View.OnClickLi
 
             }
         });
-
     }
-
     @Override
     public void onBackPressed(){
         super.onBackPressed();

@@ -41,8 +41,6 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
     private DatabaseReference databaseReference;
     LottieAnimationView lv;
 
-
-
     String userID,parentDb="Users",UserType="Customers",UserType2="ShopKeeper";
 
     @Override
@@ -60,9 +58,6 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
         vNewAccount=findViewById(R.id.go_newAccount);
         myDialog = new Dialog(this);
         lv = findViewById(R.id.loooad);
-
-
-
     }
 
     public void ShowPopup(View v) {
@@ -73,14 +68,9 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
     }
 
     public void onClick(View v) {
-        switch (v.getId()){
-
-            case R.id.button:
-                //load();
-                userLogin();
-                break;
+        if (v.getId() == R.id.button) {//load();
+            userLogin();
         }
-
     }
     public void userLogin(){
         String email = vMail.getText().toString().trim();
@@ -88,19 +78,18 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
 
         if(TextUtils.isEmpty(email)){
             vMail.setError("Email is required");
-            return;
+
         }
-        if(TextUtils.isEmpty(password)){
+        else if(TextUtils.isEmpty(password)){
             vPassword.setError("password is required");
-            return;
+
         }
-        if(password.length()<6){
+        else if(password.length()<6){
             vPassword.setError("Must be of 6 character");
-            return;
+
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             vMail.setError("Please provide valid email");
-            return;
         }
         else{
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -113,16 +102,13 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                             userID=fUser.getUid();
                             lv.setVisibility(View.VISIBLE);
                             allowAccessToId(email,password);
-
                         }
                     }else{
                         Toast.makeText(LogInPage.this, "First Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
-
         }
-
     }
 
     private void allowAccessToId(String email, String password) {
@@ -186,13 +172,9 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
             public void onCancelled(@NonNull DatabaseError error) {
 //                    Toast.makeText(LogInPage.this, "Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
                 Toast.makeText(LogInPage.this, "Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
-
             }
         });
-
-
     }
-
     @Override
     public void onBackPressed(){
         super.onBackPressed();
@@ -200,12 +182,8 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
         finish();
         Animatoo.animateSlideRight(LogInPage.this);
     }
-
 //    public void load() {
-//
 //        lv.setVisibility(View.VISIBLE);
-//
-//
 //    }
 
     public void logInShop(View view) {

@@ -5,11 +5,30 @@ public class ShopData {
     private String ShopName;
     private String price;
     private int  image;
+    private String shopkeeperId;
+    private float rating;
 
 
     public ShopData() {
 
     }
+
+    public ShopData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+        Shopdescribe = shopdescribe;
+        ShopName = shopName;
+        this.price = price;
+        this.image = image;
+        this.shopkeeperId = shopkeeperId;
+        this.rating = rating;
+    }
+
+    public ShopData(String shopdescribe, String shopName, String price, String shopkeeperId) {
+        Shopdescribe = shopdescribe;
+        ShopName = shopName;
+        this.price = price;
+        this.shopkeeperId = shopkeeperId;
+    }
+
     public ShopData(String shopdescribe, String shopName, String price, int image) {
         this.Shopdescribe = shopdescribe;
         ShopName = shopName;
@@ -17,10 +36,6 @@ public class ShopData {
         this.image = image;
     }
 
-    public ShopData(String shopdescribe, String shopName) {
-        Shopdescribe = shopdescribe;
-        ShopName = shopName;
-    }
 
     public ShopData(String shopdescribe, String shopName, String price) {
         Shopdescribe = shopdescribe;
@@ -58,5 +73,21 @@ public class ShopData {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getShopkeeperId() {
+        return shopkeeperId;
+    }
+
+    public void setShopkeeperId(String shopkeeperId) {
+        this.shopkeeperId = shopkeeperId;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

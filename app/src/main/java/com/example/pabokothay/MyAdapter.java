@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,8 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
         holder.mTitle.setText(myShopList.get(position).getShopName());
         holder.mDescribe.setText(myShopList.get(position).getShopdescribe());
         holder.mPrice.setText(myShopList.get(position).getPrice());
+        holder.mRating.setRating(myShopList.get(position).getRating());
+
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,12 +57,12 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
                 intent.putExtra("Name",myShopList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myShopList.get(holder.getAdapterPosition()).getShopdescribe());
                 intent.putExtra("Price",myShopList.get(holder.getAdapterPosition()).getPrice());
+                intent.putExtra("Rating",myShopList.get(holder.getAdapterPosition()).getRating());
                 mContext.startActivity(intent);
                 Animatoo.animateSlideLeft(mContext);
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return myShopList.size();
@@ -71,7 +74,7 @@ class ShopViewHolder extends RecyclerView.ViewHolder{
     ImageView imageView;
     TextView mTitle,mDescribe,mPrice;
     CardView cardView;
-
+    RatingBar mRating;
 
     public ShopViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -79,6 +82,7 @@ class ShopViewHolder extends RecyclerView.ViewHolder{
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
         mPrice= itemView.findViewById(R.id.tvPrice);
+        mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }
 }

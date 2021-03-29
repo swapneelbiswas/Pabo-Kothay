@@ -52,11 +52,8 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
     }
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-
-            case R.id.button:
-                registerUser();
-                break;
+        if (v.getId() == R.id.button) {
+            registerUser();
         }
     }
     public void registerUser(){
@@ -69,74 +66,66 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
         if(TextUtils.isEmpty(email)){
             vMail.setError("Email is required");
             vMail.requestFocus();
-            return;
         }
-        if(TextUtils.isEmpty(fullname)){
+        else if(TextUtils.isEmpty(fullname)){
             vfullname.setError("Full name is required");
             vfullname.requestFocus();
-            return;
         }
 
-        if(TextUtils.isEmpty(password)){
+        else if(TextUtils.isEmpty(password)){
             vPassword.setError("password is required");
             vPassword.requestFocus();
-            return;
         }
-        if(TextUtils.isEmpty(password2)){
+        else if(TextUtils.isEmpty(password2)){
             vPassword2.setError("Re_enter password");
             vPassword2.requestFocus();
-
-            return;
         }
 
-        if(password.length()<6){
+        else if(password.length()<6){
             vPassword.setError("Must be of 6 character");
             vPassword.requestFocus();
-            return;
         }
-        if (!(password.equals(password2)))
+        else if (!(password.equals(password2)))
         {
             vPassword2.setError("Doesn't match");
             vPassword2.requestFocus();
-            return;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             vMail.setError("Please provide valid email");
             vMail.requestFocus();
-            return;
         }
-        mAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            User user= new User(fullname,email,number,password);
-                            //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
-                            FirebaseDatabase.getInstance().getReference("Users").child("Customers")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        FirebaseUser fuser =FirebaseAuth.getInstance().getCurrentUser();
-                                        //Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
-
-                                        fuser.sendEmailVerification();
-                                        Toast.makeText(newAccount.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                                        Animatoo.animateSlideLeft(newAccount.this);
-                                        finish();
-                                    }else{
-                                        Toast.makeText(newAccount.this, "Try again", Toast.LENGTH_SHORT).show();
+        else{
+            mAuth.createUserWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                User user= new User(fullname,email,number,password);
+                                //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
+                                FirebaseDatabase.getInstance().getReference("Users").child("Customers")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            FirebaseUser fuser =FirebaseAuth.getInstance().getCurrentUser();
+                                            fuser.sendEmailVerification();
+                                            Toast.makeText(newAccount.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                            Animatoo.animateSlideLeft(newAccount.this);
+                                            finish();
+                                        }else{
+                                            Toast.makeText(newAccount.this, "Try again", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-                                }
-                            });
-                        }else{
-                            Toast.makeText(newAccount.this, "Try again.Error", Toast.LENGTH_SHORT).show();
+                                });
+                            }else{
+                                Toast.makeText(newAccount.this, "Try again.Error", Toast.LENGTH_SHORT).show();
 
+                            }
                         }
-                    }
-                });
+            });
+        }
     }
     @Override
     public void onBackPressed(){

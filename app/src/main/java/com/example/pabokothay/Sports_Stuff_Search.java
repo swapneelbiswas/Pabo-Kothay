@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.database.DataSnapshot;
@@ -42,13 +43,14 @@ public class Sports_Stuff_Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sports__stuff__search);
 
+        ShopType shopType = new ShopType("Sports");
+        shopType.setShopType("Sports");
+        Toast.makeText(Sports_Stuff_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
         list=new ArrayList<String>();
-//        list.add("Cricket");
-//        list.add("Football");
-//        list.add("Basketball");
-//        System.out.println(list.get(0));
+
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         vListView.setAdapter(adapter);
         vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -100,14 +102,6 @@ public class Sports_Stuff_Search extends AppCompatActivity {
         myRv.setLayoutManager(gridLayoutManager);
 
         sportsDataList =new ArrayList<>();
-//        mShopData = new ShopData("khub upokar korte parbo","momotaj book store","30000",R.drawable.books);
-//        shopDataList.add(mShopData);
-//        mShopData = new ShopData("khub kheladhula hobe","Rjsahi book store","30000",R.drawable.sportsstuff);
-//        shopDataList.add(mShopData);
-//        mShopData = new ShopData("khub basha banano hobe","Naraynganj  book store","30000",R.drawable.households);
-//        shopDataList.add(mShopData);
-//        mShopData = new ShopData("onk porte hobe","Rk book store","30000",R.drawable.books);
-//        shopDataList.add(mShopData);
 
         SportAdapter myAdapter = new SportAdapter(Sports_Stuff_Search.this,sportsDataList);
         myRv.setAdapter(myAdapter);

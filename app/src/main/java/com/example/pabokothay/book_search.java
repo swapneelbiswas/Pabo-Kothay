@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.database.DataSnapshot;
@@ -52,6 +53,10 @@ public class book_search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_search);
+
+        ShopType shopType = new ShopType("Books");
+        shopType.setShopType("Books");
+        Toast.makeText(book_search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
@@ -91,19 +96,6 @@ public class book_search extends AppCompatActivity {
             }
         });
 
-
-
-//        list=new ArrayList<String>();
-//        list.add("momotaj book store");
-//        list.add("Rjsahi book store");
-//        list.add("Naraynganj  book store");
-//        list.add("modumoti book store");
-//        list.add("Rk book store");
-//        list.add("BK dash book store");
-//        list.add("sugondha book store");
-
-//        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-//        vListView.setAdapter(adapter);
         vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -164,9 +156,7 @@ public class book_search extends AppCompatActivity {
             }
         });
         //search bar end
-
     }
-
     @Override
     public void onBackPressed(){
         super.onBackPressed();

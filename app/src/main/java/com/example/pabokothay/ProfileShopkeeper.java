@@ -172,10 +172,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
         databaseReference.child("Sports").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
                 SportsData userProfilesp = snapshot.getValue(SportsData.class);
-
                 if(userProfilesp!=null){
                     spPrice=userProfilesp.price;
                     vSpPrice.setText(spPrice);
@@ -185,8 +182,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
 
                     spShopName=userProfilesp.shopName;
                     vSpShopName.setText(spShopName);
-
-
                 }
             }
             @Override
@@ -303,8 +298,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
         else{
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
-
-
         if ( imageUri != null) {
             final StorageReference filepath = storageReference
                     .child(emailUser)
@@ -336,11 +329,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     });
         }
     }
-
-
-
-
-    private boolean isdesChanged() {
+private boolean isdesChanged() {
         if(!des.equals(vDes.getText().toString().trim())){
             return true;
         }
@@ -348,7 +337,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
             return false;
         }
     }
-
     private boolean isglinkChanged() {
         if(!link.equals(vlink.getText().toString().trim())){
             return true;
@@ -357,7 +345,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
             return false;
         }
     }
-
     private boolean isNumberChanged() {
         if(!num.equals(vNumber.getText().toString().trim())){
             return true;
@@ -375,9 +362,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
             return false;
         }
     }
-
-
-
     private boolean isbookPriceChanged() {
         if(!bPrice.equals(vBookPrice.getText().toString().trim())){
             return true;
@@ -386,7 +370,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
             return false;
         }
     }
-
     private boolean isbookDesChanged() {
         if(!bookDesc.equals(vBookShopDes.getText().toString().trim())){
             return true;
@@ -395,7 +378,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
             return false;
         }
     }
-
     private boolean isbookShopNameChanged() {
         if(!bookShopName.equals(vBookShopName.getText().toString().trim())){
             return true;
@@ -404,9 +386,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
             return false;
         }
     }
-
-
-
     private boolean ishhPriceChanged() {
         if(!hhPrice.equals(vHhPrice.getText().toString().trim())){
             return true;

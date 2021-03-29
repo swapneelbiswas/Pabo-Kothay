@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,7 +45,8 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
 //        holder.imageView.setImageResource(myFurnitureList.get(position).getImage());
         holder.mTitle.setText(myFurnitureList.get(position).getShopName());
         holder.mDescribe.setText(myFurnitureList.get(position).getShopdescribe());
-//        holder.mPrice.setText(myFurnitureList.get(position).getPrice());
+        holder.mlink.setText(myFurnitureList.get(position).getPrice());
+        holder.mRating.setRating(myFurnitureList.get(position).getRating());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +55,8 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
                 intent.putExtra("Image",myFurnitureList.get(holder.getAdapterPosition()).getImage());
                 intent.putExtra("Name",myFurnitureList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myFurnitureList.get(holder.getAdapterPosition()).getShopdescribe());
+                intent.putExtra("Link",myFurnitureList.get(holder.getAdapterPosition()).getPrice());
+                intent.putExtra("Rating",myFurnitureList.get(holder.getAdapterPosition()).getRating());
                 mContext.startActivity(intent);
                 Animatoo.animateSlideLeft(mContext);
             }
@@ -68,18 +72,18 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
 
 
 class FViewHolder extends RecyclerView.ViewHolder{
-
     ImageView imageView;
-    TextView mTitle,mDescribe,mPrice;
+    TextView mTitle,mDescribe,mlink;
     CardView cardView;
-
+    RatingBar mRating;
 
     public FViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        //mPrice= itemView.findViewById(R.id.tvPrice);
+        mlink= itemView.findViewById(R.id.tvPrice);
+        mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }
 }

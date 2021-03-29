@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.database.DataSnapshot;
@@ -42,13 +43,14 @@ public class Furniture extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_furniture);
 
+        ShopType shopType = new ShopType("Furniture");
+        shopType.setShopType("Furniture");
+        Toast.makeText(Furniture.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
         list=new ArrayList<String>();
-//        list.add("Chair");
-//        list.add("Table");
-//        list.add("Sofa");
+
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         vListView.setAdapter(adapter);
         vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

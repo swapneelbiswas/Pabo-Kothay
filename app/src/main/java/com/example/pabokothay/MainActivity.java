@@ -40,8 +40,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText eText;
-    Button btn,btn1;
     SearchView vSearchViewMain;
     ListView vListViewMain;
     private DrawerLayout Dl;
@@ -61,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private Uri imageUri;
     private StorageReference storageReference;
     private ImageView profile_image2;
+    String[] listItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,14 +107,21 @@ public class MainActivity extends AppCompatActivity {
         //searchbar
         vSearchViewMain= (SearchView)findViewById(R.id.search_bar);
         vListViewMain=(ListView)findViewById(R.id.mainList);
+        listItems=getResources().getStringArray(R.array.shopping_list);
 
         mainList=new ArrayList<String>();
-        mainList.add("Books");
-        mainList.add("Furniture");
-        mainList.add("Sports");
-        mainList.add("Household");
-        mainList.add("Mobile and Gadgets");
-        mainList.add("Dress");
+        for(int i=0; i<listItems.length;i++){
+            mainList.add(listItems[i]);
+        }
+
+
+//        mainList=new ArrayList<String>();
+//        mainList.add("Books");
+//        mainList.add("Furniture");
+//        mainList.add("Sports");
+//        mainList.add("Household");
+//        mainList.add("Mobile and Gadgets");
+//        mainList.add("Dress");
 
 //        System.out.println(mainList.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mainList);

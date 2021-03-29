@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StartupActivity extends AppCompatActivity {
 
-    private static int splashTime =4000;
+    private static int splashTime =3000;
     Animation topanime,animbot,fadein;
     CardView t2;
     TextView tv;
