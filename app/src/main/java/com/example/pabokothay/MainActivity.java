@@ -115,14 +115,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-//        mainList=new ArrayList<String>();
-//        mainList.add("Books");
-//        mainList.add("Furniture");
-//        mainList.add("Sports");
-//        mainList.add("Household");
-//        mainList.add("Mobile and Gadgets");
-//        mainList.add("Dress");
-
 //        System.out.println(mainList.get(0));
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mainList);
         vListViewMain.setAdapter(adapter);
@@ -138,25 +130,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        /*
-                adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-
-        vListView.setAdapter(adapter);
-
-        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                vListView.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-         */
         vListViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -203,11 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if(dToggle.onOptionsItemSelected(item))
-//            return true;
-//        return super.onOptionsItemSelected(item);
-//    }
+
     public void goArea(View view){
     Intent intent= new Intent(this, book_search.class);
     startActivity(intent);
@@ -218,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent= new Intent(this, Sports_Stuff_Search.class);
     startActivity(intent);
         Animatoo.animateSlideLeft(MainActivity.this);
-        //finish();
+//        finish();
     }
     public void goFsearch(View view){
     Intent intent= new Intent(this, Furniture.class);

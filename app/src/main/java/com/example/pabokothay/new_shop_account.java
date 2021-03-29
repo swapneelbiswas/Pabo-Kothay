@@ -102,14 +102,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                         vViewItem.setText(item);
                     }
                 });
-//
-//                mBuilder.setNegativeButton(R.string.dismiss_label, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialogInterface.dismiss();
-//
-//                    }
-//                });
+
                 mBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -123,14 +116,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                 });
                 AlertDialog mDialog = mBuilder.create();
                 mDialog.show();
-                // c = fuck.length();
-//                values = fuck.split(",");
 
-//                for(int i=0; i< checkedItems.length;i++)
-//                {
-//                    selectedItems[i] = String.valueOf(vUserItems.get(i));
-//                    System.out.println(selectedItems[i]);
-//                }
             }
         });
     }

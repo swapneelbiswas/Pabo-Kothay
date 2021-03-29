@@ -103,26 +103,12 @@ public class households_search extends AppCompatActivity {
                 }
             }
         });
-//        linearLayout = findViewById(R.id.line_layout);
-//        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                vListView.setVisibility(View.GONE);
-//            }
-//        });
+
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(households_search.this,1);
         myRv.setLayoutManager(gridLayoutManager);
 
         householdsDataList =new ArrayList<>();
-//        mShopData = new ShopData("khub upokar korte parbo","momotaj book store","30000",R.drawable.books);
-//        shopDataList.add(mShopData);
-//        mShopData = new ShopData("khub kheladhula hobe","Rjsahi book store","30000",R.drawable.sportsstuff);
-//        shopDataList.add(mShopData);
-//        mShopData = new ShopData("khub basha banano hobe","Naraynganj  book store","30000",R.drawable.households);
-//        shopDataList.add(mShopData);
-//        mShopData = new ShopData("onk porte hobe","Rk book store","30000",R.drawable.books);
-//        shopDataList.add(mShopData);
 
         HouseholdAdapter myAdapter = new HouseholdAdapter(households_search.this,householdsDataList);
         myRv.setAdapter(myAdapter);

@@ -114,83 +114,8 @@ public class HomeShopkeeper extends AppCompatActivity {
 
 
         //searchbar
-
-
-
-//
-        /*
-                adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-
-        vListView.setAdapter(adapter);
-
-        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                vListView.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-         */
-//
-//        constraintLayout = findViewById(R.id.constraint_layout);
-//        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                if(hasFocus){
-//                    vListViewMain.setVisibility(View.GONE);
-//                }
-//            }
-//        });
-//        linearLayout = findViewById(R.id.lin_layout);
-//        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                vListViewMain.setVisibility(View.GONE);
-//            }
-//        });
-//        Dl=findViewById(R.id.drawer_layout);
-//        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
-//        Dl.addDrawerListener(dToggle);
-//        dToggle.syncState();
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
     }
-    //    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if(dToggle.onOptionsItemSelected(item))
-//            return true;
-//        return super.onOptionsItemSelected(item);
-//    }
-//    public void goArea(View view){
-//        Intent intent= new Intent(this, book_search.class);
-//        startActivity(intent);
-//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-//        //finish();
-//    }
-//    public void goSsearch(View view){
-//        Intent intent= new Intent(this, Sports_Stuff_Search.class);
-//        startActivity(intent);
-//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-//        //finish();
-//    }
-//    public void goFsearch(View view){
-//        Intent intent= new Intent(this, Furniture.class);
-//        startActivity(intent);
-//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-//        //finish();
-//    }
-//    public void goHsearch(View view){
-//        Intent intent= new Intent(this, households_search.class);
-//        startActivity(intent);
-//        Animatoo.animateSlideLeft(HomeShopkeeper.this);
-//        //finish();
-//    }
+
 
     public void goProfile(View view){
         Intent intent= new Intent(this, ProfileShopkeeper.class);

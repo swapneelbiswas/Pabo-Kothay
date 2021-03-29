@@ -44,7 +44,7 @@ public class HouseholdAdapter extends RecyclerView.Adapter<HViewHolder>{
         holder.imageView.setImageResource(myStuffList.get(position).getImage());
         holder.mTitle.setText(myStuffList.get(position).getShopName());
         holder.mDescribe.setText(myStuffList.get(position).getShopdescribe());
-//        holder.mPrice.setText(myFurnitureList.get(position).getPrice());
+        holder.mPrice.setText(myStuffList.get(position).getPrice());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +77,7 @@ class HViewHolder extends RecyclerView.ViewHolder{
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        //mPrice= itemView.findViewById(R.id.tvPrice);
+        mPrice= itemView.findViewById(R.id.tvPrice);
         cardView= itemView.findViewById(R.id.srt_card);
     }
 }

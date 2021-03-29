@@ -115,10 +115,7 @@ public class LoginShopkeeper extends AppCompatActivity implements View.OnClickLi
 
                         FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
                         if(user.isEmailVerified()){
-                            //Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//                            Animatoo.animateSlideLeft(LogInPage.this);
-//                            finish();
+
                             startActivity(new Intent(getApplicationContext(),HomeShopkeeper.class));
                            Animatoo.animateSlideLeft(LoginShopkeeper.this);
                            finish();

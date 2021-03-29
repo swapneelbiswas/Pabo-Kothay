@@ -88,13 +88,6 @@ public class Furniture extends AppCompatActivity {
                 }
             }
         });
-//        linearLayout = findViewById(R.id.line_layout);
-//        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                vListView.setVisibility(View.GONE);
-//            }
-//        });
 
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(Furniture.this,1);

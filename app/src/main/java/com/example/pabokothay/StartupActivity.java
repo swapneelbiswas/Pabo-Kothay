@@ -43,9 +43,7 @@ public class StartupActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         fadein= AnimationUtils.loadAnimation(this,R.anim.fade_in);
-//        t1=findViewById(R.id.toptext);
-//        t1.setAnimation(fadein);
-//
+
         animbot= AnimationUtils.loadAnimation(this,R.anim.botomanim);
         t2=findViewById(R.id.srt_card);
         t2.setAnimation(animbot);

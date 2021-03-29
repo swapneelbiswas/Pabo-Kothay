@@ -89,13 +89,6 @@ public class Sports_Stuff_Search extends AppCompatActivity {
             }
         });
 
-//        linearLayout = findViewById(R.id.line_layout);
-//        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                vListView.setVisibility(View.GONE);
-//            }
-//        });
 
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(Sports_Stuff_Search.this,1);

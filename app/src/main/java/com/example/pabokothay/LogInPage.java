@@ -145,10 +145,6 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
 
                         FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
                         if(user.isEmailVerified()){
-                            //Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//                            Animatoo.animateSlideLeft(LogInPage.this);
-//                            finish();
                             startActivity(new Intent(getApplicationContext(),HomeShopkeeper.class));
                             Animatoo.animateSlideLeft(LogInPage.this);
                             finish();
@@ -163,10 +159,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                         Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
                     }
                 }
-//                else{
-//                    FirebaseAuth.getInstance().signOut();
-//                    Toast.makeText(LogInPage.this, "Second Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
-//                }
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

@@ -68,8 +68,7 @@ public class  profile extends AppCompatActivity {
                 Animatoo.animateSlideLeft(profile.this);
             }
         });
-        // String imageUri = "https://firebasestorage.googleapis.com/v0/b/pabo-kothay-f16c0.appspot.com/o/journal_images%2Fmy_image_22?alt=media&token=d0755304-8b50-4313-b1ee-e16ddf2ba60e";
-        // Picasso.get().load(imageUrl).placeholder(imageUri).into(profile_image);
+
 
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");

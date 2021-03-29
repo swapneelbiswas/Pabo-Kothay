@@ -64,20 +64,7 @@ public class area_details extends AppCompatActivity {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         ratingRef= FirebaseDatabase.getInstance().getReference("Users");
         userID=fUser.getUid();
-//        ratingRef.child(shop).child("RatingDriver").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot child : snapshot.getChildren()){
-//                    String valueInString= String.valueOf(child.getValue().toString());
-//                    getRatingValue=Float.parseFloat(valueInString);
-//                }
-//                ratingBar.setRating(getRatingValue);
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+
         tex = findViewById(R.id.textView9);
         tex.setClickable(true);
         ratingBar = findViewById(R.id.ratingBar);
@@ -109,14 +96,6 @@ public class area_details extends AppCompatActivity {
         startActivity(browserIntent);
         Animatoo.animateSlideLeft(area_details.this);
     }
-//    public void gotolink(View view){
-//        gotoUrl("https://www.google.com/");
-//
-//    }
-//    private void gotoUrl(String s) {
-//        Uri uri= Uri.parse(s);
-//        startActivity(new Intent(Intent.ACTION_VIEW,uri));
-//    }
 
     public void submitRating(View view) {
         Toast.makeText(area_details.this, shop, Toast.LENGTH_LONG).show();
