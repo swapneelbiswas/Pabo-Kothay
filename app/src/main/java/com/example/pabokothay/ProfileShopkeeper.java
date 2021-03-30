@@ -3,6 +3,7 @@ package com.example.pabokothay;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -41,6 +42,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
     private Uri imageUri;
     private StorageReference storageReference;
     private ImageView profile_image;
+    CardView book_card,household_card,sports_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,10 @@ public class ProfileShopkeeper extends AppCompatActivity {
         vName = findViewById(R.id.name);
         vNumber = findViewById(R.id.pnum);
         vPass= findViewById(R.id.passwordCheck);
+
+        book_card=findViewById(R.id.book_card);
+        household_card= findViewById(R.id.household_card);
+        sports_card = findViewById(R.id.sports_card);
 
 
         profile_image=findViewById(R.id.profile_image);
@@ -135,6 +141,9 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     vBookShopName.setText(bookShopName);
 
 
+                }else
+                {
+                    book_card.setVisibility(View.GONE);
                 }
             }
             @Override
@@ -161,6 +170,9 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     vHhShopName.setText(hhShopName);
 
 
+                }else
+                {
+                    household_card.setVisibility(View.GONE);
                 }
             }
             @Override
@@ -182,6 +194,8 @@ public class ProfileShopkeeper extends AppCompatActivity {
 
                     spShopName=userProfilesp.shopName;
                     vSpShopName.setText(spShopName);
+                }else{
+                    sports_card.setVisibility(View.GONE);
                 }
             }
             @Override

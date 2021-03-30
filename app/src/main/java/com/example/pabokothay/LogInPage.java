@@ -179,11 +179,5 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
 //        lv.setVisibility(View.VISIBLE);
 //    }
 
-    public void logInShop(View view) {
 
-        startActivity(new Intent(this, LoginShopkeeper.class));
-        Animatoo.animateInAndOut(LogInPage.this);
-        finish();
-
-    }
 }

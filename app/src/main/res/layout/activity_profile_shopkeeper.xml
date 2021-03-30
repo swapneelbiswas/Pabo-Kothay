@@ -255,6 +255,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
+                    android:id="@+id/book_card"
                     app:cardElevation="7dp"
                     app:cardCornerRadius="10dp"
                     android:layout_margin="12dp">
@@ -325,6 +326,7 @@
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     app:cardElevation="7dp"
+                    android:id="@+id/household_card"
                     app:cardCornerRadius="10dp"
                     android:layout_margin="12dp">
 
@@ -396,7 +398,9 @@
                     android:layout_rowWeight="1"
                     app:cardElevation="7dp"
                     app:cardCornerRadius="10dp"
-                    android:layout_margin="12dp">
+                    android:layout_margin="12dp"
+                    android:id="@+id/sports_card"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"

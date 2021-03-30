@@ -17,7 +17,6 @@
         <activity android:name=".LogInPage" />
         <activity android:name=".area_details" />
         <activity android:name=".ProfileShopkeeper" />
-        <activity android:name=".LoginShopkeeper" />
         <activity android:name=".HomeShopkeeper" />
         <activity android:name=".make_order" />
         <activity android:name=".Furniture" />
