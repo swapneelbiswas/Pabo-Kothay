@@ -149,6 +149,14 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),households_search.class));
                     Animatoo.animateSlideLeft(MainActivity.this);
                 }
+                else if(((TextView) view).getText().equals("Mobile and Gadgets")){
+                    startActivity(new Intent(getApplicationContext(),GadgetMobo_Search.class));
+                    Animatoo.animateSlideLeft(MainActivity.this);
+                }
+                else if(((TextView) view).getText().equals("Dress")){
+                    startActivity(new Intent(getApplicationContext(),ClothStore_Search.class));
+                    Animatoo.animateSlideLeft(MainActivity.this);
+                }
 //                Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
             }
         });
