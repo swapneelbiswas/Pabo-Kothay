@@ -207,7 +207,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         Animatoo.animateSlideLeft(MainActivity.this);
         finish();
-        //finish();
+    }
+    public void goDressSearch(View view){
+    Intent intent= new Intent(this, ClothStore_Search.class);
+    startActivity(intent);
+        Animatoo.animateSlideLeft(MainActivity.this);
+    }
+    public void goMoboSearch(View view){
+        Intent intent= new Intent(this, GadgetMobo_Search.class);
+        startActivity(intent);
+        Animatoo.animateSlideLeft(MainActivity.this);
     }
     @Override
     public void onBackPressed(){
