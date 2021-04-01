@@ -117,6 +117,7 @@
         </LinearLayout>
 
 
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -126,7 +127,54 @@
                 app:cardElevation="7dp"
                 app:cardCornerRadius="10dp"
                 android:layout_margin="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Want to rate it?"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textColor="@color/black"
+                        ></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/YES"
+                        android:textSize="16dp"
+                        android:layout_marginStart="50dp"
+                        android:onClick="yes"
+                        android:clickable="true"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textColor="@color/blue"
+                        android:textStyle=""></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:layout_marginStart="50dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:onClick="no"></TextView>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/rate_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:visibility="invisible"
+                app:cardElevation="7dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="12dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -148,15 +196,27 @@
 
                         <RatingBar
                             android:id="@+id/ratingBar"
-                            style="@style/Widget.AppCompat.RatingBar.Indicator"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:numStars="5"
-                            android:onClick="submitRating"
+
                             android:stepSize="0.5" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rounded_btn"
+                        android:fontFamily="@font/nunito_semibold"
+                        android:layout_gravity="center"
+                        android:text="Submit"
+                        android:onClick="submitRating"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"/>
 
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
             <!--        <androidx.appcompat.widget.AppCompatButton-->
             <!--            android:layout_width="wrap_content"-->

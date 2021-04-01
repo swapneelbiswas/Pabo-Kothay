@@ -2,6 +2,7 @@ package com.example.pabokothay;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -37,6 +38,7 @@ public class area_details extends AppCompatActivity {
     private DatabaseReference ratingRef;
     float avgRating,getRatingValue;
     Button btncall;
+    CardView rateCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,7 @@ public class area_details extends AppCompatActivity {
         shopImage =findViewById(R.id.shopPicture);
         describe =findViewById(R.id.description);
         btncall=findViewById(R.id.call);
+        rateCardView=findViewById(R.id.rate_card);
         Bundle mBundle =getIntent().getExtras();
         if(mBundle!=null){
             describe.setText(mBundle.getString("Description"));
@@ -146,6 +149,15 @@ public class area_details extends AppCompatActivity {
         startActivity(browserIntent);
         Animatoo.animateSlideLeft(area_details.this);
     }
+    public void yes(View view)
+    {
+        rateCardView.setVisibility(View.VISIBLE);
+    }
+    public void no(View view)
+    {
+        rateCardView.setVisibility(View.GONE);
+    }
+
 
     public void submitRating(View view) {
         String s= String.valueOf(ratingBar.getRating());
@@ -175,6 +187,7 @@ public class area_details extends AppCompatActivity {
             }
         });
 
+        Toast.makeText(area_details.this, "Done", Toast.LENGTH_SHORT).show();
     }
     @Override
     public void onBackPressed(){

@@ -8,6 +8,7 @@
     <string name="dismiss_label">Dissmiss</string>
     <string name="clear_all_label">"Clear "</string>
     <string name="register"><u>Register Here</u></string>
+    <string name="YES"><u>YES</u></string>
 
     <string-array name="shopping_list">
         <item>Books</item>
