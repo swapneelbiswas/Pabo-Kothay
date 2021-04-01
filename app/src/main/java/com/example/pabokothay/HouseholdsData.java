@@ -1,17 +1,27 @@
 package com.example.pabokothay;
 
 public class HouseholdsData {
-    public String price;
     public String shopdescribe;
-    public String shopName;
-
-
-
+    public  String shopName;
+    public  String price;
+    private String shopkeeperId;
+    private float rating;
     private int  image;
+
 
     public HouseholdsData() {
 
     }
+
+    public HouseholdsData(String shopdescribe, String shopName, String price, String shopkeeperId, float rating, int image) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
+        this.price = price;
+        this.shopkeeperId = shopkeeperId;
+        this.rating = rating;
+        this.image = image;
+    }
+
     public HouseholdsData(String shopdescribe, String shopName, String price, int image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
@@ -60,5 +70,21 @@ public class HouseholdsData {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getShopkeeperId() {
+        return shopkeeperId;
+    }
+
+    public void setShopkeeperId(String shopkeeperId) {
+        this.shopkeeperId = shopkeeperId;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

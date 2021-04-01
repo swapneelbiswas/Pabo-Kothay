@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,7 +45,8 @@ public class HouseholdAdapter extends RecyclerView.Adapter<HViewHolder>{
         holder.imageView.setImageResource(myStuffList.get(position).getImage());
         holder.mTitle.setText(myStuffList.get(position).getShopName());
         holder.mDescribe.setText(myStuffList.get(position).getShopdescribe());
-        holder.mPrice.setText(myStuffList.get(position).getPrice());
+        holder.mID.setText(myStuffList.get(position).getShopkeeperId());
+        holder.mRating.setRating(myStuffList.get(position).getRating());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +55,8 @@ public class HouseholdAdapter extends RecyclerView.Adapter<HViewHolder>{
                 intent.putExtra("Image",myStuffList.get(holder.getAdapterPosition()).getImage());
                 intent.putExtra("Name",myStuffList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myStuffList.get(holder.getAdapterPosition()).getShopdescribe());
+                intent.putExtra("ID",myStuffList.get(holder.getAdapterPosition()).getShopkeeperId());
+                intent.putExtra("Rating",myStuffList.get(holder.getAdapterPosition()).getRating());
                 mContext.startActivity(intent);
                 Animatoo.animateSlideLeft(mContext);
             }
@@ -68,16 +72,17 @@ public class HouseholdAdapter extends RecyclerView.Adapter<HViewHolder>{
 class HViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
-    TextView mTitle,mDescribe,mPrice;
+    TextView mTitle,mDescribe,mID;
     CardView cardView;
-
+    RatingBar mRating;
 
     public HViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        mPrice= itemView.findViewById(R.id.tvPrice);
+        mID= itemView.findViewById(R.id.tvPrice);
+        mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }
 }

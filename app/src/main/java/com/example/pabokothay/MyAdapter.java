@@ -42,10 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
         Glide.with(mContext)
                 .load(myShopList.get(position).getImage())
                 .into(holder.imageView);
-//        holder.imageView.setImageResource(myShopList.get(position).getImage());
         holder.mTitle.setText(myShopList.get(position).getShopName());
         holder.mDescribe.setText(myShopList.get(position).getShopdescribe());
-        holder.mPrice.setText(myShopList.get(position).getPrice());
+        holder.mID.setText(myShopList.get(position).getShopkeeperId());
         holder.mRating.setRating(myShopList.get(position).getRating());
 
 
@@ -56,7 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
                 intent.putExtra("Image",myShopList.get(holder.getAdapterPosition()).getImage());
                 intent.putExtra("Name",myShopList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myShopList.get(holder.getAdapterPosition()).getShopdescribe());
-                intent.putExtra("Price",myShopList.get(holder.getAdapterPosition()).getPrice());
+                intent.putExtra("ID",myShopList.get(holder.getAdapterPosition()).getShopkeeperId());
                 intent.putExtra("Rating",myShopList.get(holder.getAdapterPosition()).getRating());
                 mContext.startActivity(intent);
                 Animatoo.animateSlideLeft(mContext);
@@ -72,7 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
 class ShopViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
-    TextView mTitle,mDescribe,mPrice;
+    TextView mTitle,mDescribe,mID;
     CardView cardView;
     RatingBar mRating;
 
@@ -81,7 +80,7 @@ class ShopViewHolder extends RecyclerView.ViewHolder{
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        mPrice= itemView.findViewById(R.id.tvPrice);
+        mID= itemView.findViewById(R.id.tvPrice);
         mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }

@@ -37,7 +37,8 @@ public class Furniture extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
     List<FurnitureData> furnitureDataList;
-    Furniture mFurniture;
+    String Type1Tree="Users",Type2Tree="Shops";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,6 @@ public class Furniture extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Furniture");
         shopType.setShopType("Furniture");
-        Toast.makeText(Furniture.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
@@ -58,7 +58,6 @@ public class Furniture extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 vListView.setVisibility(View.VISIBLE);
@@ -97,7 +96,7 @@ public class Furniture extends AppCompatActivity {
 
         FAdapter myAdapter = new FAdapter(Furniture.this,furnitureDataList);
         myRv.setAdapter(myAdapter);
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Furniture");
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Furniture");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

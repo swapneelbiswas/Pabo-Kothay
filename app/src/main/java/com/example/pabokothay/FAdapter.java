@@ -38,14 +38,12 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FViewHolder holder, int position) {
-
         Glide.with(mContext)
                 .load(myFurnitureList.get(position).getImage())
                 .into(holder.imageView);
-//        holder.imageView.setImageResource(myFurnitureList.get(position).getImage());
         holder.mTitle.setText(myFurnitureList.get(position).getShopName());
         holder.mDescribe.setText(myFurnitureList.get(position).getShopdescribe());
-        holder.mlink.setText(myFurnitureList.get(position).getPrice());
+        holder.mID.setText(myFurnitureList.get(position).getShopkeeperId());
         holder.mRating.setRating(myFurnitureList.get(position).getRating());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -55,14 +53,13 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
                 intent.putExtra("Image",myFurnitureList.get(holder.getAdapterPosition()).getImage());
                 intent.putExtra("Name",myFurnitureList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myFurnitureList.get(holder.getAdapterPosition()).getShopdescribe());
-                intent.putExtra("Link",myFurnitureList.get(holder.getAdapterPosition()).getPrice());
+                intent.putExtra("ID",myFurnitureList.get(holder.getAdapterPosition()).getShopkeeperId());
                 intent.putExtra("Rating",myFurnitureList.get(holder.getAdapterPosition()).getRating());
                 mContext.startActivity(intent);
                 Animatoo.animateSlideLeft(mContext);
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return myFurnitureList.size();
@@ -73,7 +70,7 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
 
 class FViewHolder extends RecyclerView.ViewHolder{
     ImageView imageView;
-    TextView mTitle,mDescribe,mlink;
+    TextView mTitle,mDescribe,mID;
     CardView cardView;
     RatingBar mRating;
 
@@ -82,7 +79,7 @@ class FViewHolder extends RecyclerView.ViewHolder{
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        mlink= itemView.findViewById(R.id.tvPrice);
+        mID= itemView.findViewById(R.id.tvPrice);
         mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }

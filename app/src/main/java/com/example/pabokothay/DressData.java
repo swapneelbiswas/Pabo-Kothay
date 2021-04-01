@@ -81,4 +81,16 @@ public class DressData {
 
     public float getRating() { return rating;
     }
+
+    public String getShopkeeperId() {
+        return shopkeeperId;
+    }
+
+    public void setShopkeeperId(String shopkeeperId) {
+        this.shopkeeperId = shopkeeperId;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
 }

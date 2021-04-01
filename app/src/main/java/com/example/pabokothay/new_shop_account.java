@@ -41,7 +41,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
     String currentTime;
     String[] listItems;
     boolean[] checkedItems;
-    String f;
+    String f,shopkeeperID,Type1Tree="Users",Type2Tree="Shops";
     int c=0;
     ArrayList<Integer> vUserItems = new ArrayList<>();
     public String selectedItems[] = new String[vUserItems.size()] ;
@@ -179,13 +179,14 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        shopkeeperID=FirebaseAuth.getInstance().getCurrentUser().getUid();
                         Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description,gLink);
-                        ShopData shopData = new ShopData(description, shopName, gLink);
+                        ShopData shopData = new ShopData(description, shopName, gLink,shopkeeperID);
                         //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                         String[] values = f.split(",");
                         for(int i=0; i<values.length;i++){
-                            FirebaseDatabase.getInstance().getReference("Users").child(values[i])
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            FirebaseDatabase.getInstance().getReference(Type1Tree).child(values[i])
+                                    .child(shopkeeperID)
                                     .setValue(shopData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
@@ -195,17 +196,16 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                                         Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
                                     }
                                 }
-                            });};
-                        FirebaseDatabase.getInstance().getReference("Users").child("ShopKeeper")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            });
+                        }
+                        FirebaseDatabase.getInstance().getReference(Type1Tree).child("ShopKeeper")
+                                .child(shopkeeperID)
                                 .setValue(shopkeeper).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-
-                                    FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
-//                                        Toast.makeText(newAccount.this, "created", Toast.LENGTH_SHORT).show();
-                                    fuser.sendEmailVerification();
+                                    FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
+                                    fUser.sendEmailVerification();
                                     Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     Animatoo.animateSlideLeft(new_shop_account.this);
@@ -217,7 +217,6 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                         });
                     }  else {
                         Toast.makeText(new_shop_account.this, "Give proper info", Toast.LENGTH_SHORT).show();
-
                     }
                 }
             });

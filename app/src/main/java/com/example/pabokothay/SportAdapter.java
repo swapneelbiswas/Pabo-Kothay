@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,10 +41,10 @@ public class SportAdapter extends RecyclerView.Adapter<SportsViewHolder> {
         Glide.with(mContext)
                 .load(mySportsGoodsList.get(position).getImage())
                 .into(holder.imageView);
-//        holder.imageView.setImageResource(mySportsGoodsList.get(position).getImage());
         holder.mTitle.setText(mySportsGoodsList.get(position).getShopName());
         holder.mDescribe.setText(mySportsGoodsList.get(position).getShopdescribe());
-        holder.mPrice.setText(mySportsGoodsList.get(position).getPrice());
+        holder.mID.setText(mySportsGoodsList.get(position).getShopkeeperId());
+        holder.mRating.setRating(mySportsGoodsList.get(position).getRating());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +53,8 @@ public class SportAdapter extends RecyclerView.Adapter<SportsViewHolder> {
                 intent.putExtra("Image",mySportsGoodsList.get(holder.getAdapterPosition()).getImage());
                 intent.putExtra("Name",mySportsGoodsList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",mySportsGoodsList.get(holder.getAdapterPosition()).getShopdescribe());
+                intent.putExtra("ID",mySportsGoodsList.get(holder.getAdapterPosition()).getShopkeeperId());
+                intent.putExtra("Rating",mySportsGoodsList.get(holder.getAdapterPosition()).getRating());
                 mContext.startActivity(intent);
                 Animatoo.animateSlideLeft(mContext);
             }
@@ -67,16 +70,16 @@ public class SportAdapter extends RecyclerView.Adapter<SportsViewHolder> {
 class SportsViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
-    TextView mTitle,mDescribe,mPrice;
+    TextView mTitle,mDescribe,mID;
     CardView cardView;
-
-
+    RatingBar mRating;
     public SportsViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        mPrice= itemView.findViewById(R.id.tvPrice);
+        mID= itemView.findViewById(R.id.tvPrice);
+        mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }
 }

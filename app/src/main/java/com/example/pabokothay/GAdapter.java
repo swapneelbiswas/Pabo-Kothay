@@ -37,10 +37,9 @@ public class GAdapter extends RecyclerView.Adapter<GViewHolder> {
         Glide.with(mContext)
                 .load(myGadgetList.get(position).getImage())
                 .into(holder.imageView);
-//        holder.imageView.setImageResource(myFurnitureList.get(position).getImage());
         holder.mTitle.setText(myGadgetList.get(position).getShopName());
         holder.mDescribe.setText(myGadgetList.get(position).getShopdescribe());
-        holder.mlink.setText(myGadgetList.get(position).getPrice());
+        holder.mID.setText(myGadgetList.get(position).getShopkeeperId());
         holder.mRating.setRating(myGadgetList.get(position).getRating());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +49,7 @@ public class GAdapter extends RecyclerView.Adapter<GViewHolder> {
                 intent.putExtra("Image",myGadgetList.get(holder.getAdapterPosition()).getImage());
                 intent.putExtra("Name",myGadgetList.get(holder.getAdapterPosition()).getShopName());
                 intent.putExtra("Description",myGadgetList.get(holder.getAdapterPosition()).getShopdescribe());
-                intent.putExtra("Link",myGadgetList.get(holder.getAdapterPosition()).getPrice());
+                intent.putExtra("ID",myGadgetList.get(holder.getAdapterPosition()).getShopkeeperId());
                 intent.putExtra("Rating",myGadgetList.get(holder.getAdapterPosition()).getRating());
                 mContext.startActivity(intent);
                 Animatoo.animateSlideLeft(mContext);
@@ -66,7 +65,7 @@ public class GAdapter extends RecyclerView.Adapter<GViewHolder> {
 }
 class GViewHolder extends RecyclerView.ViewHolder{
     ImageView imageView;
-    TextView mTitle,mDescribe,mlink;
+    TextView mTitle,mDescribe,mID;
     CardView cardView;
     RatingBar mRating;
 
@@ -75,7 +74,7 @@ class GViewHolder extends RecyclerView.ViewHolder{
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        mlink= itemView.findViewById(R.id.tvPrice);
+        mID= itemView.findViewById(R.id.tvPrice);
         mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }

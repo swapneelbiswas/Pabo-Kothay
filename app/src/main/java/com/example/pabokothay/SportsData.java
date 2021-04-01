@@ -5,10 +5,23 @@ public class SportsData {
     public  String shopName;
     public  String price;
     private int  image;
+    private String shopkeeperId;
+    private float rating;
+
 
     public SportsData() {
 
     }
+
+    public SportsData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
+        this.price = price;
+        this.image = image;
+        this.shopkeeperId = shopkeeperId;
+        this.rating = rating;
+    }
+
     public SportsData(String shopdescribe, String shopName, String price, int image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
@@ -57,5 +70,21 @@ public class SportsData {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getShopkeeperId() {
+        return shopkeeperId;
+    }
+
+    public void setShopkeeperId(String shopkeeperId) {
+        this.shopkeeperId = shopkeeperId;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

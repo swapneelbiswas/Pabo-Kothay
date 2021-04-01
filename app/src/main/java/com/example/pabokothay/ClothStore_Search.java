@@ -43,6 +43,7 @@ public class ClothStore_Search extends AppCompatActivity {
     private List<DressData> myDressList;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
+    String Type1Tree="Users",Type2Tree="Shops";
 
     RelativeLayout relativeLayoutl;
 
@@ -52,7 +53,7 @@ public class ClothStore_Search extends AppCompatActivity {
         setContentView(R.layout.activity_cloth_store__search);
         ShopType shopType = new ShopType("Cloths");
         shopType.setShopType("Cloths");
-        Toast.makeText(ClothStore_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(ClothStore_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
@@ -74,7 +75,7 @@ public class ClothStore_Search extends AppCompatActivity {
         vListView.setAdapter(adapter);
 
         //firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Cloths");
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Cloths");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

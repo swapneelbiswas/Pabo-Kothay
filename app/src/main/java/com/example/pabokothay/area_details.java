@@ -28,8 +28,8 @@ public class area_details extends AppCompatActivity {
     ImageView shopImage;
     TextView describe;
     RatingBar ratingBar,ratingBar2;
-    String link,shop,searchType,searchType2,searchType3,searchType4;
-
+    String shopID,shop,searchType,searchType2,searchType3,searchType4;
+    String Type1Tree="Users",Type2Tree="Shops";
     float rating;
 
     private FirebaseUser fUser;
@@ -63,12 +63,9 @@ public class area_details extends AppCompatActivity {
         else{
             shop="Trash";
         }
-
-        Toast.makeText(area_details.this, shop, Toast.LENGTH_LONG).show();
-
-
+//        Toast.makeText(area_details.this, shop, Toast.LENGTH_LONG).show();
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-        ratingRef= FirebaseDatabase.getInstance().getReference("Users");
+        ratingRef= FirebaseDatabase.getInstance().getReference(Type1Tree);
         userID=fUser.getUid();
 
         tex = findViewById(R.id.textView9);
@@ -79,36 +76,32 @@ public class area_details extends AppCompatActivity {
         shopImage =findViewById(R.id.shopPicture);
         shopName= findViewById(R.id.shop_name);
         describe =findViewById(R.id.description);
-        Bundle mbundle =getIntent().getExtras();
-        if(mbundle!=null){
-
-            describe.setText(mbundle.getString("Description"));
-            if(mbundle.getInt("Image")!=0) {
-//                shopImage.setImageResource(mbundle.getInt("Image"));
+        Bundle mBundle =getIntent().getExtras();
+        if(mBundle!=null){
+            describe.setText(mBundle.getString("Description"));
+            if(mBundle.getInt("Image")!=0) {
                 Glide.with(this)
-                        .load(mbundle.getString("Image"))
+                        .load(mBundle.getString("Image"))
                         .into(shopImage);
             }
-            shopName.setText(mbundle.getString("Name"));
-            link=mbundle.getString("Price");
-            rating=mbundle.getFloat("Rating");
+            shopName.setText(mBundle.getString("Name"));
+            shopID=mBundle.getString("ID");
+            rating=mBundle.getFloat("Rating");
             ratingBar.setRating(rating);
         }
     }
-
-//    String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
+    String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
     public void browser1(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
         startActivity(browserIntent);
         Animatoo.animateSlideLeft(area_details.this);
     }
 
     public void submitRating(View view) {
-        Toast.makeText(area_details.this, shop, Toast.LENGTH_LONG).show();
         String s= String.valueOf(ratingBar.getRating());
         float f=Float.parseFloat(s);
-        ratingRef.child(shop).child("RatingTest").child(userID).setValue(f);
-        ratingRef.child(shop).child("RatingTest").addListenerForSingleValueEvent(new ValueEventListener() {
+        ratingRef.child(shop).child(shopID).child("RatingCount").child(userID).setValue(f);
+        ratingRef.child(shop).child(shopID).child("RatingCount").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists() &&  snapshot.getChildrenCount()>0){
@@ -122,7 +115,7 @@ public class area_details extends AppCompatActivity {
                     }
                     if(RatingCount!=0){
                         avgRating=RatingTotal/RatingCount;
-                        ratingRef.child("RatingDriver").child(userID).setValue(avgRating);
+                        ratingRef.child(shop).child(shopID).child("rating").setValue(avgRating);
                     }
                 }
             }

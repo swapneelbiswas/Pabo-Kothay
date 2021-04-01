@@ -43,7 +43,7 @@ public class GadgetMobo_Search extends AppCompatActivity {
     private List<GadgetData> myGadgetList;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
-
+    String Type1Tree="Users",Type2Tree="Shops";
     RelativeLayout relativeLayoutl;
 
     @Override
@@ -52,7 +52,6 @@ public class GadgetMobo_Search extends AppCompatActivity {
         setContentView(R.layout.activity_gadget_mobo__search);
         ShopType shopType = new ShopType("Mobile-Gadget");
         shopType.setShopType("Mobile-Gadget");
-        Toast.makeText(GadgetMobo_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
@@ -74,7 +73,7 @@ public class GadgetMobo_Search extends AppCompatActivity {
         vListView.setAdapter(adapter);
 
         //firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Mobile-Gadget");
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Mobile-Gadget");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -88,7 +87,6 @@ public class GadgetMobo_Search extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 

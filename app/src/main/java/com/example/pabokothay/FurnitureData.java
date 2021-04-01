@@ -11,6 +11,15 @@ public class FurnitureData {
     public FurnitureData () {
 
     }
+    public FurnitureData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
+        this.price = price;
+        this.image = image;
+        this.shopkeeperId = shopkeeperId;
+        this.rating = rating;
+    }
+
     public FurnitureData (String shopdescribe, String shopName, String price, int image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
@@ -62,5 +71,17 @@ public class FurnitureData {
     }
 
     public float getRating() { return rating;
+    }
+
+    public String getShopkeeperId() {
+        return shopkeeperId;
+    }
+
+    public void setShopkeeperId(String shopkeeperId) {
+        this.shopkeeperId = shopkeeperId;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

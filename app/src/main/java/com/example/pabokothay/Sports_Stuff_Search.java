@@ -38,6 +38,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
     private ValueEventListener eventListener;
     List<SportsData> sportsDataList;
     Furniture mFurniture;
+    String Type1Tree="Users",Type2Tree="Shops";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Sports");
         shopType.setShopType("Sports");
-        Toast.makeText(Sports_Stuff_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Sports_Stuff_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
@@ -101,7 +102,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
 
 
 //        firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Sports");
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Sports");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -46,8 +46,7 @@ public class book_search extends AppCompatActivity {
     private ValueEventListener eventListener;
 
     RelativeLayout relativeLayoutl;
-
-
+    String Type1Tree="Users",Type2Tree="Shops";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class book_search extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Books");
         shopType.setShopType("Books");
-        Toast.makeText(book_search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(book_search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
@@ -78,7 +77,7 @@ public class book_search extends AppCompatActivity {
         vListView.setAdapter(adapter);
 
         //firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Books");
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Books");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

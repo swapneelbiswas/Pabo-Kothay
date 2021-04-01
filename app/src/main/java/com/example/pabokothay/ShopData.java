@@ -8,7 +8,6 @@ public class ShopData {
     private String shopkeeperId;
     private float rating;
 
-
     public ShopData() {
 
     }

@@ -42,6 +42,7 @@ public class households_search extends AppCompatActivity {
     ShopData mShopData;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
+    String Type1Tree="Users",Type2Tree="Shops";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class households_search extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Household");
         shopType.setShopType("Household");
-        Toast.makeText(households_search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(households_search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
@@ -115,7 +116,7 @@ public class households_search extends AppCompatActivity {
 
 
 //        firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Household");
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Household");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -127,7 +128,6 @@ public class households_search extends AppCompatActivity {
                 }
                 myAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
