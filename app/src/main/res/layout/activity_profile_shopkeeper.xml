@@ -268,6 +268,18 @@
                         android:orientation="vertical"
                         android:padding="5dp">
 
+                        <ImageView
+                            android:id="@+id/bookShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+
+
+                            >
+
+                        </ImageView>
+
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
@@ -337,6 +349,17 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="5dp">
+                        <ImageView
+                            android:id="@+id/hhShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+
+
+                            >
+
+                        </ImageView>
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
@@ -410,6 +433,17 @@
                         android:orientation="vertical"
                         android:padding="5dp">
 
+                        <ImageView
+                            android:id="@+id/spShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+
+                            >
+
+                        </ImageView>
+
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
@@ -479,6 +513,18 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/mbShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+
+
+                            >
+
+                        </ImageView>
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
@@ -550,6 +596,19 @@
                         android:orientation="vertical"
                         android:padding="5dp">
 
+
+                        <ImageView
+                            android:id="@+id/clothShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+
+
+                            >
+
+                        </ImageView>
+
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
@@ -619,6 +678,19 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="5dp">
+
+
+                        <ImageView
+                            android:id="@+id/fShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+
+
+                            >
+
+                        </ImageView>
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
