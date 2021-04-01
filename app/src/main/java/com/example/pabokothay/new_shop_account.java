@@ -138,7 +138,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
     public void registerUser() {
         String email = vMail.getText().toString().trim();
         String password = vPassword.getText().toString().trim();
-        String number = "01********";
+        String number = "01000000000";
         String password2 = vPassword2.getText().toString().trim();
         String gLink = vMapLink.getText().toString().trim();
         String shopName = vShopName.getText().toString().trim();

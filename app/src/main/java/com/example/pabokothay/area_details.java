@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -26,15 +27,16 @@ import com.google.firebase.database.ValueEventListener;
 public class area_details extends AppCompatActivity {
     TextView tex,shopName;
     ImageView shopImage;
-    TextView describe;
+    TextView describe,area_shopname;
     RatingBar ratingBar,ratingBar2;
     String shopID,shop,searchType,searchType2,searchType3,searchType4;
-    String Type1Tree="Users",Type2Tree="Shops",Link,userID;
+    String Type1Tree="Users",Type2Tree="Shops",Link,userID, num,Sname;
     float rating;
     DatabaseReference databaseReference;
     private FirebaseUser fUser;
     private DatabaseReference ratingRef;
     float avgRating,getRatingValue;
+    Button btncall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +73,10 @@ public class area_details extends AppCompatActivity {
         tex.setClickable(true);
         ratingBar = findViewById(R.id.ratingBar);
         tex.setMovementMethod(LinkMovementMethod.getInstance());
-
+        area_shopname=findViewById(R.id.area_detail_shopname);
         shopImage =findViewById(R.id.shopPicture);
-        shopName= findViewById(R.id.shop_name);
         describe =findViewById(R.id.description);
+        btncall=findViewById(R.id.call);
         Bundle mBundle =getIntent().getExtras();
         if(mBundle!=null){
             describe.setText(mBundle.getString("Description"));
@@ -83,7 +85,7 @@ public class area_details extends AppCompatActivity {
                         .load(mBundle.getString("Image"))
                         .into(shopImage);
             }
-            shopName.setText(mBundle.getString("Name"));
+//            shopName.setText(mBundle.getString("Name"));
             shopID=mBundle.getString("ID");
             rating=mBundle.getFloat("Rating");
             ratingBar.setRating(rating);
@@ -112,20 +114,31 @@ public class area_details extends AppCompatActivity {
             }
         });
 
-//        databaseReference.child("ShopKeeper").child(shopID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
-//                if(userProfile!=null){
-//                    num=userProfile.number;
-//                    phoneNum.setText(num);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(area_details.this, "Something is wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        databaseReference.child("ShopKeeper").child(shopID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
+                if(userProfile!=null){
+                    num =userProfile.number;
+                    Sname= userProfile.shopName;
+                    area_shopname.setText(Sname);
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(area_details.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btncall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Callintent = new Intent(Intent.ACTION_DIAL);
+                Callintent.setData(Uri.parse("tel:"+num));
+                startActivity(Callintent);
+            }
+        });
     }
     String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
     public void browser1(View view) {
