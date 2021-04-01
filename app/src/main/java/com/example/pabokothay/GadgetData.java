@@ -11,13 +11,27 @@ public class GadgetData {
     public GadgetData () {
 
     }
+    public GadgetData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
+        this.price = price;
+        this.image = image;
+        this.shopkeeperId = shopkeeperId;
+        this.rating = rating;
+    }
+    public GadgetData(String shopdescribe, String shopName, String price, int image, float rating) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
+        this.price = price;
+        this.image = image;
+        this.rating = rating;
+    }
     public GadgetData (String shopdescribe, String shopName, String price, int image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
         this.image = image;
     }
-
     public GadgetData (String shopdescribe, String shopName) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
@@ -28,7 +42,6 @@ public class GadgetData {
         this.shopName = shopName;
         this.price = price;
     }
-
     public String getShopdescribe() {
         return shopdescribe;
     }

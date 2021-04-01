@@ -50,8 +50,8 @@ public class GadgetMobo_Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gadget_mobo__search);
-        ShopType shopType = new ShopType("Mobile and Gadgets");
-        shopType.setShopType("Mobile and Gadgets");
+        ShopType shopType = new ShopType("Mobile-Gadget");
+        shopType.setShopType("Mobile-Gadget");
         Toast.makeText(GadgetMobo_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         //list data
@@ -74,7 +74,7 @@ public class GadgetMobo_Search extends AppCompatActivity {
         vListView.setAdapter(adapter);
 
         //firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Mobile and Gadgets");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Mobile-Gadget");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

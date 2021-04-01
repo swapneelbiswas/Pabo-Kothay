@@ -54,6 +54,12 @@ public class area_details extends AppCompatActivity {
         else if(shopType.getShopType().equals("Household")){
             shop = shopType.getShopType();
         }
+        else if(shopType.getShopType().equals("Mobile-Gadget")){
+            shop = shopType.getShopType();
+        }
+        else if(shopType.getShopType().equals("Cloths")){
+            shop = shopType.getShopType();
+        }
         else{
             shop="Trash";
         }

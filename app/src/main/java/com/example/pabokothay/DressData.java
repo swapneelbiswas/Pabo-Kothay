@@ -4,13 +4,31 @@ public class DressData {
     public String shopdescribe;
     public  String shopName;
     public  String price;
-    private int  image;
-    private String shopkeeperId;
-    private float rating;
+    public int  image;
+    public String shopkeeperId;
+    public float rating;
 
     public DressData () {
 
     }
+
+    public DressData(String shopdescribe, String shopName, String price, int image, float rating) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
+        this.price = price;
+        this.image = image;
+        this.rating = rating;
+    }
+
+    public DressData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
+        this.price = price;
+        this.image = image;
+        this.shopkeeperId = shopkeeperId;
+        this.rating = rating;
+    }
+
     public DressData (String shopdescribe, String shopName, String price, int image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
