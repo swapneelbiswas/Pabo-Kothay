@@ -70,8 +70,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
 
         profile_image=findViewById(R.id.profile_image);
 
-
-
         vBookShopDes= findViewById(R.id.bookDes);
         vBookPrice= findViewById(R.id.bookPrice);
         vBookShopName=findViewById(R.id.bookShopN);
@@ -124,6 +122,8 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     num=userProfile.number;
                     imageUrl=userProfile.imageUrl;
 
+                    emailUser= userProfile.email;
+
                     vFullName.setText(fName);
                     vDes.setText(des);
                     vlink.setText(link);
@@ -142,18 +142,16 @@ public class ProfileShopkeeper extends AppCompatActivity {
         databaseReference.child("Books").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
-                BookData userProfilebook = snapshot.getValue(BookData.class);
+                ShopData userProfilebook = snapshot.getValue(ShopData.class);
 
                 if(userProfilebook!=null){
-                    bPrice=userProfilebook.price;
+                    bPrice=userProfilebook.getPrice();
                     vBookPrice.setText(bPrice);
 
-                    bookDesc=userProfilebook.shopdescribe;
+                    bookDesc=userProfilebook.getShopdescribe();
                     vBookShopDes.setText(bookDesc);
 
-                    bookShopName=userProfilebook.shopName;
+                    bookShopName=userProfilebook.getShopName();
                     vBookShopName.setText(bookShopName);
 
 
@@ -367,8 +365,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
         else{
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
-
-
         if(isspPriceChanged()){
             databaseReference.child("Sports").child(userID).child("price").setValue(vSpPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
@@ -390,8 +386,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
         else{
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
-
-
         if(isMbPriceChanged()){
             databaseReference.child("Mobile-Gadget").child(userID).child("price").setValue(vMbPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
@@ -413,24 +407,24 @@ public class ProfileShopkeeper extends AppCompatActivity {
         else{
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
-            if (isClothPriceChanged()) {
-                databaseReference.child("Cloths").child(userID).child("price").setValue(vClothPrice.getEditableText().toString());
-                Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-            }
-            if (isClothDesChanged()) {
-                databaseReference.child("Cloths").child(userID).child("shopdescribe").setValue(vClothShopDes.getEditableText().toString());
-                Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-            }
-            if (isClothShopNameChanged()) {
-                databaseReference.child("Cloths").child(userID).child("shopName").setValue(vClothShopName.getEditableText().toString());
-                Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-            }
+        if (isClothPriceChanged()) {
+            databaseReference.child("Cloths").child(userID).child("price").setValue(vClothPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if (isClothDesChanged()) {
+            databaseReference.child("Cloths").child(userID).child("shopdescribe").setValue(vClothShopDes.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if (isClothShopNameChanged()) {
+            databaseReference.child("Cloths").child(userID).child("shopName").setValue(vClothShopName.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
 
         if(isfPriceChanged()){
             databaseReference.child("Furniture").child(userID).child("price").setValue(vFPrice.getEditableText().toString());
@@ -454,17 +448,12 @@ public class ProfileShopkeeper extends AppCompatActivity {
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
 
-
         if ( imageUri != null) {
-            final StorageReference filepath = storageReference
-                    .child(emailUser)
-                    .child("profile_image");
+            final StorageReference filepath = storageReference.child(emailUser).child("profile_image");
             filepath.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-
                             filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
@@ -677,7 +666,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
         }
     }
 
-//        private boolean isPassSame() {
+    //        private boolean isPassSame() {
 //        if(pass.equals(vPass.getText().toString().trim())){
 //            return true;
 //        }

@@ -29,12 +29,11 @@ public class area_details extends AppCompatActivity {
     TextView describe;
     RatingBar ratingBar,ratingBar2;
     String shopID,shop,searchType,searchType2,searchType3,searchType4;
-    String Type1Tree="Users",Type2Tree="Shops";
+    String Type1Tree="Users",Type2Tree="Shops",Link,userID;
     float rating;
-
+    DatabaseReference databaseReference;
     private FirebaseUser fUser;
     private DatabaseReference ratingRef;
-    private String userID;
     float avgRating,getRatingValue;
 
     @Override
@@ -89,6 +88,44 @@ public class area_details extends AppCompatActivity {
             rating=mBundle.getFloat("Rating");
             ratingBar.setRating(rating);
         }
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users");
+        databaseReference.child(shop).child(shopID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                area_details_data shopData =snapshot.getValue(area_details_data.class);
+                if(shopData!=null) {
+                    Link = shopData.getPrice();
+                    //                    emailUser = userProfile.email;
+                    //                    pass = userProfile.password;
+                    //                    num = userProfile.number;
+                    //                    imageUrl = userProfile.imageUrl;
+                    //                    vFullName.setText(fName);
+                    //                    vMail.setText(emailUser);
+                    //                    vName.setText(fName);
+                    //                    vNumber.setText(num);
+                    //                    Picasso.get().load(imageUrl).placeholder(R.drawable.sideheader).into(profile_image);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(area_details.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        databaseReference.child("ShopKeeper").child(shopID).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
+//                if(userProfile!=null){
+//                    num=userProfile.number;
+//                    phoneNum.setText(num);
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(area_details.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
     String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
     public void browser1(View view) {
