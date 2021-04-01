@@ -38,11 +38,13 @@ public class ProfileShopkeeper extends AppCompatActivity {
     private String userID;
     TextView vFullName,vMail,vName,vPass,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
     String fName,emailUser,username,pass,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhPrice,hhShopName,spDesc,spPrice,spShopName;
+    TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
+    String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
     private Button imageAdd;
     private Uri imageUri;
     private StorageReference storageReference;
     private ImageView profile_image;
-    CardView book_card,household_card,sports_card;
+    CardView book_card,household_card,sports_card,mb_card,cloth_card,f_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,10 @@ public class ProfileShopkeeper extends AppCompatActivity {
         household_card= findViewById(R.id.household_card);
         sports_card = findViewById(R.id.sports_card);
 
+        mb_card=findViewById(R.id.mb_card);
+        cloth_card= findViewById(R.id.cloth_card);
+        f_card = findViewById(R.id.f_card);
+
 
         profile_image=findViewById(R.id.profile_image);
 
@@ -78,6 +84,18 @@ public class ProfileShopkeeper extends AppCompatActivity {
         vSpShopDes= findViewById(R.id.spDes);
         vSpPrice= findViewById(R.id.spPrice);
         vSpShopName=findViewById(R.id.spN);
+
+        vMbShopDes= findViewById(R.id.mbDes);
+        vMbPrice= findViewById(R.id.mbPrice);
+        vMbShopName=findViewById(R.id.mbShopN);
+
+        vClothShopName= findViewById(R.id.clothDes);
+        vClothPrice= findViewById(R.id.clothPrice);
+        vClothShopName=findViewById(R.id.clothShopN);
+
+        vFShopDes= findViewById(R.id.fDes);
+        vFPrice= findViewById(R.id.fPrice);
+        vFShopName=findViewById(R.id.fShopN);
         // imageAdd=findViewById(R.id.imageAdd);
 
         //vPass = findViewById(R.id.passwordConfirm);
@@ -204,6 +222,94 @@ public class ProfileShopkeeper extends AppCompatActivity {
             }
         });
 
+        databaseReference.child("Mobile-Gadget").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                GadgetData userProfilemb = snapshot.getValue(GadgetData.class);
+
+                if(userProfilemb!=null){
+                    mbPrice=userProfilemb.price;
+                    vMbPrice.setText(mbPrice);
+
+                    mbDesc=userProfilemb.shopdescribe;
+                    vMbShopDes.setText(mbDesc);
+
+                    mbShopName=userProfilemb.shopName;
+                    vMbShopName.setText(mbShopName);
+
+
+                }else
+                {
+                    mb_card.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        databaseReference.child("Cloths").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//
+//                DressData userProfileCloth = snapshot.getValue(DressData.class);
+//
+//                if(userProfileCloth!=null){
+//                    clothPrice=userProfileCloth.price;
+//                    vClothPrice.setText(clothPrice);
+//
+//                    clothDesc=userProfileCloth.shopdescribe;
+//                    vClothShopDes.setText(clothDesc);
+//
+//                    clothShopName=userProfileCloth.shopName;
+//                    vClothShopName.setText(clothShopName);
+//
+//
+//                }else
+//                {
+//                    cloth_card.setVisibility(View.GONE);
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+        databaseReference.child("Furniture").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                FurnitureData userProfilef = snapshot.getValue(FurnitureData.class);
+
+                if( userProfilef!=null){
+                    fPrice= userProfilef.price;
+                    vFPrice.setText(fPrice);
+
+                    fDesc= userProfilef.shopdescribe;
+                    vFShopDes.setText(fDesc);
+
+                    fShopName= userProfilef.shopName;
+                    vFShopName.setText(fShopName);
+
+
+                }else
+                {
+                    f_card.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
     public void logoutAcc(View view){
         FirebaseAuth.getInstance().signOut();
@@ -259,7 +365,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
         if(isbookShopNameChanged()){
-            databaseReference.child("Books").child(userID).child("price").setValue(vBookPrice.getEditableText().toString());
+            databaseReference.child("Books").child(userID).child("shopName").setValue(vBookShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -283,7 +389,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
         if(ishhShopNameChanged()){
-            databaseReference.child("Household").child(userID).child("price").setValue(vHhPrice.getEditableText().toString());
+            databaseReference.child("Household").child(userID).child("shopName").setValue(vHhShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -306,12 +412,85 @@ public class ProfileShopkeeper extends AppCompatActivity {
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
         if(isspShopNameChanged()){
-            databaseReference.child("Sports").child(userID).child("price").setValue(vSpPrice.getEditableText().toString());
+            databaseReference.child("Sports").child(userID).child("shopName").setValue(vSpShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
         }
+
+
+        if(isMbPriceChanged()){
+            databaseReference.child("Mobile-Gadget").child(userID).child("price").setValue(vMbPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isMbDesChanged()){
+            databaseReference.child("Mobile-Gadget").child(userID).child("shopdescribe").setValue(vMbShopDes.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isMbShopNameChanged()){
+            databaseReference.child("Mobile-Gadget").child(userID).child("shopName").setValue(vMbShopName.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+//        if(isClothPriceChanged()){
+//            databaseReference.child("Cloths").child(userID).child("price").setValue(vClothPrice.getEditableText().toString());
+//            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+//        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
+//        if(isClothDesChanged()){
+//            databaseReference.child("Cloths").child(userID).child("shopdescribe").setValue(vClothShopDes.getEditableText().toString());
+//            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+//        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
+//        if(isClothShopNameChanged()){
+//            databaseReference.child("Cloths").child(userID).child("shopName").setValue(vClothShopName.getEditableText().toString());
+//            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+//        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
+//
+
+
+        if(isfPriceChanged()){
+            databaseReference.child("Furniture").child(userID).child("price").setValue(vFPrice.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isfDesChanged()){
+            databaseReference.child("Furniture").child(userID).child("shopdescribe").setValue(vFShopDes.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isfShopNameChanged()){
+            databaseReference.child("Furniture").child(userID).child("shopName").setValue(vFShopName.getEditableText().toString());
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+
+
         if ( imageUri != null) {
             final StorageReference filepath = storageReference
                     .child(emailUser)
@@ -343,7 +522,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     });
         }
     }
-private boolean isdesChanged() {
+    private boolean isdesChanged() {
         if(!des.equals(vDes.getText().toString().trim())){
             return true;
         }
@@ -453,14 +632,100 @@ private boolean isdesChanged() {
             return false;
         }
     }
-    //    private boolean isPassSame() {
-//        if(pass.equals(vPass.getText().toString().trim())){
+
+
+    private boolean isMbPriceChanged() {
+        if(!mbPrice.equals(vMbPrice.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isMbDesChanged() {
+        if(!mbDesc.equals(vMbShopDes.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isMbShopNameChanged() {
+        if(!mbShopName.equals(vMbShopName.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    private boolean isfPriceChanged() {
+        if(!fPrice.equals(vFPrice.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isfDesChanged() {
+        if(!fDesc.equals(vFShopDes.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean isfShopNameChanged() {
+        if(!fShopName.equals(vFShopName.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+//
+//    private boolean isClothPriceChanged() {
+//        if(!clothPrice.equals(vClothPrice.getText().toString().trim()) && clothPrice!=null){
 //            return true;
 //        }
 //        else{
 //            return false;
 //        }
 //    }
+//
+//    private boolean isClothDesChanged() {
+//        if(!clothDesc.equals(vClothShopDes.getText().toString().trim())){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+//    }
+//
+//    private boolean isClothShopNameChanged() {
+//        if(!clothShopName.equals(vClothShopName.getText().toString().trim())){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+//    }
+
+        private boolean isPassSame() {
+        if(pass.equals(vPass.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY_CODE && resultCode == RESULT_OK) {

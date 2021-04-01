@@ -1,58 +1,48 @@
 package com.example.pabokothay;
 
 public class FurnitureData {
-    private String Shopdescribe;
-    private String ShopName;
-    private String price;
+    public String shopdescribe;
+    public  String shopName;
+    public  String price;
     private int  image;
     private String shopkeeperId;
     private float rating;
 
-    public FurnitureData() {
+    public FurnitureData () {
 
     }
-
-    public FurnitureData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
-        Shopdescribe = shopdescribe;
-        ShopName = shopName;
-        this.price = price;
-        this.image = image;
-        this.shopkeeperId = shopkeeperId;
-        this.rating = rating;
-    }
-
-    public FurnitureData(String shopdescribe, String shopName, String price, int image) {
-        this.Shopdescribe = shopdescribe;
-        this.ShopName = shopName;
+    public FurnitureData (String shopdescribe, String shopName, String price, int image) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
         this.price = price;
         this.image = image;
     }
 
-    public FurnitureData(String shopdescribe, String shopName) {
-        Shopdescribe = shopdescribe;
-        ShopName = shopName;
+    public FurnitureData (String shopdescribe, String shopName) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
     }
 
-    public FurnitureData(String shopdescribe, String shopName, String price) {
-        Shopdescribe = shopdescribe;
-        ShopName = shopName;
+    public FurnitureData (String shopdescribe, String shopName, String price) {
+        this.shopdescribe = shopdescribe;
+        this.shopName = shopName;
         this.price = price;
     }
 
     public String getShopdescribe() {
-        return Shopdescribe;
+        return shopdescribe;
     }
 
     public void setShopdescribe(String shopdescribe) {
-        this.Shopdescribe = shopdescribe;
+        this.shopdescribe = shopdescribe;
     }
 
     public String getShopName() {
-        return ShopName;
+        return shopName;
     }
 
     public void setShopName(String shopName) {
-        ShopName = shopName;
+        this.shopName = shopName;
     }
 
     public String getPrice() {
@@ -71,19 +61,6 @@ public class FurnitureData {
         this.image = image;
     }
 
-    public String getShopkeeperId() {
-        return shopkeeperId;
-    }
-
-    public void setShopkeeperId(String shopkeeperId) {
-        this.shopkeeperId = shopkeeperId;
-    }
-
-    public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
+    public float getRating() { return rating;
     }
 }

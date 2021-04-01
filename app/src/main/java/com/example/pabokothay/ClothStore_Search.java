@@ -50,8 +50,8 @@ public class ClothStore_Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cloth_store__search);
-        ShopType shopType = new ShopType("Clothes");
-        shopType.setShopType("Clothes");
+        ShopType shopType = new ShopType("Cloths");
+        shopType.setShopType("Cloths");
         Toast.makeText(ClothStore_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
 
         //list data
@@ -74,7 +74,7 @@ public class ClothStore_Search extends AppCompatActivity {
         vListView.setAdapter(adapter);
 
         //firebase works
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Clothes");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users").child("Cloths");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
