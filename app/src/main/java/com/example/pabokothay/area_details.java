@@ -85,10 +85,8 @@ public class area_details extends AppCompatActivity {
         if(mBundle!=null){
             describe.setText(mBundle.getString("Description"));
             if(mBundle.getString("Image")!=null) {
-                Glide.with(this).load(mBundle.getString("Image")).into(shopImage);
-
+                Glide.with(this).load(mBundle.getString("Image")).placeholder(R.drawable.no_image).into(shopImage);
             }
-
             shopID=mBundle.getString("ID");
             rating=mBundle.getFloat("Rating");
             ratingBar.setRating(rating);

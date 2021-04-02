@@ -69,7 +69,6 @@ public class area_details2 extends AppCompatActivity {
         else{
             shop="Trash";
         }
-
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         ratingRef= FirebaseDatabase.getInstance().getReference(Type1Tree);
         userID=fUser.getUid();
