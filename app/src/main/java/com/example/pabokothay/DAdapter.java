@@ -39,10 +39,7 @@ public class DAdapter extends RecyclerView.Adapter<DViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull DViewHolder holder, int position) {
 
-        Glide.with(mContext)
-                .load(myDressList.get(position).getImage())
-                .into(holder.imageView);
-
+        Glide.with(mContext).load(myDressList.get(position).getImage()).placeholder(R.drawable.no_image).into(holder.imageView);
         holder.mTitle.setText(myDressList.get(position).getShopName());
         holder.mDescribe.setText(myDressList.get(position).getShopdescribe());
         holder.mID.setText(myDressList.get(position).getShopkeeperId());

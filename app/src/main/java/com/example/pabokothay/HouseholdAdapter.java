@@ -39,10 +39,7 @@ public class HouseholdAdapter extends RecyclerView.Adapter<HViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull HViewHolder holder, int position) {
 
-        Glide.with(mContext)
-                .load(myStuffList.get(position).getImage())
-                .into(holder.imageView);
-        holder.imageView.setImageResource(Integer.parseInt(myStuffList.get(position).getImage()));
+        Glide.with(mContext).load(myStuffList.get(position).getImage()).into(holder.imageView);
         holder.mTitle.setText(myStuffList.get(position).getShopName());
         holder.mDescribe.setText(myStuffList.get(position).getShopdescribe());
         holder.mID.setText(myStuffList.get(position).getShopkeeperId());

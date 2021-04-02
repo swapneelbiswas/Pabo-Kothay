@@ -38,9 +38,7 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FViewHolder holder, int position) {
-        Glide.with(mContext)
-                .load(myFurnitureList.get(position).getImage())
-                .into(holder.imageView);
+        Glide.with(mContext).load(myFurnitureList.get(position).getImage()).placeholder(R.drawable.no_image).into(holder.imageView);
         holder.mTitle.setText(myFurnitureList.get(position).getShopName());
         holder.mDescribe.setText(myFurnitureList.get(position).getShopdescribe());
         holder.mID.setText(myFurnitureList.get(position).getShopkeeperId());

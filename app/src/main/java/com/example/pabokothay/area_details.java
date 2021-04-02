@@ -98,6 +98,8 @@ public class area_details extends AppCompatActivity {
                 area_details_data shopData =snapshot.getValue(area_details_data.class);
                 if(shopData!=null) {
                     Link = shopData.getPrice();
+                    Sname= shopData.shopName;
+                    area_shopname.setText(Sname);
                 }
             }
             @Override
@@ -112,8 +114,7 @@ public class area_details extends AppCompatActivity {
                 Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
                 if(userProfile!=null){
                     num =userProfile.number;
-                    Sname= userProfile.shopName;
-                    area_shopname.setText(Sname);
+
 
                 }
             }

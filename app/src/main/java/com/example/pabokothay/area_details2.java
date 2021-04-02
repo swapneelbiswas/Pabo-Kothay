@@ -111,8 +111,6 @@ public class area_details2 extends AppCompatActivity {
                 Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
                 if(userProfile!=null){
                     num =userProfile.number;
-                    Sname= userProfile.shopName;
-                    area_shopname.setText(Sname);
                 }
             }
             @Override
