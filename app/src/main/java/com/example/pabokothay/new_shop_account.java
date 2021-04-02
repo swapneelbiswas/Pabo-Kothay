@@ -219,8 +219,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                         lv.setVisibility(View.VISIBLE);
                         shopkeeperID=FirebaseAuth.getInstance().getCurrentUser().getUid();
                         Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description,gLink);
-                        area_details_data shopData = new area_details_data(description, shopName, gLink,shopkeeperID);
-                        //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
+                        BookShopData shopData = new BookShopData(description, shopName, gLink,shopkeeperID);
                         String[] values = f.split(",");
                         for(int i=0; i<values.length;i++){
                             FirebaseDatabase.getInstance().getReference(Type1Tree).child(values[i])
