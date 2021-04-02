@@ -4,7 +4,7 @@ public class area_details_data {
     public String shopdescribe;
     public  String shopName;
     public  String price;
-    public int  image;
+    public String  image;
     public String shopkeeperId;
     public float rating;
 
@@ -12,7 +12,7 @@ public class area_details_data {
 
     }
 
-    public area_details_data(String shopdescribe, String shopName, String price, int image, float rating) {
+    public area_details_data(String shopdescribe, String shopName, String price, String image, float rating) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
@@ -20,7 +20,7 @@ public class area_details_data {
         this.rating = rating;
     }
 
-    public area_details_data(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+    public area_details_data(String shopdescribe, String shopName, String price, String image, String shopkeeperId, float rating) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
@@ -29,7 +29,7 @@ public class area_details_data {
         this.rating = rating;
     }
 
-    public area_details_data(String shopdescribe, String shopName, String price, int image) {
+    public area_details_data(String shopdescribe, String shopName, String price, String image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
@@ -71,11 +71,11 @@ public class area_details_data {
         this.price = price;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

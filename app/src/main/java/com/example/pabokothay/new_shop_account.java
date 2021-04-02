@@ -32,7 +32,7 @@ import java.util.Calendar;
 
 public class new_shop_account extends AppCompatActivity implements View.OnClickListener {
 
-    EditText vMail, vPassword, vPassword2, vfullname, vShopName,vMapLink,vSdescription;
+    EditText vMail, vPassword, vPassword2, vfullname, vShopName,vMapLink,vSdescription,vPhoneNo;
     ProgressBar progressBar;
     LinearLayout vButton;
     private FirebaseAuth mAuth;
@@ -61,8 +61,10 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         vShopName = findViewById(R.id.editShopName);
         vMapLink = findViewById(R.id.gMap_link);
         vButton = findViewById(R.id.button);
+        vPhoneNo = findViewById(R.id.p_num);
+//        ViewItem
         vButton.setOnClickListener(this);
-        vSdescription=findViewById(R.id.s_description);
+//        vSdescription=findViewById(R.id.s_description);
         vMakeOrder = (LinearLayout) findViewById(R.id.MakeOrder);
         vViewItem = (TextView) findViewById(R.id.ViewItem);
 
@@ -138,40 +140,74 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
     public void registerUser() {
         String email = vMail.getText().toString().trim();
         String password = vPassword.getText().toString().trim();
-        String number = "01000000000";
+        String number = vPhoneNo.getText().toString().trim();
         String password2 = vPassword2.getText().toString().trim();
         String gLink = vMapLink.getText().toString().trim();
         String shopName = vShopName.getText().toString().trim();
         String fullname =vfullname.getText().toString().trim();
-        String description =vSdescription.getText().toString().trim();
+        String description ="Description will be updated soon.";
+
 
         if(TextUtils.isEmpty(fullname)){
             vfullname.setError("Full name is required");
             vfullname.requestFocus();
+
         }
         else if (TextUtils.isEmpty(email)) {
             vMail.setError("Email is required");
             vMail.requestFocus();
+
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             vMail.setError("Please provide valid email");
             vMail.requestFocus();
+
         }
         else if (TextUtils.isEmpty(password)) {
             vPassword.setError("password is required");
             vPassword.requestFocus();
+
         }
         else if (password.length() < 6) {
             vPassword.setError("Must be of 6 character");
             vPassword.requestFocus();
+
         }
         else if (TextUtils.isEmpty(password2)) {
             vPassword2.setError("Re_enter password");
             vPassword2.requestFocus();
+
         }
         else if (!(password.equals(password2))) {
             vPassword2.setError("Doesn't match");
             vPassword2.requestFocus();
+        }
+         else if (TextUtils.isEmpty(shopName)) {
+            vShopName.setError("Shop Name required");
+            vShopName.requestFocus();
+        }
+         else if (TextUtils.isEmpty(f)) {
+            vViewItem.setError("No item selected");
+            vViewItem.requestFocus();
+        }
+        else if (TextUtils.isEmpty(gLink)) {
+            vMapLink.setError("Email is required");
+            vMapLink.requestFocus();
+
+        }
+        else if (!Patterns.WEB_URL.matcher(gLink).matches()) {
+            vMapLink.setError("Please provide valid Link");
+            vMapLink.requestFocus();
+        }
+
+        else if (TextUtils.isEmpty(number)) {
+            vPhoneNo.setError("Number is required");
+            vPhoneNo.requestFocus();
+
+        }
+        else if (number.length() < 11) {
+            vPhoneNo.setError("Must be of 11 digit");
+            vPhoneNo.requestFocus();
 
         }
         else {

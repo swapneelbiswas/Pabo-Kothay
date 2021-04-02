@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class area_details extends AppCompatActivity {
     TextView tex,shopName;
@@ -31,7 +32,7 @@ public class area_details extends AppCompatActivity {
     TextView describe,area_shopname;
     RatingBar ratingBar,ratingBar2;
     String shopID,shop,searchType,searchType2,searchType3,searchType4;
-    String Type1Tree="Users",Type2Tree="Shops",Link,userID, num,Sname;
+    String Type1Tree="Users",Type2Tree="Shops",Link,userID, num,Sname,imageUrl;
     float rating;
     DatabaseReference databaseReference;
     private FirebaseUser fUser;
@@ -84,9 +85,9 @@ public class area_details extends AppCompatActivity {
         if(mBundle!=null){
             describe.setText(mBundle.getString("Description"));
             if(mBundle.getString("Image")!=null) {
-                Glide.with(this)
-                        .load(mBundle.getString("Image"))
-                        .into(shopImage);
+                Glide.with(this).load(mBundle.getString("Image")).into(shopImage);
+//                imageUrl=mBundle.getString("Image");
+//                Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(shopImage);
             }
 //            shopName.setText(mBundle.getString("Name"));
             shopID=mBundle.getString("ID");
@@ -100,12 +101,14 @@ public class area_details extends AppCompatActivity {
                 area_details_data shopData =snapshot.getValue(area_details_data.class);
                 if(shopData!=null) {
                     Link = shopData.getPrice();
-                    //                    emailUser = userProfile.email;
-                    //                    pass = userProfile.password;
-                    //                    num = userProfile.number;
-                    //                    imageUrl = userProfile.imageUrl;
+                    //                   fName = userProfile.fullName;
+                    //                    link = userProfile.gLink;
+                    //                    des= userProfile.description;
+                    //                    num=userProfile.number;
+                    //                    emailUser= userProfile.email;
                     //                    vFullName.setText(fName);
-                    //                    vMail.setText(emailUser);
+                    //                    vDes.setText(des);
+                    //                    vlink.setText(link);
                     //                    vName.setText(fName);
                     //                    vNumber.setText(num);
                     //                    Picasso.get().load(imageUrl).placeholder(R.drawable.sideheader).into(profile_image);
@@ -143,9 +146,9 @@ public class area_details extends AppCompatActivity {
             }
         });
     }
-    String s = "https://goo.gl/maps/bCPFuNrYWy7H4r1D9";
+
     public void browser1(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Link));
         startActivity(browserIntent);
         Animatoo.animateSlideLeft(area_details.this);
     }

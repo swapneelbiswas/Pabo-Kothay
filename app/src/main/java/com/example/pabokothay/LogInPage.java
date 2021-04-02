@@ -104,7 +104,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                             allowAccessToId(email,password);
                         }
                     }else{
-                        Toast.makeText(LogInPage.this, "First Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LogInPage.this, "First Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

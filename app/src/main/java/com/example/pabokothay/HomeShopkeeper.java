@@ -61,6 +61,8 @@ public class HomeShopkeeper extends AppCompatActivity {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         userID = fUser.getUid();
+
+
         profile_image=findViewById(R.id.profile_image);
         bookShop_image=findViewById(R.id.bookShopImage);
         furnitureShop_image=findViewById(R.id.fShopImage);
@@ -197,6 +199,8 @@ public class HomeShopkeeper extends AppCompatActivity {
 
                     hhShopName = userProfilehh.shopName;
                     vHhShopName.setText(hhShopName);
+                    imageUrl=userProfilehh.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(houseShop_image);
                 } else {
                     household_card.setVisibility(View.GONE);
                 }
@@ -221,6 +225,8 @@ public class HomeShopkeeper extends AppCompatActivity {
 
                     spShopName = userProfilesp.shopName;
                     vSpShopName.setText(spShopName);
+                    imageUrl=userProfilesp.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(sportsShop_image);
                 } else {
                     sports_card.setVisibility(View.GONE);
                 }
@@ -245,6 +251,8 @@ public class HomeShopkeeper extends AppCompatActivity {
 
                     mbShopName = userProfilemb.shopName;
                     vMbShopName.setText(mbShopName);
+                    imageUrl=userProfilemb.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(gadgetShop_image);
                 } else {
                     mb_card.setVisibility(View.GONE);
                 }
@@ -267,6 +275,8 @@ public class HomeShopkeeper extends AppCompatActivity {
                     vClothPrice.setText(clothPrice);
                     vClothShopDes.setText(clothDesc);
                     vClothShopName.setText(clothShopName);
+                    imageUrl=userProfileCloth.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(clothsShop_image);
                 } else {
                     cloth_card.setVisibility(View.GONE);
                 }
@@ -289,6 +299,8 @@ public class HomeShopkeeper extends AppCompatActivity {
                     vFShopDes.setText(fDesc);
                     fShopName = userProfilef.shopName;
                     vFShopName.setText(fShopName);
+                    imageUrl=userProfilef.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(furnitureShop_image);
                 } else {
                     f_card.setVisibility(View.GONE);
                 }

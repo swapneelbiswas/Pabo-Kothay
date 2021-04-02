@@ -81,13 +81,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pabo Kothay"
-            android:textSize="20dp"
+            android:text="@string/app_name"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/atma_semi_bold"
             android:textColor="#4472C4"
             android:layout_gravity="left"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginStart="10dp"/>
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="200dp"
             android:layout_height="200dp"
@@ -125,7 +125,7 @@
                     android:textColor="@color/ash"
                     android:textColorHint="@color/ash"
                     android:inputType="textEmailAddress"
-                    android:textSize="20dp"
+                    android:textSize="16sp"
                     />
 
             </LinearLayout>
@@ -160,7 +160,7 @@
                     android:inputType="textPassword"
                     android:textColor="@color/ash"
                     android:textColorHint="@color/ash"
-                    android:textSize="20dp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -184,7 +184,8 @@
                 android:orientation="vertical"
                 android:padding="16dp"
                 android:background="@drawable/gradient_custom_color"
-                android:clickable="true">
+                android:clickable="true"
+                android:focusable="true">
 
 
                 <TextView
@@ -194,8 +195,8 @@
                     android:text="Log in"
                     android:textColor="@color/black"
                     android:fontFamily="@font/nunito_semibold"
-                    android:textSize="25dp"
-                    android:textStyle="bold"></TextView>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -221,7 +222,7 @@
             android:text="@string/register"
             android:fontFamily="@font/nunito_semibold"
             android:textColor="@color/blue_1"
-            android:textSize="22dp"
+            android:textSize="16sp"
 
             />
 
