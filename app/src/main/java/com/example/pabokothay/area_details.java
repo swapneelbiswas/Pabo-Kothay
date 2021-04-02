@@ -83,7 +83,7 @@ public class area_details extends AppCompatActivity {
         Bundle mBundle =getIntent().getExtras();
         if(mBundle!=null){
             describe.setText(mBundle.getString("Description"));
-            if(mBundle.getInt("Image")!=0) {
+            if(mBundle.getString("Image")!=null) {
                 Glide.with(this)
                         .load(mBundle.getString("Image"))
                         .into(shopImage);

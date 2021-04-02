@@ -4,7 +4,7 @@ public class ShopData {
     private String Shopdescribe;
     private String ShopName;
     private String price;
-    private int  image;
+    private String  image;
     private String shopkeeperId;
     private float rating;
 
@@ -12,7 +12,7 @@ public class ShopData {
 
     }
 
-    public ShopData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+    public ShopData(String shopdescribe, String shopName, String price, String image, String shopkeeperId, float rating) {
         Shopdescribe = shopdescribe;
         ShopName = shopName;
         this.price = price;
@@ -26,13 +26,6 @@ public class ShopData {
         ShopName = shopName;
         this.price = price;
         this.shopkeeperId = shopkeeperId;
-    }
-
-    public ShopData(String shopdescribe, String shopName, String price, int image) {
-        this.Shopdescribe = shopdescribe;
-        ShopName = shopName;
-        this.price = price;
-        this.image = image;
     }
 
 
@@ -66,11 +59,11 @@ public class ShopData {
         this.price = price;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

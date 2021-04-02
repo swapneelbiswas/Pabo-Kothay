@@ -52,6 +52,8 @@ public class HomeShopkeeper extends AppCompatActivity {
     private StorageReference storageReference;
     private ImageView profile_image;
     CardView book_card,household_card,sports_card,mb_card,cloth_card,f_card;
+
+    private ImageView bookShop_image,furnitureShop_image,houseShop_image,sportsShop_image,clothsShop_image,gadgetShop_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,14 @@ public class HomeShopkeeper extends AppCompatActivity {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         userID = fUser.getUid();
+        profile_image=findViewById(R.id.profile_image);
+        bookShop_image=findViewById(R.id.bookShopImage);
+        furnitureShop_image=findViewById(R.id.fShopImage);
+        houseShop_image=findViewById(R.id.hhShopImage);
+        sportsShop_image=findViewById(R.id.spShopImage);
+        clothsShop_image=findViewById(R.id.clothShopImage);
+        gadgetShop_image=findViewById(R.id.mbShopImage);
+
 
         vFullName = findViewById(R.id.skName);
         vMail = findViewById(R.id.emailText);
@@ -152,23 +162,22 @@ public class HomeShopkeeper extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ShopData userProfilebook = snapshot.getValue(ShopData.class);
-
-                if (userProfilebook != null) {
-                    bPrice = userProfilebook.getPrice();
+                if(userProfilebook!=null){
+                    bPrice=userProfilebook.getPrice();
                     vBookPrice.setText(bPrice);
-
-                    bookDesc = userProfilebook.getShopdescribe();
+                    bookDesc=userProfilebook.getShopdescribe();
                     vBookShopDes.setText(bookDesc);
-
-                    bookShopName = userProfilebook.getShopName();
+                    bookShopName=userProfilebook.getShopName();
                     vBookShopName.setText(bookShopName);
 
+                    imageUrl=userProfilebook.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(bookShop_image);
 
-                } else {
+                }else
+                {
                     book_card.setVisibility(View.GONE);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
