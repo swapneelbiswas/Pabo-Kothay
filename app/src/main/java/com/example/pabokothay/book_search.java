@@ -35,6 +35,7 @@ public class book_search extends AppCompatActivity {
     RecyclerView recyclerView;
     RelativeLayout relativeLayout;
     ArrayList<String> list;
+    ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     List<BookShopData> bookShopDataList;
     BookShopData mBookShopData;
@@ -73,6 +74,7 @@ public class book_search extends AppCompatActivity {
         list=new ArrayList<String>();
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         vListView.setAdapter(adapter);
+        listID=new ArrayList<String>();
 
         //firebase works
         databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Books");
@@ -84,6 +86,8 @@ public class book_search extends AppCompatActivity {
                     BookShopData shopData =itemSnapshot.getValue(BookShopData.class);
                     bookShopDataList.add(shopData);
                     list.add(shopData.getShopName());
+                    listID.add(shopData.getShopkeeperId());
+
                 }
                 myAdapter.notifyDataSetChanged();
             }
@@ -106,31 +110,18 @@ public class book_search extends AppCompatActivity {
                 return false;
             }
         });
+
         vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(((TextView) view).getText().equals("momotaj book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(book_search.this);
-                }
-                else if(((TextView) view).getText().equals("Rjsahi book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(book_search.this);
-                }
-                else if(((TextView) view).getText().equals("Naraynganj  book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(book_search.this);
-                }
-                else if(((TextView) view).getText().equals("modumoti book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(book_search.this);
-                }
+                ShopType.setShopID(listID.get(position));
+                Intent intent= new Intent(view.getContext(),area_details2.class);
+                startActivity(intent);
+                Animatoo.animateSlideLeft(book_search.this);
             }
         });
+
+
         recyclerView = findViewById(R.id.myRecycleView);
         recyclerView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

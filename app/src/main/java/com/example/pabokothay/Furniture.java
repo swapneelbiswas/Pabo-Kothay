@@ -33,6 +33,7 @@ public class Furniture extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     LinearLayout linearLayout;
     ArrayList<String> list;
+    ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
@@ -50,6 +51,7 @@ public class Furniture extends AppCompatActivity {
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
         list=new ArrayList<String>();
+        listID=new ArrayList<String>();
 
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         vListView.setAdapter(adapter);
@@ -70,21 +72,10 @@ public class Furniture extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if(((TextView) view).getText().equals("Chair")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(Furniture.this);
-                }
-                else if(((TextView) view).getText().equals("Table")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(Furniture.this);
-                }
-                else if(((TextView) view).getText().equals("Sofa")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(Furniture.this);
-                }
+                ShopType.setShopID(listID.get(position));
+                Intent intent= new Intent(view.getContext(),area_details2.class);
+                startActivity(intent);
+                Animatoo.animateSlideLeft(Furniture.this);
             }
         });
 
@@ -105,6 +96,7 @@ public class Furniture extends AppCompatActivity {
                     FurnitureData FData =itemSnapshot.getValue(FurnitureData.class);
                     furnitureDataList.add(FData);
                     list.add(FData.getShopName());
+                    listID.add(FData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
             }

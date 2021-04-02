@@ -35,6 +35,7 @@ public class households_search extends AppCompatActivity {
     ListView vListView;
 
     ArrayList<String> list;
+    ArrayList<String> listID;
     ArrayAdapter<String> adapter;
 
     List<HouseholdsData> householdsDataList;
@@ -54,11 +55,7 @@ public class households_search extends AppCompatActivity {
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
         list=new ArrayList<String>();
-//        list.add("Fry pan");
-//        list.add("kettle");
-//        list.add("Pan");
-//        list.add("Spoon");
-//        System.out.println(list.get(0));
+        listID=new ArrayList<String>();
 
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         vListView.setAdapter(adapter);
@@ -80,27 +77,10 @@ public class households_search extends AppCompatActivity {
         vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                if(((TextView) view).getText().equals("Fry pan")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(households_search.this);
-                }
-                else if(((TextView) view).getText().equals("kettle")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(households_search.this);
-                }
-                else if(((TextView) view).getText().equals("Pan")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(households_search.this);
-                }
-                else if(((TextView) view).getText().equals("Spoon")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(households_search.this);
-                }
+                ShopType.setShopID(listID.get(position));
+                Intent intent= new Intent(view.getContext(),area_details2.class);
+                startActivity(intent);
+                Animatoo.animateSlideLeft(households_search.this);
             }
         });
 
@@ -124,6 +104,7 @@ public class households_search extends AppCompatActivity {
                     HouseholdsData shopData =itemSnapshot.getValue(HouseholdsData.class);
                     householdsDataList.add(shopData);
                     list.add(shopData.getShopName());
+                    listID.add(shopData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
             }

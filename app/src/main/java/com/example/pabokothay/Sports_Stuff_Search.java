@@ -33,6 +33,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     LinearLayout linearLayout;
     ArrayList<String> list;
+    ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
@@ -51,6 +52,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);
         list=new ArrayList<String>();
+        listID=new ArrayList<String>();
 
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         vListView.setAdapter(adapter);
@@ -72,21 +74,10 @@ public class Sports_Stuff_Search extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if(((TextView) view).getText().equals("Cricket")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
-                }
-                else if(((TextView) view).getText().equals("Football")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
-                }
-                else if(((TextView) view).getText().equals("Basketball")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
-                }
+                ShopType.setShopID(listID.get(position));
+                Intent intent= new Intent(view.getContext(),area_details2.class);
+                startActivity(intent);
+                Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
             }
         });
 
@@ -111,6 +102,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
                     SportsData shopData =itemSnapshot.getValue(SportsData.class);
                     sportsDataList.add(shopData);
                     list.add(shopData.getShopName());
+                    listID.add(shopData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
             }

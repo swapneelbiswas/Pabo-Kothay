@@ -35,6 +35,7 @@ public class ClothStore_Search extends AppCompatActivity {
     RecyclerView recyclerView;
     RelativeLayout relativeLayout;
     ArrayList<String> list;
+    ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     List<DressData> clothesDataList;
     private Context mContext;
@@ -69,6 +70,7 @@ public class ClothStore_Search extends AppCompatActivity {
 
         //search bar
         list=new ArrayList<String>();
+        listID=new ArrayList<String>();
         adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         vListView.setAdapter(adapter);
 
@@ -82,6 +84,7 @@ public class ClothStore_Search extends AppCompatActivity {
                     DressData shopData =itemSnapshot.getValue(DressData.class);
                     clothesDataList.add(shopData);
                     list.add(shopData.getShopName());
+                    listID.add(shopData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
             }
@@ -107,26 +110,10 @@ public class ClothStore_Search extends AppCompatActivity {
         vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(((TextView) view).getText().equals("momotaj book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(ClothStore_Search.this);
-                }
-                else if(((TextView) view).getText().equals("Rjsahi book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(ClothStore_Search.this);
-                }
-                else if(((TextView) view).getText().equals("Naraynganj  book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(ClothStore_Search.this);
-                }
-                else if(((TextView) view).getText().equals("modumoti book store")){
-                    Intent intent= new Intent(view.getContext(),area_details.class);
-                    startActivity(intent);
-                    Animatoo.animateSlideLeft(ClothStore_Search.this);
-                }
+                ShopType.setShopID(listID.get(position));
+                Intent intent= new Intent(view.getContext(),area_details2.class);
+                startActivity(intent);
+                Animatoo.animateSlideLeft(ClothStore_Search.this);
             }
         });
         recyclerView = findViewById(R.id.myRecycleView);
