@@ -207,7 +207,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                                     FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
                                     fUser.sendEmailVerification();
                                     Toast.makeText(new_shop_account.this, "Check your email to verify account", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), HomeShopkeeper.class));
                                     Animatoo.animateSlideLeft(new_shop_account.this);
                                     finish();
                                 } else {
