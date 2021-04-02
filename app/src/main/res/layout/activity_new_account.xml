@@ -101,14 +101,7 @@
                     android:src="@drawable/c_a"/>
 
             </LinearLayout>
-            <!--        <ProgressBar-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:visibility="invisible"-->
-            <!--            android:layout_marginStart="146dp"-->
-            <!--            android:layout_marginTop="436dp"-->
-            <!--            android:layout_marginEnd="147dp"-->
-            <!--            android:layout_marginBottom="328dp" />-->
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -164,7 +157,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/nunito_regular"
                         android:ems="10"
-                        android:hint="Enter Password"
+                        android:hint="Enter Password (at least 6 character)"
                         android:textColorHint="@color/ash"
                         android:textColor="@color/ash"
                         android:inputType="textPassword"
@@ -237,6 +230,8 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -293,6 +288,17 @@
                 android:text="@string/have_account"
                 android:textColor="@color/blue_1"
                 android:textSize="16sp"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loooad"
+                android:layout_width="273dp"
+                android:layout_height="88dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/log_in_load3" />
 
         </LinearLayout>
     </ScrollView>

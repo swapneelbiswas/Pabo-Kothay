@@ -47,7 +47,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Sports");
         shopType.setShopType("Sports");
-//        Toast.makeText(Sports_Stuff_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+
 
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);

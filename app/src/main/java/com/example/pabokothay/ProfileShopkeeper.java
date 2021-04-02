@@ -33,14 +33,12 @@ public class ProfileShopkeeper extends AppCompatActivity {
 
     private static final int GALLERY_CODE = 1;
     private FirebaseUser fUser;
-    private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private String userID;
-    TextView vFullName,vMail,vName,vPass,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
-    String fName,emailUser,username,pass,hhPrice,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhShopName,spDesc,spPrice,spShopName;
+    TextView vFullName,vMail,vName,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
+    String fName,emailUser,username,hhPrice,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhShopName,spDesc,spPrice,spShopName;
     TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
     String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
-    private Button imageAdd;
     private Uri imageUri;
     int shopKeepC=0,bookC=0,sportsC=0,houseC=0,gadgetC=0,clothsC=0,furnitureC=0;
     private StorageReference storageReference;
@@ -60,7 +58,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
         vlink = findViewById(R.id.mapLink);
         vName = findViewById(R.id.name);
         vNumber = findViewById(R.id.pnum);
-        vPass= findViewById(R.id.passwordCheck);
+
 
         book_card=findViewById(R.id.book_card);
         household_card= findViewById(R.id.household_card);
@@ -107,9 +105,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
         vFShopName=findViewById(R.id.fShopN);
 
 
-        // imageAdd=findViewById(R.id.imageAdd);
-
-        //vPass = findViewById(R.id.passwordConfirm);
         profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -415,7 +410,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
+
 
                         }
                     });
@@ -611,14 +606,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
             return false;
         }
     }
-    //        private boolean isPassSame() {
-//        if(pass.equals(vPass.getText().toString().trim())){
-//            return true;
-//        }
-//        else{
-//            return false;
-//        }
-//    }
+
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY_CODE && resultCode == RESULT_OK) {
@@ -702,7 +690,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
+
 
                         }
                     });
@@ -751,7 +739,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
+
 
                         }
                     });
@@ -799,7 +787,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
 
                         }
                     });
@@ -848,7 +835,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
 
                         }
                     });
@@ -897,7 +883,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
+
 
                         }
                     });
@@ -945,7 +931,6 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
 
                         }
                     });

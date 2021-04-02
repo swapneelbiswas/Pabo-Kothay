@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,7 +26,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
     EditText vMail,vPassword,vPassword2,vfullname;
     ProgressBar progressBar;
     LinearLayout vButton;
-
+    LottieAnimationView lv;
     private FirebaseAuth mAuth;
 
     @Override
@@ -35,6 +36,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
         //getSupportActionBar().hide();
 
         //sign up work
+        lv = findViewById(R.id.loooad);
         mAuth = FirebaseAuth.getInstance();
         vfullname=findViewById(R.id.fullName);
         vMail = findViewById(R.id.login_mail);
@@ -59,7 +61,7 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
     public void registerUser(){
         String email = vMail.getText().toString().trim();
         String password = vPassword.getText().toString().trim();
-        String number ="019*******";
+        String number ="01000000000";
         String password2 = vPassword2.getText().toString().trim();
         String fullname = vfullname.getText().toString().trim();
 
@@ -97,10 +99,12 @@ public class newAccount extends AppCompatActivity implements View.OnClickListene
         else{
             mAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 User user= new User(fullname,email,number,password);
+                                lv.setVisibility(View.VISIBLE);
                                 //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                                 FirebaseDatabase.getInstance().getReference("Users").child("Customers")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

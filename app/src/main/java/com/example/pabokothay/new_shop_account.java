@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +39,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
     TextView vViewItem;
     String currentTime;
     String[] listItems;
+    LottieAnimationView lv;
     boolean[] checkedItems;
     String f,shopkeeperID,Type1Tree="Users",Type2Tree="Shops";
     int c=0;
@@ -60,6 +62,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         vMapLink = findViewById(R.id.gMap_link);
         vButton = findViewById(R.id.button);
         vPhoneNo = findViewById(R.id.p_num);
+        lv = findViewById(R.id.loooad);
 //        ViewItem
         vButton.setOnClickListener(this);
 //        vSdescription=findViewById(R.id.s_description);
@@ -213,6 +216,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        lv.setVisibility(View.VISIBLE);
                         shopkeeperID=FirebaseAuth.getInstance().getCurrentUser().getUid();
                         Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description,gLink);
                         area_details_data shopData = new area_details_data(description, shopName, gLink,shopkeeperID);
@@ -225,7 +229,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(new_shop_account.this, "created sub accounts", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(new_shop_account.this, "Account Created", Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(new_shop_account.this, "Try again", Toast.LENGTH_SHORT).show();
                                     }

@@ -38,13 +38,11 @@ public class book_search extends AppCompatActivity {
     ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     List<BookShopData> bookShopDataList;
-    BookShopData mBookShopData;
     private Context mContext;
     private List<BookShopData> myShopList;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
 
-    RelativeLayout relativeLayoutl;
     String Type1Tree="Users",Type2Tree="Shops";
 
     @Override
@@ -54,7 +52,7 @@ public class book_search extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Books");
         shopType.setShopType("Books");
-//        Toast.makeText(book_search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+
 
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);

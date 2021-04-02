@@ -28,8 +28,6 @@ import java.util.List;
 
 public class households_search extends AppCompatActivity {
 
-    ConstraintLayout constraintLayout;
-    LinearLayout linearLayout;
 
     SearchView vSearchView;
     ListView vListView;
@@ -50,7 +48,7 @@ public class households_search extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Household");
         shopType.setShopType("Household");
-//        Toast.makeText(households_search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+
 
         vSearchView= (SearchView)findViewById(R.id.search_bar);
         vListView=(ListView)findViewById(R.id.mainList);

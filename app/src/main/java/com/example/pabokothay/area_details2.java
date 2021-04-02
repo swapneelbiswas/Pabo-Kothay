@@ -69,7 +69,7 @@ public class area_details2 extends AppCompatActivity {
         else{
             shop="Trash";
         }
-//        Toast.makeText(area_details.this, shop, Toast.LENGTH_LONG).show();
+
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         ratingRef= FirebaseDatabase.getInstance().getReference(Type1Tree);
         userID=fUser.getUid();

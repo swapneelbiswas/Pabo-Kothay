@@ -52,7 +52,7 @@ public class ClothStore_Search extends AppCompatActivity {
         setContentView(R.layout.activity_cloth_store__search);
         ShopType shopType = new ShopType("Cloths");
         shopType.setShopType("Cloths");
-//        Toast.makeText(ClothStore_Search.this, shopType.getShopType(), Toast.LENGTH_SHORT).show();
+
 
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);

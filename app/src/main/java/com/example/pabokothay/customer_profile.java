@@ -27,13 +27,10 @@ import com.squareup.picasso.Picasso;
 public class customer_profile extends AppCompatActivity {
     private static final int GALLERY_CODE = 1;
     private FirebaseUser fUser;
-    private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private String userID;
-    TextView vFullName,vMail,vName,vPass,vNumber;
+    TextView vFullName,vMail,vName,vNumber;
     String fName,emailUser,username,pass,num,imageUrl;
-    private Button imageAdd;
-    private Uri imageUri;
     private StorageReference storageReference;
     private ImageView profile_image;
 

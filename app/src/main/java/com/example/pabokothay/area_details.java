@@ -31,13 +31,13 @@ public class area_details extends AppCompatActivity {
     ImageView shopImage;
     TextView describe,area_shopname;
     RatingBar ratingBar,ratingBar2;
-    String shopID,shop,searchType,searchType2,searchType3,searchType4;
-    String Type1Tree="Users",Type2Tree="Shops",Link,userID, num,Sname,imageUrl;
+    String shopID,shop;
+    String Type1Tree="Users",Type2Tree="Shops",Link,userID, num,Sname;
     float rating;
     DatabaseReference databaseReference;
     private FirebaseUser fUser;
     private DatabaseReference ratingRef;
-    float avgRating,getRatingValue;
+    float avgRating;
     Button btncall;
     CardView rateCardView;
 
@@ -67,7 +67,7 @@ public class area_details extends AppCompatActivity {
         else{
             shop="Trash";
         }
-//        Toast.makeText(area_details.this, shop, Toast.LENGTH_LONG).show();
+
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         ratingRef= FirebaseDatabase.getInstance().getReference(Type1Tree);
         userID=fUser.getUid();
@@ -86,10 +86,9 @@ public class area_details extends AppCompatActivity {
             describe.setText(mBundle.getString("Description"));
             if(mBundle.getString("Image")!=null) {
                 Glide.with(this).load(mBundle.getString("Image")).into(shopImage);
-//                imageUrl=mBundle.getString("Image");
-//                Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(shopImage);
+
             }
-//            shopName.setText(mBundle.getString("Name"));
+
             shopID=mBundle.getString("ID");
             rating=mBundle.getFloat("Rating");
             ratingBar.setRating(rating);
@@ -101,17 +100,6 @@ public class area_details extends AppCompatActivity {
                 area_details_data shopData =snapshot.getValue(area_details_data.class);
                 if(shopData!=null) {
                     Link = shopData.getPrice();
-                    //                   fName = userProfile.fullName;
-                    //                    link = userProfile.gLink;
-                    //                    des= userProfile.description;
-                    //                    num=userProfile.number;
-                    //                    emailUser= userProfile.email;
-                    //                    vFullName.setText(fName);
-                    //                    vDes.setText(des);
-                    //                    vlink.setText(link);
-                    //                    vName.setText(fName);
-                    //                    vNumber.setText(num);
-                    //                    Picasso.get().load(imageUrl).placeholder(R.drawable.sideheader).into(profile_image);
                 }
             }
             @Override

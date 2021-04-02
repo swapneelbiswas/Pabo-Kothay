@@ -37,7 +37,7 @@ public class popUp extends AppCompatActivity{
     public void onBackPressed(){
         super.onBackPressed();
         //fire the slide left animation
-        Animatoo.animateSlideRight(popUp.this);
+        Animatoo.animateFade(popUp.this);
     }
 
 }

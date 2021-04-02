@@ -10,17 +10,6 @@
     android:clickable="true"
     android:fitsSystemWindows="true"
     android:background="@drawable/gradient_custom_color">
-    <!--    <com.google.android.material.navigation.NavigationView-->
-    <!--        android:id="@+id/nav_view"-->
-    <!--        android:layout_width="180dp"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_gravity="start"-->
-    <!--        android:background="#FEFDFF"-->
-    <!--        android:scrollbarSize="40dp"-->
-    <!--        app:headerLayout="@layout/header"-->
-    <!--        app:itemTextColor="@color/purple_200"-->
-    <!--        app:itemIconTint="@color/purple_200"-->
-    <!--        app:menu="@menu/side_menu" />-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -69,13 +58,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.0"
         app:layout_constraintGuide_begin="20dp" />
-    <!--    <androidx.constraintlayout.widget.Guideline-->
-    <!--        android:id="@+id/guideline7"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:orientation="vertical"-->
-    <!--        app:layout_constraintGuide_percent="0.25"-->
-    <!--        app:layout_constraintGuide_begin="20dp" />-->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"
@@ -83,13 +66,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"
         app:layout_constraintGuide_begin="20dp" />
-    <!--    <androidx.constraintlayout.widget.Guideline-->
-    <!--        android:id="@+id/guideline9"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:orientation="vertical"-->
-    <!--        app:layout_constraintGuide_percent="0.75"-->
-    <!--        app:layout_constraintGuide_begin="20dp" />-->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
@@ -141,7 +118,7 @@
                             android:textSize="30dp"
                             android:layout_marginTop="270dp"
                             android:layout_gravity="center"
-                            android:textAlignment="center"></TextView>
+                            android:textAlignment="center"/>
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/profile_image2"
                             android:layout_width="163dp"

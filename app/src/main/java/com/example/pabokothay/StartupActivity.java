@@ -43,7 +43,7 @@ public class StartupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup);
-        //getSupportActionBar().hide();
+
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
@@ -106,6 +106,11 @@ public class StartupActivity extends AppCompatActivity {
                                 }
                                 else{
                                     Toast.makeText(StartupActivity.this, "Main Failed to login with ! Please check your info", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(StartupActivity.this, LogInPage.class);
+                                    startActivity(intent);
+                                    Animatoo.animateSlideLeft(StartupActivity.this);
+                                    finish();
+
                                 }
                             }
                             @Override

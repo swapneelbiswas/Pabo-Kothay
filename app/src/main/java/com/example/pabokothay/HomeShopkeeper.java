@@ -29,15 +29,13 @@ public class HomeShopkeeper extends AppCompatActivity {
 
     private static final int GALLERY_CODE = 1;
     private FirebaseUser fUser;
-    private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private String userID;
-    TextView vFullName,vMail,vName,vPass,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
-    String fName,emailUser,shopName,username,pass,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhPrice,hhShopName,spDesc,spPrice,spShopName;
+    TextView vFullName,vMail,vName,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
+    String fName,emailUser,shopName,username,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhPrice,hhShopName,spDesc,spPrice,spShopName;
     TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
     String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
-    private Button imageAdd;
-    private Uri imageUri;
+
     private StorageReference storageReference;
     private ImageView profile_image;
     CardView book_card,household_card,sports_card,mb_card,cloth_card,f_card;
@@ -67,7 +65,7 @@ public class HomeShopkeeper extends AppCompatActivity {
         vlink = findViewById(R.id.sLink);
         vName = findViewById(R.id.sName);
         vNumber = findViewById(R.id.sNumber);
-        vPass = findViewById(R.id.passwordCheck);
+
 
         book_card = findViewById(R.id.book_card);
         household_card = findViewById(R.id.household_card);
@@ -103,18 +101,6 @@ public class HomeShopkeeper extends AppCompatActivity {
         vFShopName = findViewById(R.id.fShopN);
 
 
-        // imageAdd=findViewById(R.id.imageAdd);
-
-        //vPass = findViewById(R.id.passwordConfirm);
-//        profile_image.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-//                galleryIntent.setType("image/*");
-//                startActivityForResult(galleryIntent, GALLERY_CODE);
-//                Animatoo.animateSlideLeft(HomeShopkeeper.this);
-//            }
-//        });
 
         Intent intent = getIntent();
         username = intent.getStringExtra("fullName");

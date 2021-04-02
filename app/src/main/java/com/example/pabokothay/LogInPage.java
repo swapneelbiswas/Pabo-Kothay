@@ -47,7 +47,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_page);
-        //getSupportActionBar().hide();
+
 
         //login stuff
         mAuth = FirebaseAuth.getInstance();
@@ -65,7 +65,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
 
         Intent intent= new Intent(this,popUp.class);
         startActivity(intent);
-        Animatoo.animateSlideLeft(LogInPage.this);
+        Animatoo.animateFade(LogInPage.this);
     }
 
     public void onClick(View v) {
@@ -106,7 +106,6 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
 
                         }
                     }else{
-//                        Toast.makeText(LogInPage.this, "First Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
                         log_in_error.setText("⚠ Email or Password doesn't match ");
                     }
                 }
@@ -129,7 +128,6 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
 
                         FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
                         if(user.isEmailVerified()){
-                            //Toast.makeText(LogInPage.this, "Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                             Animatoo.animateSlideLeft(LogInPage.this);
                             finish();
@@ -140,7 +138,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                         }
                     }else{
                         FirebaseAuth.getInstance().signOut();
-                        Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
+                        log_in_error.setText("⚠ Email or Password doesn't match ");
                     }
                 }
                  else if(snapshot.child(parentDb).child(UserType2).child(userID).exists()){
@@ -160,15 +158,14 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                     }
                     else{
                         FirebaseAuth.getInstance().signOut();
-                        Toast.makeText(LogInPage.this, "Failed to login! Please check your info", Toast.LENGTH_SHORT).show();
+                        log_in_error.setText("⚠ Email or Password doesn't match ");
                     }
                 }
 
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-//                    Toast.makeText(LogInPage.this, "Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
-                Toast.makeText(LogInPage.this, "Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
+                log_in_error.setText("Failed to log in");
             }
         });
     }
@@ -179,9 +176,6 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
         finish();
         Animatoo.animateSlideRight(LogInPage.this);
     }
-//    public void load() {
-//        lv.setVisibility(View.VISIBLE);
-//    }
 
 
 }
