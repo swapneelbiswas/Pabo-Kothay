@@ -20,10 +20,10 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
     private Context mContext;
-    private List<ShopData> myShopList;
+    private List<BookShopData> myShopList;
 
 
-    public MyAdapter(Context mContext, List<ShopData> myShopList) {
+    public MyAdapter(Context mContext, List<BookShopData> myShopList) {
         this.mContext = mContext;
         this.myShopList = myShopList;
     }

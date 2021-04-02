@@ -1,6 +1,6 @@
 package com.example.pabokothay;
 
-public class ShopData {
+public class BookShopData {
     private String Shopdescribe;
     private String ShopName;
     private String price;
@@ -8,11 +8,11 @@ public class ShopData {
     private String shopkeeperId;
     private float rating;
 
-    public ShopData() {
+    public BookShopData() {
 
     }
 
-    public ShopData(String shopdescribe, String shopName, String price, String image, String shopkeeperId, float rating) {
+    public BookShopData(String shopdescribe, String shopName, String price, String image, String shopkeeperId, float rating) {
         Shopdescribe = shopdescribe;
         ShopName = shopName;
         this.price = price;
@@ -21,7 +21,7 @@ public class ShopData {
         this.rating = rating;
     }
 
-    public ShopData(String shopdescribe, String shopName, String price, String shopkeeperId) {
+    public BookShopData(String shopdescribe, String shopName, String price, String shopkeeperId) {
         Shopdescribe = shopdescribe;
         ShopName = shopName;
         this.price = price;
@@ -29,7 +29,7 @@ public class ShopData {
     }
 
 
-    public ShopData(String shopdescribe, String shopName, String price) {
+    public BookShopData(String shopdescribe, String shopName, String price) {
         Shopdescribe = shopdescribe;
         ShopName = shopName;
         this.price = price;

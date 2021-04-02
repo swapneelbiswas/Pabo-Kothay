@@ -12,12 +12,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.database.DataSnapshot;
@@ -38,10 +36,10 @@ public class book_search extends AppCompatActivity {
     RelativeLayout relativeLayout;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
-    List<ShopData> shopDataList;
-    ShopData mShopData;
+    List<BookShopData> bookShopDataList;
+    BookShopData mBookShopData;
     private Context mContext;
-    private List<ShopData> myShopList;
+    private List<BookShopData> myShopList;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
 
@@ -67,8 +65,8 @@ public class book_search extends AppCompatActivity {
         vListView=(ListView)findViewById(R.id.mainList);
 
         //recycler
-        shopDataList =new ArrayList<>();
-        MyAdapter myAdapter = new MyAdapter(book_search.this,shopDataList);
+        bookShopDataList =new ArrayList<>();
+        MyAdapter myAdapter = new MyAdapter(book_search.this, bookShopDataList);
         myRv.setAdapter(myAdapter);
 
         //search bar
@@ -81,10 +79,10 @@ public class book_search extends AppCompatActivity {
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                shopDataList.clear();
+                bookShopDataList.clear();
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
-                    ShopData shopData =itemSnapshot.getValue(ShopData.class);
-                    shopDataList.add(shopData);
+                    BookShopData shopData =itemSnapshot.getValue(BookShopData.class);
+                    bookShopDataList.add(shopData);
                     list.add(shopData.getShopName());
                 }
                 myAdapter.notifyDataSetChanged();

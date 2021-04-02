@@ -12,7 +12,8 @@
     android:orientation="vertical"
     android:padding="5dp"
     android:background="@drawable/gradient_custom_color"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:focusable="true">
     <!--    android:background="@drawable/bgbgbg"-->
 
     <androidx.cardview.widget.CardView
@@ -46,8 +47,8 @@
                 android:layout_gravity="center"
                 android:background="@color/white"
                 android:visibility="gone"
-                android:layout_marginLeft="7dp"
-                android:textSize="100dp"/>
+                android:layout_marginStart="7dp"
+                android:textSize="100sp"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -57,7 +58,8 @@
         android:orientation="vertical"
         android:id="@+id/rl"
         android:focusableInTouchMode="true"
-        android:clickable="true">
+        android:clickable="true"
+        android:focusable="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecycleView"
@@ -67,7 +69,8 @@
             android:layout_marginTop="77dp"
             android:focusableInTouchMode="true"
             android:clickable="true"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"
+            android:focusable="true" />
 
 
     </RelativeLayout>

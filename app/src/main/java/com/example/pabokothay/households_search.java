@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +38,7 @@ public class households_search extends AppCompatActivity {
     ArrayAdapter<String> adapter;
 
     List<HouseholdsData> householdsDataList;
-    ShopData mShopData;
+
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
     String Type1Tree="Users",Type2Tree="Shops";

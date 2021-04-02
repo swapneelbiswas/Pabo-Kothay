@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".StartupActivity"
     android:background="@color/white"
-    android:forceDarkAllowed="false"
     >
      <androidx.constraintlayout.widget.Guideline
          android:id="@+id/guideline"
@@ -55,13 +54,13 @@
          android:gravity="center"
          android:background="@color/white">
 
-     <com.airbnb.lottie.LottieAnimationView
-         android:layout_width="300dp"
-         android:layout_height="350dp"
-         android:layout_marginTop="-30dp"
-         app:lottie_autoPlay="true"
-         app:lottie_loop="true"
-         app:lottie_rawRes="@raw/start_up" />
+          <com.airbnb.lottie.LottieAnimationView
+              android:layout_width="300dp"
+              android:layout_height="350dp"
+              android:layout_marginTop="-30dp"
+              app:lottie_autoPlay="true"
+              app:lottie_loop="true"
+              app:lottie_rawRes="@raw/start_up" />
 
           <androidx.cardview.widget.CardView
               android:layout_width="wrap_content"
@@ -84,10 +83,10 @@
                         android:layout_width="330dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="10dp"
-                        android:text="Pabo Kothay"
+                        android:text="@string/app_name"
                         android:gravity="center"
                         android:fontFamily="@font/atma_semi_bold"
-                        android:textSize="60dp"
+                        android:textSize="60sp"
                         android:textColor="#4472C4"
                         android:layout_gravity="center"
 

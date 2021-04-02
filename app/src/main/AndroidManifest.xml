@@ -20,7 +20,6 @@
         <activity android:name=".area_details" />
         <activity android:name=".ProfileShopkeeper" />
         <activity android:name=".HomeShopkeeper" />
-        <activity android:name=".make_order" />
         <activity android:name=".Furniture" />
         <activity android:name=".households_search" />
         <activity android:name=".Sports_Stuff_Search" />

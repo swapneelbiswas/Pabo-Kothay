@@ -213,7 +213,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
         databaseReference.child("Books").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ShopData userProfilebook = snapshot.getValue(ShopData.class);
+                BookShopData userProfilebook = snapshot.getValue(BookShopData.class);
                 if(userProfilebook!=null){
                     bPrice=userProfilebook.getPrice();
                     vBookPrice.setText(bPrice);

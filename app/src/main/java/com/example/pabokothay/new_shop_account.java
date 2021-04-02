@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -27,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 
 public class new_shop_account extends AppCompatActivity implements View.OnClickListener {
@@ -217,7 +215,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                     if (task.isSuccessful()) {
                         shopkeeperID=FirebaseAuth.getInstance().getCurrentUser().getUid();
                         Shopkeeper shopkeeper = new Shopkeeper(fullname, email, password, number, shopName, description,gLink);
-                        ShopData shopData = new ShopData(description, shopName, gLink,shopkeeperID);
+                        area_details_data shopData = new area_details_data(description, shopName, gLink,shopkeeperID);
                         //DatabaseReference UserRef =FirebaseDatabase.getInstance().getReference("Users").child(Uid);
                         String[] values = f.split(",");
                         for(int i=0; i<values.length;i++){

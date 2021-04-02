@@ -16,7 +16,6 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +37,6 @@ public class ClothStore_Search extends AppCompatActivity {
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
     List<DressData> clothesDataList;
-    ShopData mShopData;
     private Context mContext;
     private List<DressData> myDressList;
     private DatabaseReference databaseReference;

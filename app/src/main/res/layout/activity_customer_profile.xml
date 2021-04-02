@@ -136,22 +136,19 @@
                         android:padding="5dp">
 
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Full Name"
-                                android:textSize="16dp"
-
-                                ></TextView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/nunito_regular"
-                                android:background="@color/white"
-                                android:id="@+id/fullNamep"
-                                >
-
-                            </TextView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Full Name"
+                            android:fontFamily="@font/nunito_regular"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:background="@color/white"
+                            android:id="@+id/fullNamep"
+                            />
 
 
                     </LinearLayout>
@@ -177,17 +174,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Email"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/nunito_regular"/>
+                        <TextView
+                            android:id="@+id/emailText"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nunito_regular"
+                            android:layout_height="match_parent"
+                            android:background="@color/white" >
 
-                            ></TextView>
-                            <TextView
-                                android:id="@+id/emailText"
-                                android:layout_width="match_parent"
-                                android:fontFamily="@font/nunito_regular"
-                                android:layout_height="match_parent"
-                                android:background="@color/white" >
-
-                            </TextView>
+                        </TextView>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
@@ -209,17 +205,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Phone Number"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/nunito_regular"/>
 
-                            ></TextView>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/white"
-                                android:fontFamily="@font/nunito_regular"
-                                android:id="@+id/pnum"
-                                ></TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:fontFamily="@font/nunito_regular"
+                            android:id="@+id/pnum"
+                            />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -273,8 +268,8 @@
                             android:fontFamily="@font/nunito_semibold"
                             android:text="Edit Profile"
                             android:textColor="@color/black"
-                            android:textSize="16dp"
-                            android:textStyle="bold"></TextView>
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -322,8 +317,8 @@
                             android:fontFamily="@font/nunito_semibold"
                             android:text="logout"
                             android:textColor="@color/black"
-                            android:textSize="14dp"
-                            android:textStyle="bold"></TextView>
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

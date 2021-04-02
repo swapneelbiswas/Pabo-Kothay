@@ -9,7 +9,8 @@
     android:orientation="vertical"
     android:padding="5dp"
     android:background="@drawable/gradient_custom_color"
-    tools:context=".households_search">
+    tools:context=".households_search"
+    android:focusable="true">
     <androidx.cardview.widget.CardView
         android:layout_width="400dp"
         android:layout_height="wrap_content"
@@ -40,8 +41,8 @@
                 android:layout_gravity="center"
                 android:background="@color/white"
                 android:visibility="gone"
-                android:layout_marginLeft="7dp"
-                android:textSize="100dp"/>
+                android:layout_marginStart="7dp"
+                android:textSize="100sp"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -51,7 +52,8 @@
         android:orientation="vertical"
         android:id="@+id/rl"
         android:focusableInTouchMode="true"
-        android:clickable="true">
+        android:clickable="true"
+        android:focusable="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myRecycleView"
