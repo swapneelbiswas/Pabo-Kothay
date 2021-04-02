@@ -7,12 +7,12 @@ public class BookData {
     public String shopName;
 
 
-    public int image;
+    public String image;
 
     public BookData() {
 
     }
-    public BookData(String shopdescribe, String shopName, String price, int image) {
+    public BookData(String shopdescribe, String shopName, String price, String image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
@@ -54,11 +54,11 @@ public class BookData {
         this.price = price;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

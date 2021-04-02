@@ -42,7 +42,7 @@ public class HouseholdAdapter extends RecyclerView.Adapter<HViewHolder>{
         Glide.with(mContext)
                 .load(myStuffList.get(position).getImage())
                 .into(holder.imageView);
-        holder.imageView.setImageResource(myStuffList.get(position).getImage());
+        holder.imageView.setImageResource(Integer.parseInt(myStuffList.get(position).getImage()));
         holder.mTitle.setText(myStuffList.get(position).getShopName());
         holder.mDescribe.setText(myStuffList.get(position).getShopdescribe());
         holder.mID.setText(myStuffList.get(position).getShopkeeperId());

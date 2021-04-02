@@ -4,14 +4,14 @@ public class GadgetData {
     public String shopdescribe;
     public  String shopName;
     public  String price;
-    private int  image;
+    private String  image;
     private String shopkeeperId;
     private float rating;
 
     public GadgetData () {
 
     }
-    public GadgetData(String shopdescribe, String shopName, String price, int image, String shopkeeperId, float rating) {
+    public GadgetData(String shopdescribe, String shopName, String price, String image, String shopkeeperId, float rating) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
@@ -19,14 +19,14 @@ public class GadgetData {
         this.shopkeeperId = shopkeeperId;
         this.rating = rating;
     }
-    public GadgetData(String shopdescribe, String shopName, String price, int image, float rating) {
+    public GadgetData(String shopdescribe, String shopName, String price, String image, float rating) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
         this.image = image;
         this.rating = rating;
     }
-    public GadgetData (String shopdescribe, String shopName, String price, int image) {
+    public GadgetData (String shopdescribe, String shopName, String price, String image) {
         this.shopdescribe = shopdescribe;
         this.shopName = shopName;
         this.price = price;
@@ -66,11 +66,11 @@ public class GadgetData {
         this.price = price;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

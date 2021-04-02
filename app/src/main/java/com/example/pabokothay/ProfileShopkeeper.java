@@ -37,10 +37,9 @@ public class ProfileShopkeeper extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String userID;
     TextView vFullName,vMail,vName,vPass,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
-    String fName,emailUser,username,pass,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhShopName,spDesc,spPrice,spShopName;
+    String fName,emailUser,username,pass,hhPrice,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhShopName,spDesc,spPrice,spShopName;
     TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
     String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
-    Long hhPrice;
     private Button imageAdd;
     private Uri imageUri;
     int shopKeepC=0,bookC=0,sportsC=0,houseC=0,gadgetC=0,clothsC=0,furnitureC=0;
@@ -236,124 +235,124 @@ public class ProfileShopkeeper extends AppCompatActivity {
                 Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
-//        databaseReference.child("Household").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                HouseholdsData userProfilehh = snapshot.getValue(HouseholdsData.class);
-//                if(userProfilehh!=null){
-//                    hhPrice=userProfilehh.getPrice();
-//                    vHhPrice.setText(hhPrice.toString());
-//                    hhDesc=userProfilehh.getShopdescribe();
-//                    vHhShopDes.setText(hhDesc);
-//                    hhShopName=userProfilehh.getShopName();
-//                    vHhShopName.setText(hhShopName);
-//                    imageUrl=userProfilehh.getImage();
-//                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(houseShop_image);
-//
-//                }else {
-//                    household_card.setVisibility(View.GONE);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        databaseReference.child("Sports").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                SportsData userProfilesp = snapshot.getValue(SportsData.class);
-//                if(userProfilesp!=null){
-//                    spPrice=userProfilesp.getPrice();
-//                    vSpPrice.setText(spPrice);
-//
-//                    spDesc=userProfilesp.getShopdescribe();
-//                    vSpShopDes.setText(spDesc);
-//
-//                    spShopName=userProfilesp.getShopName();
-//                    vSpShopName.setText(spShopName);
-//                    imageUrl=userProfilesp.getImage();
-//                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(sportsShop_image);
-//                }else{
-//                    sports_card.setVisibility(View.GONE);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        databaseReference.child("Mobile-Gadget").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                GadgetData userProfilemb = snapshot.getValue(GadgetData.class);
-//                if(userProfilemb!=null){
-//                    mbPrice=userProfilemb.getPrice();
-//                    vMbPrice.setText(mbPrice);
-//
-//                    mbDesc=userProfilemb.getShopdescribe();
-//                    vMbShopDes.setText(mbDesc);
-//
-//                    mbShopName=userProfilemb.getShopName();
-//                    vMbShopName.setText(mbShopName);
-//
-//                    imageUrl=userProfilemb.getImage();
-//                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(gadgetShop_image);
-//                }else {
-//                    mb_card.setVisibility(View.GONE);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        databaseReference.child("Cloths").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                DressData userProfileCloth = snapshot.getValue(DressData.class);
-//                if(userProfileCloth!=null){
-//                    clothPrice=userProfileCloth.getPrice();
-//                    clothDesc=userProfileCloth.getShopdescribe();
-//                    clothShopName=userProfileCloth.getShopName();
-//                    vClothPrice.setText(clothPrice);
-//                    vClothShopDes.setText(clothDesc);
-//                    vClothShopName.setText(clothShopName);
-//                    imageUrl=userProfileCloth.getImage();
-//                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(clothsShop_image);
-//                }else {
-//                    cloth_card.setVisibility(View.GONE);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        databaseReference.child("Furniture").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                FurnitureData userProfilef = snapshot.getValue(FurnitureData.class);
-//                if( userProfilef!=null){
-//                    fPrice= userProfilef.getPrice();
-//                    vFPrice.setText(fPrice);
-//                    fDesc= userProfilef.getShopdescribe();
-//                    vFShopDes.setText(fDesc);
-//                    fShopName= userProfilef.getShopName();
-//                    vFShopName.setText(fShopName);
-//
-//                    imageUrl=userProfilef.getImage();
-//                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(furnitureShop_image);
-//                }else
-//                {
-//                    f_card.setVisibility(View.GONE);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        databaseReference.child("Household").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                HouseholdsData userProfilehh = snapshot.getValue(HouseholdsData.class);
+                if(userProfilehh!=null){
+                    hhPrice=userProfilehh.getPrice();
+                    vHhPrice.setText(hhPrice.toString());
+                    hhDesc=userProfilehh.getShopdescribe();
+                    vHhShopDes.setText(hhDesc);
+                    hhShopName=userProfilehh.getShopName();
+                    vHhShopName.setText(hhShopName);
+                    imageUrl= userProfilehh.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(houseShop_image);
+
+                }else {
+                    household_card.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        databaseReference.child("Sports").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SportsData userProfilesp = snapshot.getValue(SportsData.class);
+                if(userProfilesp!=null){
+                    spPrice=userProfilesp.getPrice();
+                    vSpPrice.setText(spPrice);
+
+                    spDesc=userProfilesp.getShopdescribe();
+                    vSpShopDes.setText(spDesc);
+
+                    spShopName=userProfilesp.getShopName();
+                    vSpShopName.setText(spShopName);
+                    imageUrl=userProfilesp.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(sportsShop_image);
+                }else{
+                    sports_card.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        databaseReference.child("Mobile-Gadget").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GadgetData userProfilemb = snapshot.getValue(GadgetData.class);
+                if(userProfilemb!=null){
+                    mbPrice=userProfilemb.getPrice();
+                    vMbPrice.setText(mbPrice);
+
+                    mbDesc=userProfilemb.getShopdescribe();
+                    vMbShopDes.setText(mbDesc);
+
+                    mbShopName=userProfilemb.getShopName();
+                    vMbShopName.setText(mbShopName);
+
+                    imageUrl=userProfilemb.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(gadgetShop_image);
+                }else {
+                    mb_card.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        databaseReference.child("Cloths").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DressData userProfileCloth = snapshot.getValue(DressData.class);
+                if(userProfileCloth!=null){
+                    clothPrice=userProfileCloth.getPrice();
+                    clothDesc=userProfileCloth.getShopdescribe();
+                    clothShopName=userProfileCloth.getShopName();
+                    vClothPrice.setText(clothPrice);
+                    vClothShopDes.setText(clothDesc);
+                    vClothShopName.setText(clothShopName);
+                    imageUrl=userProfileCloth.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(clothsShop_image);
+                }else {
+                    cloth_card.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        databaseReference.child("Furniture").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                FurnitureData userProfilef = snapshot.getValue(FurnitureData.class);
+                if( userProfilef!=null){
+                    fPrice= userProfilef.getPrice();
+                    vFPrice.setText(fPrice);
+                    fDesc= userProfilef.getShopdescribe();
+                    vFShopDes.setText(fDesc);
+                    fShopName= userProfilef.getShopName();
+                    vFShopName.setText(fShopName);
+
+                    imageUrl=userProfilef.getImage();
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(furnitureShop_image);
+                }else
+                {
+                    f_card.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
     public void logoutAcc(View view){
