@@ -37,7 +37,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String userID;
     TextView vFullName,vMail,vName,vPass,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
-    String fName,emailUser,username,pass,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhPrice,hhShopName,spDesc,spPrice,spShopName;
+    String fName,emailUser,username,shopName,pass,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhPrice,hhShopName,spDesc,spPrice,spShopName;
     TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
     String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
     private Button imageAdd;
@@ -120,6 +120,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     link = userProfile.gLink;
                     des= userProfile.description;
                     num=userProfile.number;
+                    shopName = userProfile.shopName;
                     imageUrl=userProfile.imageUrl;
 
                     emailUser= userProfile.email;
@@ -127,7 +128,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     vFullName.setText(fName);
                     vDes.setText(des);
                     vlink.setText(link);
-                    vName.setText(fName);
+                    vName.setText(shopName);
                     vNumber.setText(num);
 
                     Picasso.get().load(imageUrl).placeholder(R.drawable.sideheader).into(profile_image);
@@ -281,12 +282,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
 
 
     }
-    public void logoutAcc(View view){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(this,LogInPage.class));
-        Animatoo.animateInAndOut(ProfileShopkeeper.this);
-        finish();
-    }
+
     public void updateAcc(View view){
         if(isNameChanged()){
             String newname =vFullName.getEditableText().toString();
@@ -688,6 +684,24 @@ public class ProfileShopkeeper extends AppCompatActivity {
         super.onBackPressed();
         //fire the slide left animation
         Animatoo.animateSlideRight(ProfileShopkeeper.this);
+    }
+
+    public void book_update(View view) {
+    }
+
+    public void household_update(View view) {
+    }
+
+    public void sports_update(View view) {
+    }
+
+    public void gadget_update(View view) {
+    }
+
+    public void cloth_update(View view) {
+    }
+
+    public void furniture_update(View view) {
     }
 }
 

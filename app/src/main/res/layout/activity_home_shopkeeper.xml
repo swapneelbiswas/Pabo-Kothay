@@ -95,8 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="1.0"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="444dp"
+        app:layout_constraintGuide_percent="1.0" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -175,7 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
-                    android:textSize="14dp"
+                    android:textSize="16dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/black"></TextView>
@@ -189,7 +189,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Shopkeeper Name"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
@@ -207,7 +207,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Email"
-                        android:textSize="14dp"
+                        android:textSize="16dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/black"></TextView>
@@ -222,7 +222,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Email"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
@@ -241,7 +241,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Phone"
-                        android:textSize="14dp"
+                        android:textSize="16dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/black"></TextView>
@@ -255,7 +255,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Phone Number"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
@@ -272,7 +272,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Google Map Link"
-                        android:textSize="14dp"
+                        android:textSize="16dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/black"></TextView>
@@ -285,7 +285,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Google Map Link"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
@@ -302,7 +302,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Description"
-                        android:textSize="14dp"
+                        android:textSize="16dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/black"></TextView>
@@ -315,7 +315,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Description"
-                        android:textSize="15dp"
+                        android:textSize="14dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
@@ -336,15 +336,755 @@
                 </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/book_card"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/bookShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+                            android:layout_gravity="center"
+                            >
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:text="Book Shop name"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/bookShopN"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:text="Shop name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginStart="10dp"></TextView>
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@color/ash_1"
+                            />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:textSize="16dp"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/bookDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Book Des"></TextView>
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@color/ash_1"
+                            />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Map Link"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/bookPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Map Link"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"></TextView>
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@color/ash_1"
+                            />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/household_card"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/hhShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+                            android:layout_gravity="center"
+                            >
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:text="Household Shop name"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/hhN"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:text="Shop name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginStart="10dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:textSize="16dp"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/hhDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Household Des"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Map Link"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/hhPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Map Link"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/sports_card"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/spShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+                            android:layout_gravity="center"
+                            >
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:text="Sports Shop name"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/spN"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:text="Shop name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginStart="10dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:textSize="16dp"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/spDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Sports Des"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Map Link"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/spPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Map Link"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/mb_card"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/mbShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+                            android:layout_gravity="center"
+                            >
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:text="Mobile and Gadget Shop name"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/mbShopN"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:text="Shop name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginStart="10dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:textSize="16dp"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/mbDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Mobile Des"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Map Link"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/mbPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Map Link"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/cloth_card"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/clothShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+                            android:layout_gravity="center"
+                            >
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:text="Cloth Shop name"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/clothShopN"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:text="Shop name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginStart="10dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:textSize="16dp"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/clothDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Cloth Des"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Map Link"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/clothPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Map Link"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/f_card"
+                    app:cardElevation="7dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/fShopImage"
+                            android:layout_width="300dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/book"
+                            android:layout_gravity="center"
+                            >
+
+                        </ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:text="Furniture Shop name"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/fShopN"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:text="Shop name"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginStart="10dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:textSize="16dp"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/fDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Fur Des"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Map Link"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"></TextView>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/fPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Map Link"
+                                android:fontFamily="@font/nunito_regular"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="5dp"></TextView>
+                            <View
+
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/ash_1"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     app:cardElevation="10dp"
-                    android:layout_gravity="right"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
                     app:cardCornerRadius="20dp"
-                    android:layout_margin="10dp"
                     android:padding="20dp"
                     >
                 <LinearLayout
@@ -353,6 +1093,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:onClick="goProfile"
+
                     android:background="@drawable/gradient_custom_color"
                     android:clickable="true"
                     android:padding="5dp">
@@ -366,11 +1107,46 @@
                         android:fontFamily="@font/nunito_semibold"
                         android:text="Edit Profile"
                         android:textColor="@color/blue_1"
-                        android:textSize="17dp"
+                        android:textSize="14dp"
                         android:textStyle="bold"></TextView>
 
                 </LinearLayout>
                 </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="10dp"
+                    android:layout_marginStart="130dp"
+                    app:cardCornerRadius="20dp"
+                    android:padding="20dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:onClick="logoutAcc"
+
+                        android:background="@drawable/gradient_custom_color"
+                        android:clickable="true"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:fontFamily="@font/nunito_semibold"
+                            android:text="LogOut"
+                            android:textColor="@color/blue_1"
+                            android:textSize="14dp"
+                            android:textStyle="bold"></TextView>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
 
 

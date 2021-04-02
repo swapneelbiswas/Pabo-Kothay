@@ -3,6 +3,7 @@ package com.example.pabokothay;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -37,86 +38,267 @@ import java.util.ArrayList;
 
 public class HomeShopkeeper extends AppCompatActivity {
 
-    SearchView vSearchViewMain;
-    ListView vListViewMain;
-    private DrawerLayout Dl;
-    private ActionBarDrawerToggle dToggle;
-    ConstraintLayout constraintLayout;
-    LinearLayout linearLayout;
-    ArrayList<String> mainList;
-    ArrayAdapter<String> adapter;
     private static final int GALLERY_CODE = 1;
     private FirebaseUser fUser;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
     private String userID;
-    TextView vName,vMail,vSName,vNumber,vDescription, vLink;
-    String fName,emailUser,username,pass,num,imageUrl, googleLink, description, shopName;
+    TextView vFullName,vMail,vName,vPass,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
+    String fName,emailUser,shopName,username,pass,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhPrice,hhShopName,spDesc,spPrice,spShopName;
+    TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
+    String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
     private Button imageAdd;
     private Uri imageUri;
     private StorageReference storageReference;
-    private ImageView profile_image2;
-
+    private ImageView profile_image;
+    CardView book_card,household_card,sports_card,mb_card,cloth_card,f_card;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_shopkeeper);
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-        databaseReference= FirebaseDatabase.getInstance().getReference("Users");
-        userID=fUser.getUid();
-        profile_image2=findViewById(R.id.profile_image2);
-        Intent intent= getIntent();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        userID = fUser.getUid();
+
+        vFullName = findViewById(R.id.skName);
+        vMail = findViewById(R.id.emailText);
+        vDes = findViewById(R.id.sDescription);
+        vlink = findViewById(R.id.sLink);
+        vName = findViewById(R.id.sName);
+        vNumber = findViewById(R.id.sNumber);
+        vPass = findViewById(R.id.passwordCheck);
+
+        book_card = findViewById(R.id.book_card);
+        household_card = findViewById(R.id.household_card);
+        sports_card = findViewById(R.id.sports_card);
+        mb_card = findViewById(R.id.mb_card);
+        cloth_card = findViewById(R.id.cloth_card);
+        f_card = findViewById(R.id.f_card);
+
+        profile_image = findViewById(R.id.profile_image2);
+
+        vBookShopDes = findViewById(R.id.bookDes);
+        vBookPrice = findViewById(R.id.bookPrice);
+        vBookShopName = findViewById(R.id.bookShopN);
+
+        vHhShopDes = findViewById(R.id.hhDes);
+        vHhPrice = findViewById(R.id.hhPrice);
+        vHhShopName = findViewById(R.id.hhN);
+
+        vSpShopDes = findViewById(R.id.spDes);
+        vSpPrice = findViewById(R.id.spPrice);
+        vSpShopName = findViewById(R.id.spN);
+
+        vMbShopDes = findViewById(R.id.mbDes);
+        vMbPrice = findViewById(R.id.mbPrice);
+        vMbShopName = findViewById(R.id.mbShopN);
+
+        vClothShopDes = findViewById(R.id.clothDes);
+        vClothPrice = findViewById(R.id.clothPrice);
+        vClothShopName = findViewById(R.id.clothShopN);
+
+        vFShopDes = findViewById(R.id.fDes);
+        vFPrice = findViewById(R.id.fPrice);
+        vFShopName = findViewById(R.id.fShopN);
+
+
+        // imageAdd=findViewById(R.id.imageAdd);
+
+        //vPass = findViewById(R.id.passwordConfirm);
+//        profile_image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+//                galleryIntent.setType("image/*");
+//                startActivityForResult(galleryIntent, GALLERY_CODE);
+//                Animatoo.animateSlideLeft(HomeShopkeeper.this);
+//            }
+//        });
+
+        Intent intent = getIntent();
         username = intent.getStringExtra("fullName");
         storageReference = FirebaseStorage.getInstance().getReference();
-        vSName = findViewById(R.id.sName);
-        vName = findViewById(R.id.skName);
-        vMail = findViewById(R.id.sMail);
-        vNumber = findViewById(R.id.sNumber);
-        vLink = findViewById(R.id.sLink);
-        vDescription = findViewById(R.id.sDescription);
-
         databaseReference.child("ShopKeeper").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
-                if(userProfile!=null){
+                if (userProfile != null) {
                     fName = userProfile.fullName;
+                    link = userProfile.gLink;
+                    des = userProfile.description;
+                    num = userProfile.number;
+                    shopName=userProfile.shopName;
+                    imageUrl = userProfile.imageUrl;
+
                     emailUser = userProfile.email;
-                    pass= userProfile.password;
-                    num=userProfile.number;
-                    googleLink = userProfile.gLink;
-                    description = userProfile.description;
-                    shopName = userProfile.shopName;
-                    imageUrl=userProfile.imageUrl;
 
-                    vSName.setText(shopName);
-                    vName.setText(fName);
-                    vMail.setText(emailUser);
+                    vFullName.setText(fName);
+                    vDes.setText(des);
+                    vlink.setText(link);
+                    vName.setText(shopName);
                     vNumber.setText(num);
-                    vLink.setText(googleLink);
-                    vDescription.setText(description);
 
-                    Picasso.get().load(imageUrl).placeholder(R.drawable.dp_1).into(profile_image2);
+                    Picasso.get().load(imageUrl).placeholder(R.drawable.sideheader).into(profile_image);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+        databaseReference.child("Books").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ShopData userProfilebook = snapshot.getValue(ShopData.class);
+
+                if (userProfilebook != null) {
+                    bPrice = userProfilebook.getPrice();
+                    vBookPrice.setText(bPrice);
+
+                    bookDesc = userProfilebook.getShopdescribe();
+                    vBookShopDes.setText(bookDesc);
+
+                    bookShopName = userProfilebook.getShopName();
+                    vBookShopName.setText(bookShopName);
+
+
+                } else {
+                    book_card.setVisibility(View.GONE);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
 
+        databaseReference.child("Household").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                HouseholdsData userProfilehh = snapshot.getValue(HouseholdsData.class);
+                if (userProfilehh != null) {
+                    hhPrice = userProfilehh.price;
+                    vHhPrice.setText(hhPrice);
 
-//        Dl=findViewById(R.id.drawer_layout);
-//        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
-//        Dl.addDrawerListener(dToggle);
-//        dToggle.syncState();
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    hhDesc = userProfilehh.shopdescribe;
+                    vHhShopDes.setText(hhDesc);
 
+                    hhShopName = userProfilehh.shopName;
+                    vHhShopName.setText(hhShopName);
+                } else {
+                    household_card.setVisibility(View.GONE);
+                }
+            }
 
-        //searchbar
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        databaseReference.child("Sports").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SportsData userProfilesp = snapshot.getValue(SportsData.class);
+                if (userProfilesp != null) {
+                    spPrice = userProfilesp.price;
+                    vSpPrice.setText(spPrice);
+
+                    spDesc = userProfilesp.shopdescribe;
+                    vSpShopDes.setText(spDesc);
+
+                    spShopName = userProfilesp.shopName;
+                    vSpShopName.setText(spShopName);
+                } else {
+                    sports_card.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        databaseReference.child("Mobile-Gadget").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GadgetData userProfilemb = snapshot.getValue(GadgetData.class);
+                if (userProfilemb != null) {
+                    mbPrice = userProfilemb.price;
+                    vMbPrice.setText(mbPrice);
+
+                    mbDesc = userProfilemb.shopdescribe;
+                    vMbShopDes.setText(mbDesc);
+
+                    mbShopName = userProfilemb.shopName;
+                    vMbShopName.setText(mbShopName);
+                } else {
+                    mb_card.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        databaseReference.child("Cloths").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DressData userProfileCloth = snapshot.getValue(DressData.class);
+                if (userProfileCloth != null) {
+                    clothPrice = userProfileCloth.price;
+                    clothDesc = userProfileCloth.shopdescribe;
+                    clothShopName = userProfileCloth.shopName;
+                    vClothPrice.setText(clothPrice);
+                    vClothShopDes.setText(clothDesc);
+                    vClothShopName.setText(clothShopName);
+                } else {
+                    cloth_card.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        databaseReference.child("Furniture").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                FurnitureData userProfilef = snapshot.getValue(FurnitureData.class);
+                if (userProfilef != null) {
+                    fPrice = userProfilef.price;
+                    vFPrice.setText(fPrice);
+                    fDesc = userProfilef.shopdescribe;
+                    vFShopDes.setText(fDesc);
+                    fShopName = userProfilef.shopName;
+                    vFShopName.setText(fShopName);
+                } else {
+                    f_card.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeShopkeeper.this, "Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
-
+    public void logoutAcc(View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(this,LogInPage.class));
+        Animatoo.animateInAndOut(HomeShopkeeper.this);
+        finish();
+    }
     public void goProfile(View view){
         Intent intent= new Intent(this, ProfileShopkeeper.class);
         startActivity(intent);
