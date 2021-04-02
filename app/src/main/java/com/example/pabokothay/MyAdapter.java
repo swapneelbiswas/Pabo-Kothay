@@ -64,6 +64,11 @@ public class MyAdapter extends RecyclerView.Adapter<ShopViewHolder>{
     public int getItemCount() {
         return myShopList.size();
     }
+
+    public void filteredList(List<BookShopData> bookShopDataList){
+        myShopList = bookShopDataList;
+        notifyDataSetChanged();
+    }
 }
 
 class ShopViewHolder extends RecyclerView.ViewHolder{

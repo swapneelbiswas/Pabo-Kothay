@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -31,7 +34,7 @@ public class households_search extends AppCompatActivity {
 
     SearchView vSearchView;
     ListView vListView;
-
+    EditText editText;
     ArrayList<String> list;
     ArrayList<String> listID;
     ArrayAdapter<String> adapter;
@@ -48,39 +51,22 @@ public class households_search extends AppCompatActivity {
 
         ShopType shopType = new ShopType("Household");
         shopType.setShopType("Household");
-
-
-        vSearchView= (SearchView)findViewById(R.id.search_bar);
-        vListView=(ListView)findViewById(R.id.mainList);
-        list=new ArrayList<String>();
-        listID=new ArrayList<String>();
-
-        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-        vListView.setAdapter(adapter);
-
-        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        editText= findViewById(R.id.edit_recycler);
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                vListView.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
-                return false;
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
             }
         });
 
-        vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ShopType.setShopID(listID.get(position));
-                Intent intent= new Intent(view.getContext(),area_details2.class);
-                startActivity(intent);
-                Animatoo.animateSlideLeft(households_search.this);
-            }
-        });
 
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(households_search.this,1);
@@ -90,8 +76,6 @@ public class households_search extends AppCompatActivity {
 
         HouseholdAdapter myAdapter = new HouseholdAdapter(households_search.this,householdsDataList);
         myRv.setAdapter(myAdapter);
-
-
 //        firebase works
         databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Household");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
@@ -101,17 +85,39 @@ public class households_search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     HouseholdsData shopData =itemSnapshot.getValue(HouseholdsData.class);
                     householdsDataList.add(shopData);
-                    list.add(shopData.getShopName());
-                    listID.add(shopData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+    private void filter(String text) {
+        RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
+        householdsDataList =new ArrayList<>();
+        HouseholdAdapter myAdapter = new HouseholdAdapter(households_search.this,householdsDataList);
+        myRv.setAdapter(myAdapter);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(households_search.this,1);
+        myRv.setLayoutManager(gridLayoutManager);
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Household");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                householdsDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    HouseholdsData shopData =itemSnapshot.getValue(HouseholdsData.class);
+                    if(shopData.getShopName().toLowerCase().contains(text.toLowerCase())){
+                        householdsDataList.add(shopData);
+                    }
+                }
+                myAdapter.filteredList(householdsDataList);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
     }
     @Override
     public void onBackPressed(){

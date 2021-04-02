@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -38,11 +41,14 @@ public class book_search extends AppCompatActivity {
     ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     List<BookShopData> bookShopDataList;
+    EditText editText;
+    BookShopData mBookShopData;
     private Context mContext;
     private List<BookShopData> myShopList;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
 
+    RelativeLayout relativeLayoutl;
     String Type1Tree="Users",Type2Tree="Shops";
 
     @Override
@@ -50,31 +56,36 @@ public class book_search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_search);
 
+        editText= findViewById(R.id.edit_recycler);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
         ShopType shopType = new ShopType("Books");
         shopType.setShopType("Books");
-
 
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(book_search.this,1);
         myRv.setLayoutManager(gridLayoutManager);
 
-        //calling variables
-        vSearchView= (SearchView)findViewById(R.id.search_bar);
-        vListView=(ListView)findViewById(R.id.mainList);
 
         //recycler
         bookShopDataList =new ArrayList<>();
         MyAdapter myAdapter = new MyAdapter(book_search.this, bookShopDataList);
         myRv.setAdapter(myAdapter);
 
-        //search bar
-        list=new ArrayList<String>();
-        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-        vListView.setAdapter(adapter);
-        listID=new ArrayList<String>();
-
-        //firebase works
         databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Books");
         eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -83,8 +94,8 @@ public class book_search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     BookShopData shopData =itemSnapshot.getValue(BookShopData.class);
                     bookShopDataList.add(shopData);
-                    list.add(shopData.getShopName());
-                    listID.add(shopData.getShopkeeperId());
+//                    list.add(shopData.getShopName());
+//                    listID.add(shopData.getShopkeeperId());
 
                 }
                 myAdapter.notifyDataSetChanged();
@@ -95,54 +106,35 @@ public class book_search extends AppCompatActivity {
             }
         });
 
-        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                vListView.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ShopType.setShopID(listID.get(position));
-                Intent intent= new Intent(view.getContext(),area_details2.class);
-                startActivity(intent);
-                Animatoo.animateSlideLeft(book_search.this);
-            }
-        });
-
-
-        recyclerView = findViewById(R.id.myRecycleView);
-        recyclerView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        relativeLayout = findViewById(R.id.rl);
-        relativeLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        constraintLayout = findViewById(R.id.cl);
-        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        //search bar end
     }
+
+    private void filter(String text) {
+        RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
+        bookShopDataList =new ArrayList<>();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(book_search.this,1);
+        myRv.setLayoutManager(gridLayoutManager);
+        MyAdapter myAdapter = new MyAdapter(book_search.this, bookShopDataList);
+        myRv.setAdapter(myAdapter);
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Books");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                bookShopDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    BookShopData shopData =itemSnapshot.getValue(BookShopData.class);
+                    if(shopData.getShopName().toLowerCase().contains(text.toLowerCase())){
+                        bookShopDataList.add(shopData);
+                    }
+                }
+                myAdapter.filteredList(bookShopDataList);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     @Override
     public void onBackPressed(){
         super.onBackPressed();

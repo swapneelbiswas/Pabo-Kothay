@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -38,7 +41,7 @@ public class GadgetMobo_Search extends AppCompatActivity {
     ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     List<GadgetData> gadgetDataList;
-
+    EditText editText;
     private Context mContext;
     private List<GadgetData> myGadgetList;
     private DatabaseReference databaseReference;
@@ -53,25 +56,32 @@ public class GadgetMobo_Search extends AppCompatActivity {
         ShopType shopType = new ShopType("Mobile-Gadget");
         shopType.setShopType("Mobile-Gadget");
 
+        editText= findViewById(R.id.edit_recycler);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(GadgetMobo_Search.this,1);
         myRv.setLayoutManager(gridLayoutManager);
-
-        //calling variables
-        vSearchView= (SearchView)findViewById(R.id.search_bar);
-        vListView=(ListView)findViewById(R.id.mainList);
 
         //recycler
         gadgetDataList =new ArrayList<>();
         GAdapter myAdapter = new GAdapter(GadgetMobo_Search.this,gadgetDataList);
         myRv.setAdapter(myAdapter);
 
-        //search bar
-        list=new ArrayList<String>();
-        listID=new ArrayList<String>();
-        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-        vListView.setAdapter(adapter);
 
         //firebase works
         databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Mobile-Gadget");
@@ -82,8 +92,6 @@ public class GadgetMobo_Search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     GadgetData shopData =itemSnapshot.getValue(GadgetData.class);
                     gadgetDataList.add(shopData);
-                    list.add(shopData.getShopName());
-                    listID.add(shopData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
             }
@@ -92,50 +100,33 @@ public class GadgetMobo_Search extends AppCompatActivity {
             }
         });
 
-        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
 
+    }
+    private void filter(String text) {
+        RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
+        gadgetDataList =new ArrayList<>();
+        GAdapter myAdapter = new GAdapter(GadgetMobo_Search.this,gadgetDataList);
+        myRv.setAdapter(myAdapter);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(GadgetMobo_Search.this,1);
+        myRv.setLayoutManager(gridLayoutManager);
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Mobile-Gadget");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public boolean onQueryTextChange(String newText) {
-                vListView.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
-                return false;
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                gadgetDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    GadgetData shopData =itemSnapshot.getValue(GadgetData.class);
+                    if(shopData.getShopName().toLowerCase().contains(text.toLowerCase())){
+                        gadgetDataList.add(shopData);
+                    }
+                }
+                myAdapter.filteredList(gadgetDataList);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
-        vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ShopType.setShopID(listID.get(position));
-                Intent intent= new Intent(view.getContext(),area_details2.class);
-                startActivity(intent);
-                Animatoo.animateSlideLeft(GadgetMobo_Search.this);
-            }
-        });
-        recyclerView = findViewById(R.id.myRecycleView);
-        recyclerView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        relativeLayout = findViewById(R.id.rl);
-        relativeLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        constraintLayout = findViewById(R.id.cl);
-        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        //search bar end
     }
     @Override
     public void onBackPressed(){

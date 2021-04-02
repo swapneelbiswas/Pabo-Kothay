@@ -62,6 +62,11 @@ public class GAdapter extends RecyclerView.Adapter<GViewHolder> {
         return myGadgetList.size();
     }
 
+    public void filteredList(List<GadgetData> bookShopDataList){
+        myGadgetList = bookShopDataList;
+        notifyDataSetChanged();
+    }
+
 }
 class GViewHolder extends RecyclerView.ViewHolder{
     ImageView imageView;

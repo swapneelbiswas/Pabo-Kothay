@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -33,6 +34,7 @@ public class Sports_Stuff_Search extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     LinearLayout linearLayout;
     ArrayList<String> list;
+    EditText editText;
     ArrayList<String> listID;
     ArrayAdapter<String> adapter;
     private DatabaseReference databaseReference;

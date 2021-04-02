@@ -64,6 +64,11 @@ public class HouseholdAdapter extends RecyclerView.Adapter<HViewHolder>{
     public int getItemCount() {
         return myStuffList.size();
     }
+
+    public void filteredList(List<HouseholdsData> bookShopDataList){
+        myStuffList = bookShopDataList;
+        notifyDataSetChanged();
+    }
 }
 
 class HViewHolder extends RecyclerView.ViewHolder{

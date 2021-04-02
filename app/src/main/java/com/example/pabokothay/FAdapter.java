@@ -63,6 +63,11 @@ public class FAdapter extends RecyclerView.Adapter<FViewHolder> {
         return myFurnitureList.size();
     }
 
+    public void filteredList(List<FurnitureData> furnitureDataList){
+        myFurnitureList = furnitureDataList;
+        notifyDataSetChanged();
+    }
+
 }
 
 

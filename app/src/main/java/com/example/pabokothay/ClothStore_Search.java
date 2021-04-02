@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -43,7 +46,7 @@ public class ClothStore_Search extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
     String Type1Tree="Users",Type2Tree="Shops";
-
+    EditText editText;
     RelativeLayout relativeLayoutl;
 
     @Override
@@ -53,26 +56,32 @@ public class ClothStore_Search extends AppCompatActivity {
         ShopType shopType = new ShopType("Cloths");
         shopType.setShopType("Cloths");
 
+        editText= findViewById(R.id.edit_recycler);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
         //list data
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(ClothStore_Search.this,1);
         myRv.setLayoutManager(gridLayoutManager);
 
-        //calling variables
-        vSearchView= (SearchView)findViewById(R.id.search_bar);
-        vListView=(ListView)findViewById(R.id.mainList);
 
         //recycler
         clothesDataList =new ArrayList<>();
         DAdapter myAdapter = new DAdapter(ClothStore_Search.this,clothesDataList);
         myRv.setAdapter(myAdapter);
 
-        //search bar
-        list=new ArrayList<String>();
-        listID=new ArrayList<String>();
-        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-        vListView.setAdapter(adapter);
 
         //firebase works
         databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Cloths");
@@ -83,8 +92,6 @@ public class ClothStore_Search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     DressData shopData =itemSnapshot.getValue(DressData.class);
                     clothesDataList.add(shopData);
-                    list.add(shopData.getShopName());
-                    listID.add(shopData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
             }
@@ -94,51 +101,36 @@ public class ClothStore_Search extends AppCompatActivity {
             }
         });
 
-        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                vListView.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-        vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ShopType.setShopID(listID.get(position));
-                Intent intent= new Intent(view.getContext(),area_details2.class);
-                startActivity(intent);
-                Animatoo.animateSlideLeft(ClothStore_Search.this);
-            }
-        });
-        recyclerView = findViewById(R.id.myRecycleView);
-        recyclerView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        relativeLayout = findViewById(R.id.rl);
-        relativeLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        constraintLayout = findViewById(R.id.cl);
-        constraintLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                vListView.setVisibility(v.GONE);
-            }
-        });
-        //search bar end
+
     }
+    private void filter(String text) {
+        RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
+        clothesDataList =new ArrayList<>();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(ClothStore_Search.this,1);
+        myRv.setLayoutManager(gridLayoutManager);
+        DAdapter myAdapter = new DAdapter(ClothStore_Search.this,clothesDataList);
+        myRv.setAdapter(myAdapter);
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Cloths");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                clothesDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    DressData shopData =itemSnapshot.getValue(DressData.class);
+                    if(shopData.getShopName().toLowerCase().contains(text.toLowerCase())){
+                        clothesDataList.add(shopData);
+                    }
+                }
+                myAdapter.filteredList(clothesDataList);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     @Override
     public void onBackPressed(){
         super.onBackPressed();

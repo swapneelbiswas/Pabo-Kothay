@@ -65,6 +65,11 @@ public class DAdapter extends RecyclerView.Adapter<DViewHolder> {
         return myDressList.size();
     }
 
+    public void filteredList(List<DressData> clothesDataList){
+        myDressList = clothesDataList;
+        notifyDataSetChanged();
+    }
+
 }
 
 
