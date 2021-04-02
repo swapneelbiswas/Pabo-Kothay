@@ -34,7 +34,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
 
     EditText vMail,vPassword;
     LinearLayout vButton;
-    TextView vNewAccount;
+    TextView vNewAccount,log_in_error;
     private FirebaseAuth mAuth;
     Dialog myDialog;
     private FirebaseUser fUser;
@@ -54,6 +54,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
         vMail = findViewById(R.id.login_mail);
         vPassword=findViewById(R.id.login_pass);
         vButton=findViewById(R.id.button);
+        log_in_error=findViewById(R.id.loginerror);
         vButton.setOnClickListener(this);
         vNewAccount=findViewById(R.id.go_newAccount);
         myDialog = new Dialog(this);
@@ -102,9 +103,11 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
                             userID=fUser.getUid();
                             lv.setVisibility(View.VISIBLE);
                             allowAccessToId(email,password);
+
                         }
                     }else{
 //                        Toast.makeText(LogInPage.this, "First Failed to login with "+email+"! Please check your info", Toast.LENGTH_SHORT).show();
+                        log_in_error.setText("⚠ Email or Password doesn't match ");
                     }
                 }
             });
@@ -114,6 +117,7 @@ public class LogInPage extends AppCompatActivity  implements View.OnClickListene
     private void allowAccessToId(String email, String password) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
+        log_in_error.setVisibility(View.INVISIBLE);
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
