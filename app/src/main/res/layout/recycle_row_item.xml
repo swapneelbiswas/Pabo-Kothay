@@ -86,7 +86,7 @@
                     android:textColor="@color/white"
                     android:textSize="1sp"
                     android:maxLines="1"
-                    android:id="@+id/tvPrice"
+                    android:id="@+id/tvLink"
                     tools:ignore="SmallSp" />
             </LinearLayout>
 

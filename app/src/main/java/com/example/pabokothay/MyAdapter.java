@@ -78,7 +78,7 @@ class ShopViewHolder extends RecyclerView.ViewHolder{
         imageView= itemView.findViewById(R.id.ivImage);
         mTitle= itemView.findViewById(R.id.tvTitle);
         mDescribe= itemView.findViewById(R.id.tvDescribe);
-        mID= itemView.findViewById(R.id.tvPrice);
+        mID= itemView.findViewById(R.id.tvLink);
         mRating= itemView.findViewById(R.id.rRatingBar);
         cardView= itemView.findViewById(R.id.srt_card);
     }
