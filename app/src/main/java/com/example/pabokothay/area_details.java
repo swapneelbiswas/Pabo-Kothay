@@ -29,7 +29,7 @@ import com.squareup.picasso.Picasso;
 public class area_details extends AppCompatActivity {
     TextView tex,shopName;
     ImageView shopImage;
-    TextView describe,area_shopname;
+    TextView describe,area_shopname,rating_confirm;
     RatingBar ratingBar,ratingBar2;
     String shopID,shop;
     String Type1Tree="Users",Type2Tree="Shops",Link,userID, num,Sname;
@@ -45,6 +45,9 @@ public class area_details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area_details);
+
+        rating_confirm=findViewById(R.id.rateConfirm);
+
         ShopType shopType=new ShopType();
         if(shopType.getShopType().equals("Books")){
             shop = shopType.getShopType();
@@ -114,8 +117,6 @@ public class area_details extends AppCompatActivity {
                 Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
                 if(userProfile!=null){
                     num =userProfile.number;
-
-
                 }
             }
             @Override
@@ -167,6 +168,7 @@ public class area_details extends AppCompatActivity {
                     }
                     if(RatingCount!=0){
                         avgRating=RatingTotal/RatingCount;
+
                         ratingRef.child(shop).child(shopID).child("rating").setValue(avgRating);
                     }
                 }
@@ -176,8 +178,7 @@ public class area_details extends AppCompatActivity {
                 Toast.makeText(area_details.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
-
-        Toast.makeText(area_details.this, "Done", Toast.LENGTH_SHORT).show();
+        rating_confirm.setText("Rated");
     }
     @Override
     public void onBackPressed(){

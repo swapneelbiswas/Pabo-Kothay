@@ -37,7 +37,6 @@ public class  profile extends AppCompatActivity {
     private String userID;
     TextView vFullName,vMail,vName,vPass,vNumber;
     String fName,emailUser,username,pass,num,imageUrl;
-    private Button imageAdd;
     private Uri imageUri;
     private StorageReference storageReference;
     private ImageView profile_image;
@@ -56,9 +55,7 @@ public class  profile extends AppCompatActivity {
         vName = findViewById(R.id.name);
         vNumber = findViewById(R.id.pnum);
         profile_image=findViewById(R.id.profile_image);
-        // imageAdd=findViewById(R.id.imageAdd);
 
-        //vPass = findViewById(R.id.passwordConfirm);
         profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,8 +65,6 @@ public class  profile extends AppCompatActivity {
                 Animatoo.animateSlideLeft(profile.this);
             }
         });
-
-
         Intent intent= getIntent();
         username = intent.getStringExtra("fullName");
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -95,7 +90,6 @@ public class  profile extends AppCompatActivity {
                 Toast.makeText(profile.this, "Something is wrong", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
     public void logoutAcc(View view){
         FirebaseAuth.getInstance().signOut();
@@ -110,16 +104,16 @@ public class  profile extends AppCompatActivity {
             databaseReference.child("Customers").child(userID).child("fullName").setValue(newname);
             Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(profile.this, "Name is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(profile.this, "Name is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isNumberChanged() ){
             databaseReference.child("Customers").child(userID).child("number").setValue(vNumber.getEditableText().toString());
             Toast.makeText(profile.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(profile.this, "Number is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(profile.this, "Number is same", Toast.LENGTH_SHORT).show();
+//        }
         if ( imageUri != null) {
             final StorageReference filepath = storageReference
                     .child(emailUser)
@@ -128,16 +122,12 @@ public class  profile extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-
                             filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-
                                     String imageUrl = uri.toString();
                                     // create a Journal Object - model
                                     databaseReference.child("Customers").child(userID).child("imageUrl").setValue(imageUrl);
-
                                 }
                             });
                         }
@@ -145,8 +135,6 @@ public class  profile extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //  progressBar.setVisibility(View.INVISIBLE);
-
                         }
                     });
         }
@@ -170,21 +158,12 @@ public class  profile extends AppCompatActivity {
         }
     }
 
-    //    private boolean isPassSame() {
-//        if(pass.equals(vPass.getText().toString().trim())){
-//            return true;
-//        }
-//        else{
-//            return false;
-//        }
-//    }
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == GALLERY_CODE && resultCode == RESULT_OK) {
             if (data != null) {
                 imageUri = data.getData(); // we have the actual path to the image
                 profile_image.setImageURI(imageUri);//show image
-
             }
         }
     }

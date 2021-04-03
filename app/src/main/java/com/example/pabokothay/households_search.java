@@ -31,15 +31,8 @@ import java.util.List;
 
 public class households_search extends AppCompatActivity {
 
-    SearchView vSearchView;
-    ListView vListView;
     EditText editText;
-    ArrayList<String> list;
-    ArrayList<String> listID;
-    ArrayAdapter<String> adapter;
-
     List<HouseholdsData> householdsDataList;
-
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
     String Type1Tree="Users",Type2Tree="Shops";

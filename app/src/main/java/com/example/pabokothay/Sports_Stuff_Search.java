@@ -31,18 +31,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sports_Stuff_Search extends AppCompatActivity {
-    SearchView vSearchView;
-    ListView vListView;
-    ConstraintLayout constraintLayout;
-    LinearLayout linearLayout;
-    ArrayList<String> list;
+
     EditText editText;
-    ArrayList<String> listID;
-    ArrayAdapter<String> adapter;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
     List<SportsData> sportsDataList;
-    Furniture mFurniture;
     String Type1Tree="Users",Type2Tree="Shops";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +60,6 @@ public class Sports_Stuff_Search extends AppCompatActivity {
                 filter(s.toString());
             }
         });
-
-
-
 
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(Sports_Stuff_Search.this,1);

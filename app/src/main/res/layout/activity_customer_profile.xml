@@ -140,12 +140,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Full Name"
-                            android:fontFamily="@font/nunito_regular"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/nunito_bold"
                             android:textSize="16sp" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_regular"
+                            android:textColor="@color/black"                            android:fontFamily="@font/nunito_regular"
                             android:background="@color/white"
                             android:id="@+id/fullNamep"
                             />
@@ -174,13 +175,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Email"
+                            android:textColor="@color/black"
                             android:textSize="16sp"
-                            android:fontFamily="@font/nunito_regular"/>
+                            android:fontFamily="@font/nunito_bold"/>
                         <TextView
                             android:id="@+id/emailText"
                             android:layout_width="match_parent"
                             android:fontFamily="@font/nunito_regular"
                             android:layout_height="match_parent"
+                            android:textColor="@color/black"
                             android:background="@color/white" >
 
                         </TextView>
@@ -205,14 +208,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Phone Number"
+                            android:textColor="@color/black"
                             android:textSize="16sp"
-                            android:fontFamily="@font/nunito_regular"/>
+                            android:fontFamily="@font/nunito_bold"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/white"
                             android:fontFamily="@font/nunito_regular"
+                            android:textColor="@color/black"
                             android:id="@+id/pnum"
                             />
                     </LinearLayout>

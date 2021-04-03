@@ -32,14 +32,6 @@ import java.util.List;
 
 public class GadgetMobo_Search extends AppCompatActivity {
 
-    SearchView vSearchView;
-    ListView vListView;
-    ConstraintLayout constraintLayout;
-    RecyclerView recyclerView;
-    RelativeLayout relativeLayout;
-    ArrayList<String> list;
-    ArrayList<String> listID;
-    ArrayAdapter<String> adapter;
     List<GadgetData> gadgetDataList;
     EditText editText;
     private Context mContext;
@@ -47,7 +39,6 @@ public class GadgetMobo_Search extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
     String Type1Tree="Users",Type2Tree="Shops";
-    RelativeLayout relativeLayoutl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

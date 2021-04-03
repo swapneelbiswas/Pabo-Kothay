@@ -63,12 +63,9 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
         vButton = findViewById(R.id.button);
         vPhoneNo = findViewById(R.id.p_num);
         lv = findViewById(R.id.loooad);
-//        ViewItem
         vButton.setOnClickListener(this);
-//        vSdescription=findViewById(R.id.s_description);
         vMakeOrder = (LinearLayout) findViewById(R.id.MakeOrder);
         vViewItem = (TextView) findViewById(R.id.ViewItem);
-
         listItems = getResources().getStringArray(R.array.shopping_list);
         checkedItems = new boolean[listItems.length];
 
@@ -257,9 +254,7 @@ public class new_shop_account extends AppCompatActivity implements View.OnClickL
                     }
                 }
             });
-
         }
-
     }
     @Override
     public void onBackPressed(){

@@ -91,7 +91,6 @@ public class customer_profile extends AppCompatActivity {
         startActivity(intent);
         Animatoo.animateSlideLeft(customer_profile.this);
         finish();
-        //finish();
     }
     public void logoutAcc(View view){
         FirebaseAuth.getInstance().signOut();

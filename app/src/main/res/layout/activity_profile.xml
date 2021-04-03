@@ -136,6 +136,8 @@
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="10dp"
+                            app:hintTextColor="@color/black"
+                            android:fontFamily="@font/nunito_bold"
                             android:background="@color/white"
                             android:hint="Full name">
 
@@ -143,6 +145,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
+                                android:textColor="@color/black"
                                 android:background="@color/white"
                                 android:id="@+id/fullNamep" />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -162,24 +165,23 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:layout_marginStart="35dp"
                         android:orientation="vertical"
-                        android:padding="5dp">
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="300dp"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="Email"
-                            android:background="@color/white"
-                            android:layout_marginBottom="5dp">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/emailText"
-                                android:layout_width="match_parent"
-                                android:fontFamily="@font/nunito_regular"
-                                android:layout_height="match_parent"
-                                android:background="@color/white" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
+                            android:text="Email"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/nunito_regular"/>
+                        <TextView
+                            android:id="@+id/emailText"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/nunito_regular"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/black"
+                            android:background="@color/white" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
@@ -201,6 +203,8 @@
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
                             android:hint="Phone Number"
+                            app:hintTextColor="@color/black"
+                            android:fontFamily="@font/nunito_bold"
                             android:background="@color/white"
                             android:layout_marginBottom="5dp">
 
@@ -208,6 +212,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
+                               android:textColor="@color/black"
                                 android:fontFamily="@font/nunito_regular"
                                 android:id="@+id/pnum"
                                 />

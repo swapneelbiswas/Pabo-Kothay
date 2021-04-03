@@ -32,23 +32,10 @@ import java.util.List;
 
 public class book_search extends AppCompatActivity {
 
-    SearchView vSearchView;
-    ListView vListView;
-    ConstraintLayout constraintLayout;
-    RecyclerView recyclerView;
-    RelativeLayout relativeLayout;
-    ArrayList<String> list;
-    ArrayList<String> listID;
-    ArrayAdapter<String> adapter;
     List<BookShopData> bookShopDataList;
     EditText editText;
-    BookShopData mBookShopData;
-    private Context mContext;
-    private List<BookShopData> myShopList;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
-
-    RelativeLayout relativeLayoutl;
     String Type1Tree="Users",Type2Tree="Shops";
 
     @Override
@@ -94,8 +81,7 @@ public class book_search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     BookShopData shopData =itemSnapshot.getValue(BookShopData.class);
                     bookShopDataList.add(shopData);
-//                    list.add(shopData.getShopName());
-//                    listID.add(shopData.getShopkeeperId());
+
 
                 }
                 myAdapter.notifyDataSetChanged();
@@ -134,7 +120,6 @@ public class book_search extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public void onBackPressed(){
         super.onBackPressed();

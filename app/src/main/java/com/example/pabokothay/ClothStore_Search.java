@@ -32,22 +32,12 @@ import java.util.List;
 
 public class ClothStore_Search extends AppCompatActivity {
 
-    SearchView vSearchView;
-    ListView vListView;
-    ConstraintLayout constraintLayout;
-    RecyclerView recyclerView;
-    RelativeLayout relativeLayout;
-    ArrayList<String> list;
-    ArrayList<String> listID;
-    ArrayAdapter<String> adapter;
     List<DressData> clothesDataList;
-    private Context mContext;
-    private List<DressData> myDressList;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
     String Type1Tree="Users",Type2Tree="Shops";
     EditText editText;
-    RelativeLayout relativeLayoutl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PaboKothay">
-        <activity android:name=".area_details2"></activity>
         <activity android:name=".GadgetMobo_Search" />
         <activity android:name=".ClothStore_Search" />
         <activity android:name=".customer_profile" />

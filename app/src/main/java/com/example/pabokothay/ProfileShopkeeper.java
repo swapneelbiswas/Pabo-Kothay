@@ -677,23 +677,23 @@ public class ProfileShopkeeper extends AppCompatActivity {
             databaseReference.child("Books").child(userID).child("price").setValue(vBookPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isbookDesChanged()){
             databaseReference.child("Books").child(userID).child("shopdescribe").setValue(vBookShopDes.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isbookShopNameChanged()){
             databaseReference.child("Books").child(userID).child("shopName").setValue(vBookShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if ( imageUri != null) {
             final StorageReference filepath = storageReference.child(emailUser).child("bookShop_image");
             filepath.putFile(imageUri)
@@ -725,23 +725,23 @@ public class ProfileShopkeeper extends AppCompatActivity {
             databaseReference.child("Household").child(userID).child("price").setValue(vHhPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(ishhDesChanged()){
             databaseReference.child("Household").child(userID).child("shopdescribe").setValue(vHhShopDes.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(ishhShopNameChanged()){
             databaseReference.child("Household").child(userID).child("shopName").setValue(vHhShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
 
         if ( imageUri != null) {
             final StorageReference filepath = storageReference.child(emailUser).child("householdsShop_image");
@@ -774,23 +774,23 @@ public class ProfileShopkeeper extends AppCompatActivity {
             databaseReference.child("Sports").child(userID).child("price").setValue(vSpPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isspDesChanged()){
             databaseReference.child("Sports").child(userID).child("shopdescribe").setValue(vSpShopDes.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isspShopNameChanged()){
             databaseReference.child("Sports").child(userID).child("shopName").setValue(vSpShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if ( imageUri != null) {
             final StorageReference filepath = storageReference.child(emailUser).child("sportsShop_image");
             filepath.putFile(imageUri)
@@ -822,23 +822,23 @@ public class ProfileShopkeeper extends AppCompatActivity {
             databaseReference.child("Mobile-Gadget").child(userID).child("price").setValue(vMbPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isMbDesChanged()){
             databaseReference.child("Mobile-Gadget").child(userID).child("shopdescribe").setValue(vMbShopDes.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isMbShopNameChanged()){
             databaseReference.child("Mobile-Gadget").child(userID).child("shopName").setValue(vMbShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if ( imageUri != null) {
             final StorageReference filepath = storageReference.child(emailUser).child("gadgetShop_image");
             filepath.putFile(imageUri)
@@ -870,23 +870,23 @@ public class ProfileShopkeeper extends AppCompatActivity {
             databaseReference.child("Cloths").child(userID).child("price").setValue(vClothPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if (isClothDesChanged()) {
             databaseReference.child("Cloths").child(userID).child("shopdescribe").setValue(vClothShopDes.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if (isClothShopNameChanged()) {
             databaseReference.child("Cloths").child(userID).child("shopName").setValue(vClothShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if ( imageUri != null) {
             final StorageReference filepath = storageReference.child(emailUser).child("clothsShop_image");
             filepath.putFile(imageUri)
@@ -918,23 +918,23 @@ public class ProfileShopkeeper extends AppCompatActivity {
             databaseReference.child("Furniture").child(userID).child("price").setValue(vFPrice.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isfDesChanged()){
             databaseReference.child("Furniture").child(userID).child("shopdescribe").setValue(vFShopDes.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else {
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if(isfShopNameChanged()){
             databaseReference.child("Furniture").child(userID).child("shopName").setValue(vFShopName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
-        }
+//        else{
+//            Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+//        }
         if ( imageUri != null) {
             final StorageReference filepath = storageReference.child(emailUser).child("furnitureShop_image");
             filepath.putFile(imageUri)
@@ -956,7 +956,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
 
                         }
-                    });
+            });
         }
     }
 

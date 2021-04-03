@@ -31,13 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Furniture extends AppCompatActivity {
-    SearchView vSearchView;
-    ListView vListView;
-    ConstraintLayout constraintLayout;
-    LinearLayout linearLayout;
-    ArrayList<String> list;
-    ArrayList<String> listID;
-    ArrayAdapter<String> adapter;
+
     EditText editText;
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
