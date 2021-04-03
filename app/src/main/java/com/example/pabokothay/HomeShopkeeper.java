@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,8 @@ public class HomeShopkeeper extends AppCompatActivity {
     TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
     String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
 
+    float bookRating,furnitureRating,houseRating,sportsRating,clothsRating,moboRating;
+    RatingBar bRating,fRating,hRating,sRating,cRating,mRating;
     private StorageReference storageReference;
     private ImageView profile_image;
     CardView book_card,household_card,sports_card,mb_card,cloth_card,f_card;
@@ -57,6 +60,15 @@ public class HomeShopkeeper extends AppCompatActivity {
         sportsShop_image=findViewById(R.id.spShopImage);
         clothsShop_image=findViewById(R.id.clothShopImage);
         gadgetShop_image=findViewById(R.id.mbShopImage);
+
+
+        bRating =findViewById(R.id.rRatingBarbook);
+        fRating =findViewById(R.id.rRatingBarfur);
+        hRating =findViewById(R.id.rRatingBarhousehold);
+        sRating =findViewById(R.id.rRatingBarsports);
+        cRating =findViewById(R.id.rRatingBarcloth);
+        mRating =findViewById(R.id.rRatingBarmbl);
+
 
         vFullName = findViewById(R.id.skName);
         vMail = findViewById(R.id.sMail);
@@ -146,6 +158,9 @@ public class HomeShopkeeper extends AppCompatActivity {
                     bookShopName=userProfilebook.getShopName();
                     vBookShopName.setText(bookShopName);
 
+                    bookRating=userProfilebook.getRating();
+                    bRating.setRating(bookRating);
+
                     imageUrl=userProfilebook.getImage();
                     Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(bookShop_image);
 
@@ -167,10 +182,10 @@ public class HomeShopkeeper extends AppCompatActivity {
                 if (userProfilehh != null) {
                     hhPrice = userProfilehh.price;
                     vHhPrice.setText(hhPrice);
-
                     hhDesc = userProfilehh.shopdescribe;
                     vHhShopDes.setText(hhDesc);
-
+                    houseRating=userProfilehh.getRating();
+                    hRating.setRating(houseRating);
                     hhShopName = userProfilehh.shopName;
                     vHhShopName.setText(hhShopName);
                     imageUrl=userProfilehh.getImage();
@@ -193,10 +208,10 @@ public class HomeShopkeeper extends AppCompatActivity {
                 if (userProfilesp != null) {
                     spPrice = userProfilesp.price;
                     vSpPrice.setText(spPrice);
-
                     spDesc = userProfilesp.shopdescribe;
                     vSpShopDes.setText(spDesc);
-
+                    sportsRating=userProfilesp.getRating();
+                    sRating.setRating(sportsRating);
                     spShopName = userProfilesp.shopName;
                     vSpShopName.setText(spShopName);
                     imageUrl=userProfilesp.getImage();
@@ -219,10 +234,10 @@ public class HomeShopkeeper extends AppCompatActivity {
                 if (userProfilemb != null) {
                     mbPrice = userProfilemb.price;
                     vMbPrice.setText(mbPrice);
-
                     mbDesc = userProfilemb.shopdescribe;
                     vMbShopDes.setText(mbDesc);
-
+                    moboRating=userProfilemb.getRating();
+                    mRating.setRating(moboRating);
                     mbShopName = userProfilemb.shopName;
                     vMbShopName.setText(mbShopName);
                     imageUrl=userProfilemb.getImage();
@@ -249,6 +264,8 @@ public class HomeShopkeeper extends AppCompatActivity {
                     vClothPrice.setText(clothPrice);
                     vClothShopDes.setText(clothDesc);
                     vClothShopName.setText(clothShopName);
+                    clothsRating=userProfileCloth.getRating();
+                    cRating.setRating(clothsRating);
                     imageUrl=userProfileCloth.getImage();
                     Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(clothsShop_image);
                 } else {
@@ -273,6 +290,8 @@ public class HomeShopkeeper extends AppCompatActivity {
                     vFShopDes.setText(fDesc);
                     fShopName = userProfilef.shopName;
                     vFShopName.setText(fShopName);
+                    furnitureRating=userProfilef.getRating();
+                    fRating.setRating(furnitureRating);
                     imageUrl=userProfilef.getImage();
                     Picasso.get().load(imageUrl).placeholder(R.drawable.no_image).into(furnitureShop_image);
                 } else {
@@ -298,12 +317,13 @@ public class HomeShopkeeper extends AppCompatActivity {
         Intent intent= new Intent(this, ProfileShopkeeper.class);
         startActivity(intent);
         Animatoo.animateSlideLeft(HomeShopkeeper.this);
-        //finish();
+        finish();
     }
     @Override
     public void onBackPressed(){
         super.onBackPressed();
         //fire the slide left animation
         Animatoo.animateSlideRight(HomeShopkeeper.this);
+        finish();
     }
 }

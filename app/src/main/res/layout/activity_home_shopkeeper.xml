@@ -354,7 +354,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:text="Book Shop name"
                             android:layout_margin="10dp"
                             android:textColor="@color/black"/>
@@ -386,7 +386,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Description"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:layout_margin="10dp"
                             android:textColor="@color/black"/>
                         <LinearLayout
@@ -905,7 +905,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Description"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:layout_margin="10dp"
                             android:textColor="@color/black"/>
                         <LinearLayout
@@ -925,7 +925,7 @@
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>

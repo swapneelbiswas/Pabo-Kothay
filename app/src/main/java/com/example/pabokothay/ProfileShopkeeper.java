@@ -964,7 +964,9 @@ public class ProfileShopkeeper extends AppCompatActivity {
     public void onBackPressed(){
         super.onBackPressed();
         //fire the slide left animation
+        startActivity(new Intent(this,HomeShopkeeper.class));
         Animatoo.animateSlideRight(ProfileShopkeeper.this);
+        finish();
     }
 }
 
