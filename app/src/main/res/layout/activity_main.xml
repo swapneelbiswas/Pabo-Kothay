@@ -171,7 +171,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/nunito_semibold"
                             android:iconifiedByDefault="false"
-                            android:queryHint="@string/search_hint"
+                            android:queryHint="Search what you want"
                             android:searchIcon="@drawable/ic_search"
                             android:textColorHint="@color/ash" />
 
