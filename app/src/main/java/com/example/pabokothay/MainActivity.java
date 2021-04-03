@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     SearchView vSearchViewMain;
     ListView vListViewMain;
-    private DrawerLayout Dl;
-    private ActionBarDrawerToggle dToggle;
     ConstraintLayout constraintLayout;
     LinearLayout linearLayout;
     ArrayList<String> mainList;
@@ -96,14 +94,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-//        Dl=findViewById(R.id.drawer_layout);
-//        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
-//        Dl.addDrawerListener(dToggle);
-//        dToggle.syncState();
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         //searchbar
         vSearchViewMain= (SearchView)findViewById(R.id.search_bar);
         vListViewMain=(ListView)findViewById(R.id.mainList);
@@ -149,11 +139,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),households_search.class));
                     Animatoo.animateSlideLeft(MainActivity.this);
                 }
-                else if(((TextView) view).getText().equals("Mobile and Gadgets")){
+                else if(((TextView) view).getText().equals("Mobile-Gadget")){
                     startActivity(new Intent(getApplicationContext(),GadgetMobo_Search.class));
                     Animatoo.animateSlideLeft(MainActivity.this);
                 }
-                else if(((TextView) view).getText().equals("Dress")){
+                else if(((TextView) view).getText().equals("Cloths")){
                     startActivity(new Intent(getApplicationContext(),ClothStore_Search.class));
                     Animatoo.animateSlideLeft(MainActivity.this);
                 }
@@ -176,12 +166,6 @@ public class MainActivity extends AppCompatActivity {
                 vListViewMain.setVisibility(View.GONE);
             }
         });
-//        Dl=findViewById(R.id.drawer_layout);
-//        dToggle = new ActionBarDrawerToggle(this,Dl,R.string.Open,R.string.Close);
-//        Dl.addDrawerListener(dToggle);
-//        dToggle.syncState();
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
     }
 
