@@ -91,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 >
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="500dp"
@@ -341,7 +342,15 @@
                             >
 
                         </ImageView>
-
+                        <RatingBar
+                            android:id="@+id/rRatingBarbook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:layout_gravity="center"
+                            android:stepSize="0.5"
+                            android:clickable="false"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -462,7 +471,15 @@
                             >
 
                         </ImageView>
-
+                        <RatingBar
+                            android:id="@+id/rRatingBarhousehold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:layout_gravity="center"
+                            android:stepSize="0.5"
+                            android:clickable="false"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -583,6 +600,15 @@
                             >
 
                         </ImageView>
+                        <RatingBar
+                            android:id="@+id/rRatingBarsports"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:layout_gravity="center"
+                            android:stepSize="0.5"
+                            android:clickable="false"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -704,6 +730,15 @@
                             >
 
                         </ImageView>
+                        <RatingBar
+                            android:id="@+id/rRatingBarmbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:layout_gravity="center"
+                            android:stepSize="0.5"
+                            android:clickable="false"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -825,6 +860,15 @@
                             >
 
                         </ImageView>
+                        <RatingBar
+                            android:id="@+id/rRatingBarcloth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:layout_gravity="center"
+                            android:stepSize="0.5"
+                            android:clickable="false"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -946,6 +990,15 @@
                             >
 
                         </ImageView>
+                        <RatingBar
+                            android:id="@+id/rRatingBarfur"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:layout_gravity="center"
+                            android:stepSize="0.5"
+                            android:clickable="false"
+                            style="@style/Widget.AppCompat.RatingBar.Indicator"/>
 
                         <TextView
                             android:layout_width="wrap_content"
