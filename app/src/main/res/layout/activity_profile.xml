@@ -231,7 +231,7 @@
                     android:id="@+id/update"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="27dp"
-                    android:layout_margin="12dp">
+                    android:layout_margin="40dp">
                     <LinearLayout
                         android:id="@+id/upbutton"
                         android:layout_width="match_parent"
@@ -243,15 +243,16 @@
                         android:background="@drawable/gradient_custom_color"
                         android:clickable="true"
                         android:focusable="true">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:text="Update"
                             android:fontFamily="@font/nunito_semibold"
+                            android:text="Update"
                             android:textColor="@color/black"
                             android:textSize="25sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
