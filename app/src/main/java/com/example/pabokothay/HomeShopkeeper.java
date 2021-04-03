@@ -58,9 +58,8 @@ public class HomeShopkeeper extends AppCompatActivity {
         clothsShop_image=findViewById(R.id.clothShopImage);
         gadgetShop_image=findViewById(R.id.mbShopImage);
 
-
         vFullName = findViewById(R.id.skName);
-        vMail = findViewById(R.id.emailText);
+        vMail = findViewById(R.id.sMail);
         vDes = findViewById(R.id.sDescription);
         vlink = findViewById(R.id.sLink);
         vName = findViewById(R.id.sName);
@@ -118,7 +117,7 @@ public class HomeShopkeeper extends AppCompatActivity {
                     imageUrl = userProfile.imageUrl;
 
                     emailUser = userProfile.email;
-
+                    vMail.setText(emailUser);
                     vFullName.setText(fName);
                     vDes.setText(des);
                     vlink.setText(link);

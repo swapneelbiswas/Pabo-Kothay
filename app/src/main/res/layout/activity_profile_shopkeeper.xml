@@ -105,7 +105,6 @@
                         android:layout_width="147dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="17dp"
-                        android:layout_marginLeft="17dp"
                         android:fontFamily="@font/akaya_telivigala_regular"
                         android:layout_gravity="center"
                         android:text="Name"

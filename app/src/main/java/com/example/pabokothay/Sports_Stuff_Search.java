@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,38 +52,23 @@ public class Sports_Stuff_Search extends AppCompatActivity {
         ShopType shopType = new ShopType("Sports");
         shopType.setShopType("Sports");
 
-
-        vSearchView= (SearchView)findViewById(R.id.search_bar);
-        vListView=(ListView)findViewById(R.id.mainList);
-        list=new ArrayList<String>();
-        listID=new ArrayList<String>();
-
-        adapter= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
-        vListView.setAdapter(adapter);
-        vSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        editText= findViewById(R.id.edit_recycler);
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                vListView.setVisibility(View.VISIBLE);
-                adapter.getFilter().filter(newText);
 
-                return false;
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
             }
         });
 
-        vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                ShopType.setShopID(listID.get(position));
-                Intent intent= new Intent(view.getContext(),area_details2.class);
-                startActivity(intent);
-                Animatoo.animateSlideLeft(Sports_Stuff_Search.this);
-            }
-        });
 
 
         RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
@@ -103,12 +90,38 @@ public class Sports_Stuff_Search extends AppCompatActivity {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
                     SportsData shopData =itemSnapshot.getValue(SportsData.class);
                     sportsDataList.add(shopData);
-                    list.add(shopData.getShopName());
-                    listID.add(shopData.getShopkeeperId());
                 }
                 myAdapter.notifyDataSetChanged();
             }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void filter(String text) {
+        RecyclerView myRv = (RecyclerView) findViewById(R.id.myRecycleView);
+        sportsDataList =new ArrayList<>();
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(Sports_Stuff_Search.this,1);
+        myRv.setLayoutManager(gridLayoutManager);
+        SportAdapter myAdapter = new SportAdapter(Sports_Stuff_Search.this,sportsDataList);
+        myRv.setAdapter(myAdapter);
+
+        databaseReference= FirebaseDatabase.getInstance().getReference(Type1Tree).child("Sports");
+        eventListener =databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                sportsDataList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+                    SportsData shopData =itemSnapshot.getValue(SportsData.class);
+                    if(shopData.getShopName().toLowerCase().contains(text.toLowerCase())){
+                        sportsDataList.add(shopData);
+                    }
+                }
+                myAdapter.filteredList(sportsDataList);
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

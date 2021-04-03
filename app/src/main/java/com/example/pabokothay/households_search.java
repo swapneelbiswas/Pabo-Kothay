@@ -31,7 +31,6 @@ import java.util.List;
 
 public class households_search extends AppCompatActivity {
 
-
     SearchView vSearchView;
     ListView vListView;
     EditText editText;

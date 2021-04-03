@@ -35,10 +35,10 @@ public class ProfileShopkeeper extends AppCompatActivity {
     private FirebaseUser fUser;
     private DatabaseReference databaseReference;
     private String userID;
-    TextView vFullName,vMail,vName,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
+    TextView vFullName,vBusinessName,vName,vNumber,vDes,vlink,vBookShopDes,vBookPrice,vBookShopName,vHhShopDes,vHhPrice,vHhShopName,vSpShopDes,vSpPrice,vSpShopName;
     String fName,emailUser,username,hhPrice,num,imageUrl,des,link,bookDesc,bPrice,bookShopName,hhDesc,hhShopName,spDesc,spPrice,spShopName;
     TextView vMbShopDes,vMbPrice,vMbShopName,vClothShopDes,vClothPrice,vClothShopName,vFShopDes,vFPrice,vFShopName;
-    String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName;
+    String mbDesc,mbPrice,mbShopName,clothDesc,clothPrice,clothShopName,fDesc,fPrice,fShopName,businessName;
     private Uri imageUri;
     int shopKeepC=0,bookC=0,sportsC=0,houseC=0,gadgetC=0,clothsC=0,furnitureC=0;
     private StorageReference storageReference;
@@ -53,7 +53,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
         userID=fUser.getUid();
 
         vFullName=findViewById(R.id.fullNamep);
-        vMail = findViewById(R.id.emailText);
+        vBusinessName=findViewById(R.id.BusinessNamep);
         vDes = findViewById(R.id.describe);
         vlink = findViewById(R.id.mapLink);
         vName = findViewById(R.id.name);
@@ -184,14 +184,19 @@ public class ProfileShopkeeper extends AppCompatActivity {
                 Shopkeeper userProfile = snapshot.getValue(Shopkeeper.class);
                 if(userProfile!=null){
                     fName = userProfile.fullName;
-                    link = userProfile.gLink;
-                    des= userProfile.description;
-                    num=userProfile.number;
-                    emailUser= userProfile.email;
                     vFullName.setText(fName);
-                    vDes.setText(des);
+
+                    link = userProfile.gLink;
                     vlink.setText(link);
-                    vName.setText(fName);
+
+                    des= userProfile.description;
+                    vDes.setText(des);
+
+                    businessName =userProfile.shopName;
+                    vBusinessName.setText(businessName);
+                    vName.setText(businessName);
+
+                    num=userProfile.number;
                     vNumber.setText(num);
 
                     imageUrl=userProfile.imageUrl;
@@ -358,9 +363,7 @@ public class ProfileShopkeeper extends AppCompatActivity {
     }
     public void updateAcc(View view){
         if(isNameChanged()){
-            String newname =vFullName.getEditableText().toString();
-            vName.setText(newname);
-            databaseReference.child("ShopKeeper").child(userID).child("fullName").setValue(newname);
+            databaseReference.child("ShopKeeper").child(userID).child("fullName").setValue(vFullName.getEditableText().toString());
             Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -386,6 +389,15 @@ public class ProfileShopkeeper extends AppCompatActivity {
         }
         else{
             Toast.makeText(ProfileShopkeeper.this, "description is same", Toast.LENGTH_SHORT).show();
+        }
+        if(isBusinessNameChanged()){
+            String newname =vBusinessName.getEditableText().toString();
+            vName.setText(newname);
+            databaseReference.child("ShopKeeper").child(userID).child("shopName").setValue(newname);
+            Toast.makeText(ProfileShopkeeper.this, "Data has been updated", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(ProfileShopkeeper.this, "Name is same", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -416,6 +428,17 @@ public class ProfileShopkeeper extends AppCompatActivity {
                     });
         }
     }
+
+    private boolean isBusinessNameChanged() {
+
+        if(!businessName.equals(vBusinessName.getText().toString().trim())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     //checkers
     private boolean isdesChanged() {
         if(!des.equals(vDes.getText().toString().trim())){

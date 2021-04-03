@@ -135,17 +135,16 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
-                            android:hint="Full name"
+                            android:layout_marginBottom="10dp"
                             android:background="@color/white"
-                            android:layout_marginBottom="10dp">
+                            android:hint="Full name">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
                                 android:background="@color/white"
-                                android:id="@+id/fullNamep"
-                                />
+                                android:id="@+id/fullNamep" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>

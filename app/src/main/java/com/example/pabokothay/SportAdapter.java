@@ -65,8 +65,8 @@ public class SportAdapter extends RecyclerView.Adapter<SportsViewHolder> {
     public int getItemCount() {
         return mySportsGoodsList.size();
     }
-    public void filteredList(List<SportsData> bookShopDataList){
-        mySportsGoodsList = bookShopDataList;
+    public void filteredList(List<SportsData> sportsDataList){
+        mySportsGoodsList = sportsDataList;
         notifyDataSetChanged();
     }
 }

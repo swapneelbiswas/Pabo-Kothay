@@ -114,8 +114,8 @@
                             android:textStyle="bold"
                             android:textColor="@color/purple_700"
                             android:fontFamily="@font/atma_semi_bold"
-                            android:text="lala"
-                            android:textSize="30dp"
+                            android:text="Business Name"
+                            android:textSize="30sp"
                             android:layout_marginTop="270dp"
                             android:layout_gravity="center"
                             android:textAlignment="center"/>
@@ -199,11 +199,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Email"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
-                        android:textColor="@color/ash"></TextView>
+                        android:textColor="@color/ash"/>
                         <View
                         android:id="@+id/divider3"
                         android:layout_width="match_parent"
@@ -348,7 +348,7 @@
                             android:textSize="16dp"
                             android:text="Book Shop name"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -360,16 +360,15 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
                                 android:text="Shop name"
-                                android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:textSize="14dp"
+                                android:textSize="14sp"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginStart="10dp"></TextView>
+                                android:layout_marginStart="10dp"/>
                         <View
 
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
                             android:background="@color/ash_1"
                             />
                         </LinearLayout>
@@ -380,7 +379,7 @@
                             android:text="Description"
                             android:textSize="16dp"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -391,14 +390,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="Book Des"></TextView>
+                                android:text="Book Des"/>
                         <View
 
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
                             android:background="@color/ash_1"
                             />
                         </LinearLayout>
@@ -408,7 +407,7 @@
                             android:layout_height="wrap_content"
                             android:text="Map Link"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -420,13 +419,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Map Link"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="5dp"></TextView>
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="5dp"/>
                         <View
 
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
                             android:background="@color/ash_1"
                             />
 
@@ -467,10 +466,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:text="Household Shop name"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -482,16 +481,15 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
                                 android:text="Shop name"
-                                android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:textSize="14dp"
+                                android:textSize="14sp"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginStart="10dp"></TextView>
+                                android:layout_marginStart="10dp"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -500,9 +498,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Description"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -513,9 +511,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="Household Des"></TextView>
+                                android:text="Household Des"/>
                             <View
 
                                 android:layout_width="match_parent"
@@ -530,7 +528,7 @@
                             android:layout_height="wrap_content"
                             android:text="Map Link"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -542,13 +540,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Map Link"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="5dp"></TextView>
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="5dp"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -589,10 +587,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:text="Sports Shop name"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -604,11 +602,10 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
                                 android:text="Shop name"
-                                android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:textSize="14dp"
+                                android:textSize="14sp"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginStart="10dp"></TextView>
+                                android:layout_marginStart="10dp"/>
                             <View
 
                                 android:layout_width="match_parent"
@@ -622,9 +619,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Description"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -635,14 +632,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="Sports Des"></TextView>
+                                android:text="Sports Des"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -652,7 +649,7 @@
                             android:layout_height="wrap_content"
                             android:text="Map Link"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -664,13 +661,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Map Link"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="5dp"></TextView>
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="5dp"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -711,10 +708,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:text="Mobile and Gadget Shop name"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -726,16 +723,15 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
                                 android:text="Shop name"
-                                android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:textSize="14dp"
+                                android:textSize="14sp"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginStart="10dp"></TextView>
+                                android:layout_marginStart="10dp"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -744,9 +740,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Description"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -757,14 +753,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="Mobile Des"></TextView>
+                                android:text="Mobile Des"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -774,7 +770,7 @@
                             android:layout_height="wrap_content"
                             android:text="Map Link"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -786,13 +782,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Map Link"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="5dp"></TextView>
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="5dp"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -833,10 +829,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:text="Cloth Shop name"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -848,16 +844,15 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
                                 android:text="Shop name"
-                                android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:textSize="14dp"
+                                android:textSize="14sp"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginStart="10dp"></TextView>
+                                android:layout_marginStart="10dp"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -868,7 +863,7 @@
                             android:text="Description"
                             android:textSize="16dp"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -879,9 +874,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="Cloth Des"></TextView>
+                                android:text="Cloth Des"/>
                             <View
 
                                 android:layout_width="match_parent"
@@ -896,7 +891,7 @@
                             android:layout_height="wrap_content"
                             android:text="Map Link"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -908,13 +903,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Map Link"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="5dp"></TextView>
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="5dp"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -955,10 +950,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:text="Furniture Shop name"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -970,11 +965,10 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
                                 android:text="Shop name"
-                                android:layout_marginLeft="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:textSize="14dp"
+                                android:textSize="14sp"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginStart="10dp"></TextView>
+                                android:layout_marginStart="10dp"/>
                             <View
 
                                 android:layout_width="match_parent"
@@ -988,9 +982,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Description"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1001,14 +995,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="Fur Des"></TextView>
+                                android:text="Fur Des"/>
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -1018,7 +1012,7 @@
                             android:layout_height="wrap_content"
                             android:text="Map Link"
                             android:layout_margin="10dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textColor="@color/black" />
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1030,13 +1024,13 @@
                                 android:layout_height="wrap_content"
                                 android:text="Map Link"
                                 android:fontFamily="@font/nunito_regular"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="5dp"></TextView>
+                                android:layout_marginStart="10dp"
+                                android:layout_marginBottom="5dp" />
                             <View
 
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@color/ash_1"
                                 />
                         </LinearLayout>
@@ -1084,8 +1078,8 @@
                         android:fontFamily="@font/nunito_semibold"
                         android:text="Edit Profile"
                         android:textColor="@color/blue_1"
-                        android:textSize="14dp"
-                        android:textStyle="bold"></TextView>
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -1118,15 +1112,12 @@
                             android:fontFamily="@font/nunito_semibold"
                             android:text="LogOut"
                             android:textColor="@color/blue_1"
-                            android:textSize="14dp"
-                            android:textStyle="bold"></TextView>
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
-
-
             </LinearLayout>
 
         </LinearLayout>
