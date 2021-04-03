@@ -255,7 +255,7 @@
             android:layout_marginStart="10dp"
             android:layout_gravity="center"
             android:ems="10"
-            android:hint="Enter Shop Name"
+            android:hint="Enter Business Name"
             android:inputType="text"
             android:textColor="@color/ash"
             android:textColorHint="@color/ash"
